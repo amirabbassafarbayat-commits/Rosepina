@@ -720,42 +720,43 @@ img {
   }
 }
 
-@media(prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation: none !important;
-    transition: none !important;
-  }
-}
+
 .header {
     width: 100%;
-    height: 200px;
+    height: 150px;
     position: relative;
-    background-image: url("header.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.header-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .logo {
     position: absolute;
-    right: 30px;
     top: 50%;
+    right: 40px;
     transform: translateY(-50%);
     height: 100px;
     width: auto;
     object-fit: contain;
+    z-index: 2;
 }
 
+/* موبایل */
 @media (max-width: 768px) {
     .header {
-        height: 120px;
+        height: 100px;
     }
 
     .logo {
-        height: 70px;
+        height: 65px;
         right: 15px;
     }
 }
