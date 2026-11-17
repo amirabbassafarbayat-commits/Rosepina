@@ -1,121 +1,235 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بافت یقه‌اسکی مردانه | ROSEPINA</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      background: #f7f6f2;
-      color: #222;
-      font-family: Vazirmatn, sans-serif;
-      margin: 0;
-    }
+<title>بافت یقه‌اسکی | ROSEPINA</title>
 
-    .product-page {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 45px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    .product-photo img {
-      width: 100%;
-      display: block;
-      border-radius: 8px;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    .product-details {
-      padding: 25px 0;
-    }
+body {
+  background: #f7f5f1;
+  color: #171715;
+  font-family: 'Vazirmatn', sans-serif;
+}
 
-    .product-details h1 {
-      font-size: 32px;
-    }
+.header {
+  background: #11110f;
+  color: white;
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .category {
-      color: #888;
-      letter-spacing: 2px;
-      font-size: 12px;
-    }
+.logo {
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
 
-    .colors {
-      display: flex;
-      gap: 14px;
-      margin: 15px 0;
-    }
+.back {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
 
-    .color-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 2px solid #bbb;
-      cursor: pointer;
-    }
+.container {
+  max-width: 1050px;
+  margin: 55px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: start;
+}
 
-    .color-btn.active {
-      outline: 2px solid #222;
-      outline-offset: 4px;
-    }
+.product-image {
+  background: #e9e6df;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-    .old-price {
-      color: #999;
-      text-decoration: line-through;
-    }
+.product-image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
 
-    .new-price {
-      font-size: 27px;
-      color: #a52a2a;
-      font-weight: bold;
-    }
+.category {
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
 
-    .order-btn {
-      display: block;
-      background: #171713;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      padding: 17px;
-      margin-top: 30px;
-      border-radius: 3px;
-    }
+h1 {
+  font-size: 30px;
+  margin: 15px 0;
+}
 
-    .back-link {
-      display: inline-block;
-      margin: 25px;
-      color: #333;
-      text-decoration: none;
-    }
+.description {
+  color: #777;
+  font-size: 14px;
+  line-height: 2.2;
+  margin-bottom: 25px;
+}
 
-    @media(max-width:700px) {
-      .product-page {
-        grid-template-columns: 1fr;
-        margin: 10px auto;
-        gap: 15px;
-      }
+.price {
+  font-size: 25px;
+  font-weight: 800;
+  margin: 15px 0 5px;
+  color: #a52a2a;
+}
 
-      .product-details h1 {
-        font-size: 25px;
-      }
-    }
-  </style>
+.old-price {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+.section {
+  margin-top: 27px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.colors {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  cursor: pointer;
+}
+
+.color-option.active {
+  outline: 2px solid #171715;
+  outline-offset: 4px;
+}
+
+.selected-color {
+  font-size: 13px;
+  color: #666;
+  margin-top: 13px;
+}
+
+.size-box {
+  display: inline-block;
+  border: 1px solid #171715;
+  padding: 10px 25px;
+  font-size: 14px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.quantity button {
+  width: 36px;
+  height: 36px;
+  background: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.quantity span {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+.order-button {
+  width: 100%;
+  padding: 17px;
+  margin-top: 32px;
+  border: none;
+  background: #171715;
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.order-button:hover {
+  background: #80502f;
+}
+
+.note {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin-top: 13px;
+}
+
+.footer {
+  background: #11110f;
+  color: #aaa;
+  padding: 35px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 70px;
+}
+
+@media(max-width:700px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 20px auto;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .header {
+    padding: 18px 5%;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<a href="index.html" class="back-link">← بازگشت به ROSEPINA</a>
+<header class="header">
+  <a href="index.html" class="logo">ROSEPINA</a>
+  <a href="index.html#men-products" class="back">
+    بازگشت به فروشگاه ↗
+  </a>
+</header>
 
-<main class="product-page">
+<main class="container">
 
-  <div class="product-photo">
-    <img id="mainImage"
-         src="sweater-charcoal.jpg"
-         alt="بافت یقه‌اسکی مردانه زغالی">
+  <div class="product-image">
+    <img
+      id="mainImage"
+      src="images/sweater-charcoal.jpg"
+      alt="بافت یقه اسکی مردانه"
+    >
   </div>
 
   <div class="product-details">
@@ -124,97 +238,172 @@
 
     <h1>بافت یقه‌اسکی مردانه</h1>
 
-    <p>بافت یقه‌اسکی با طراحی شیک و استایل خاص ROSEPINA.</p>
+    <p class="description">
+      بافت خاص و شیک ROSEPINA،
+      انتخابی متفاوت برای استایل روزمره و رسمی.
+    </p>
 
-    <h3>انتخاب رنگ:</h3>
+    <div class="old-price">۵,۸۰۰,۰۰۰ تومان</div>
+    <div class="price">۳,۰۰۰,۰۰۰ تومان</div>
+    <span style="color:#a52a2a;font-size:12px;">
+      ۴۸٪ تخفیف
+    </span>
 
-    <div class="colors">
-      <button class="color-btn active"
-        style="background:#343434"
-        onclick="changeColor('charcoal',this)"
-        aria-label="زغالی"></button>
+    <div class="section">
 
-      <button class="color-btn"
-        style="background:#80502f"
-        onclick="changeColor('brown',this)"
-        aria-label="قهوه‌ای"></button>
+      <div class="section-title">انتخاب رنگ:</div>
 
-      <button class="color-btn"
-        style="background:#080808"
-        onclick="changeColor('black',this)"
-        aria-label="مشکی"></button>
+      <div class="colors">
 
-      <button class="color-btn"
-        style="background:#34382b"
-        onclick="changeColor('olive',this)"
-        aria-label="سبز زیتونی"></button>
+        <button type="button"
+          class="color-option active"
+          style="background:#343434"
+          aria-label="زغالی"
+          onclick="selectColor('charcoal',this)">
+        </button>
+
+        <button type="button"
+          class="color-option"
+          style="background:#80502f"
+          aria-label="قهوه‌ای"
+          onclick="selectColor('brown',this)">
+        </button>
+
+        <button type="button"
+          class="color-option"
+          style="background:#080808"
+          aria-label="مشکی"
+          onclick="selectColor('black',this)">
+        </button>
+
+        <button type="button"
+          class="color-option"
+          style="background:#34382b"
+          aria-label="سبز زیتونی"
+          onclick="selectColor('olive',this)">
+        </button>
+
+      </div>
+
+      <p class="selected-color" id="colorName">
+        رنگ انتخابی: زغالی
+      </p>
+
     </div>
 
-    <p id="selectedColor">رنگ انتخابی: زغالی</p>
+    <div class="section">
 
-    <p>سایز: فری‌سایز</p>
+      <div class="section-title">سایز لباس:</div>
 
-    <p class="old-price">۵,۸۰۰,۰۰۰ تومان</p>
-    <p class="new-price">۳,۰۰۰,۰۰۰ تومان</p>
-    <p style="color:#a52a2a">۴۸٪ تخفیف</p>
+      <div class="size-box">فری‌سایز</div>
 
-    <a id="orderButton"
-       class="order-btn"
-       href="#"
-       target="_blank"
-       rel="noopener">
-       ثبت سفارش در واتساپ
-    </a>
+    </div>
+
+    <div class="section">
+
+      <div class="section-title">تعداد:</div>
+
+      <div class="quantity">
+        <button type="button" onclick="changeQuantity(-1)">−</button>
+        <span id="quantity">1</span>
+        <button type="button" onclick="changeQuantity(1)">+</button>
+      </div>
+
+    </div>
+
+    <button class="order-button" onclick="sendOrder()">
+      ثبت سفارش از طریق واتساپ ↗
+    </button>
+
+    <p class="note">
+      پس از انتخاب محصول، سفارش شما در واتساپ آماده ارسال می‌شود.
+    </p>
 
   </div>
+
 </main>
 
+<footer class="footer">
+  © 2026 ROSEPINA. ALL RIGHTS RESERVED.
+</footer>
+
 <script>
-  const phone = "989120193510";
-  let selectedColor = "زغالی";
 
-  const images = {
-    charcoal: "sweater-charcoal.jpg",
-    brown: "sweater-brown.jpg",
-    black: "sweater-black.jpg",
-    olive: "sweater-olive.jpg"
-  };
+const productImages = {
+  charcoal: "images/sweater-charcoal.jpg",
+  brown: "images/sweater-brown.jpg",
+  black: "images/sweater-black.jpg",
+  olive: "images/sweater-olive.jpg"
+};
 
-  const names = {
-    charcoal: "زغالی",
-    brown: "قهوه‌ای",
-    black: "مشکی",
-    olive: "سبز زیتونی"
-  };
+const colorNames = {
+  charcoal: "زغالی",
+  brown: "قهوه‌ای",
+  black: "مشکی",
+  olive: "سبز زیتونی"
+};
 
-  function changeColor(color, button) {
-    document.getElementById("mainImage").src = images[color];
-    selectedColor = names[color];
+let selectedColor = "charcoal";
+let quantity = 1;
 
-    document.getElementById("selectedColor").textContent =
-      "رنگ انتخابی: " + selectedColor;
+function selectColor(color, button) {
 
-    document.querySelectorAll(".color-btn").forEach(btn => {
-      btn.classList.remove("active");
-    });
+  if (!productImages[color]) return;
 
-    button.classList.add("active");
-  }
+  selectedColor = color;
 
-  document.getElementById("orderButton").addEventListener("click", function(e) {
-    e.preventDefault();
+  document.getElementById("mainImage").src =
+    productImages[color];
 
-    const message =
-      "سلام، برای سفارش بافت یقه‌اسکی مردانه ROSEPINA پیام می‌دهم.\n" +
-      "رنگ: " + selectedColor + "\n" +
-      "سایز: فری‌سایز\n" +
-      "قیمت: ۳,۰۰۰,۰۰۰ تومان";
+  document.getElementById("mainImage").alt =
+    "بافت یقه اسکی " + colorNames[color];
 
-    const url = "https://wa.me/" + phone +
-      "?text=" + encodeURIComponent(message);
+  document.getElementById("colorName").textContent =
+    "رنگ انتخابی: " + colorNames[color];
 
-    window.open(url, "_blank");
+  document.querySelectorAll(".color-option").forEach(btn => {
+    btn.classList.remove("active");
   });
+
+  button.classList.add("active");
+}
+
+function changeQuantity(amount) {
+
+  quantity = Math.max(1, quantity + amount);
+
+  document.getElementById("quantity").textContent =
+    quantity;
+}
+
+function sendOrder() {
+
+  const phone = "989120193510";
+
+  const message =
+`سلام ROSEPINA 🌹
+
+برای سفارش محصول زیر درخواست دارم:
+
+محصول: بافت یقه‌اسکی مردانه
+رنگ: ${colorNames[selectedColor]}
+سایز: فری‌سایز
+تعداد: ${quantity}
+
+قیمت هر عدد: ۳,۰۰۰,۰۰۰ تومان
+مبلغ کل: ${(3000000 * quantity).toLocaleString("en-US")} تومان
+
+لطفاً برای تکمیل سفارش راهنمایی کنید.
+
+با تشکر`;
+
+  const whatsappURL =
+    "https://wa.me/" + phone +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(whatsappURL, "_blank");
+}
+
 </script>
 
 </body>
