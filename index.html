@@ -375,34 +375,36 @@
 </footer>
   
 <script>
+
 function changeSweaterColor(color) {
   const images = {
-    charcoal: "sweater-charcoal.jpg",
-    brown: "sweater-brown.jpg",
-    black: "sweater-black.jpg",
-    olive: "sweater-olive.jpg"
+    charcoal: "images/sweater-charcoal.jpg",
+    brown: "images/sweater-brown.jpg",
+    black: "images/sweater-black.jpg",
+    olive: "images/sweater-olive.jpg"
   };
 
   const names = {
-const images = {
-  charcoal: "images/sweater-charcoal.jpg",
-  brown: "images/sweater-brown.jpg",
-  black: "images/sweater-black.jpg",
-  olive: "images/sweater-olive.jpg"
-};
-
-    
+    charcoal: "زغالی",
+    brown: "قهوه‌ای",
+    black: "مشکی",
+    olive: "سبز زیتونی"
   };
 
   const image = document.getElementById("sweater-main-image");
   const label = document.getElementById("sweater-color-name");
 
-  if (image && label && images[color]) {
-    image.src = images[color];
-    image.alt = "بافت یقه‌اسکی " + names[color] + " ROSEPINA";
-    label.textContent = "رنگ انتخابی: " + names[color];
-  }
+  if (!image || !label || !images[color]) return;
+
+  image.src = images[color];
+  image.alt = "بافت یقه‌اسکی " + names[color] + " ROSEPINA";
+  label.textContent = "رنگ انتخابی: " + names[color];
 }
+</script>
+</body>
+</html>
+
+
 </script>
 
 
