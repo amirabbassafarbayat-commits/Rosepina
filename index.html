@@ -153,7 +153,7 @@
       </div>
     </a>
 
-    <a href="#products" class="collection-card">
+    <a href="#men_products" class="collection-card">
       <img src="images/collection-men.jpg" alt="کالکشن لباس مردانه ROSEPINA" loading="lazy">
       <div class="collection-overlay">
         <span>02 / COLLECTION</span>
@@ -374,6 +374,34 @@
 
   <a href="#home" class="back-top">BACK TO TOP ↑</a>
 </footer>
+  
+<script>
+function changeSweaterColor(color) {
+  const images = {
+    charcoal: "sweater-charcoal.jpg",
+    brown: "sweater-brown.jpg",
+    black: "sweater-black.jpg",
+    olive: "sweater-olive.jpg"
+  };
+
+  const names = {
+    charcoal: "زغالی",
+    brown: "قهوه‌ای",
+    black: "مشکی",
+    olive: "سبز زیتونی"
+  };
+
+  const image = document.getElementById("sweater-main-image");
+  const label = document.getElementById("sweater-color-name");
+
+  if (image && label && images[color]) {
+    image.src = images[color];
+    image.alt = "بافت یقه‌اسکی " + names[color] + " ROSEPINA";
+    label.textContent = "رنگ انتخابی: " + names[color];
+  }
+}
+</script>
+
 
 </body>
 </html>
