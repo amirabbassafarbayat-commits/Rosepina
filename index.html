@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -5,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>ROSEPINA | فروشگاه تخصصی مد، لباس و کفش</title>
-  <meta name="description" content="به دنیای مد و استایل ROSEPINA خوش آمدید. جدیدترین لباس‌ها، کفش‌ها و اکسسوری‌های خاص را با طراحی متفاوت کشف کنید.">
+  <meta name="description" content="به دنیای مد و استایل ROSEPINA خوش آمدید. جدیدترین لباس‌ها، کفش‌ها و اکسسوری‌های خاص را کشف کنید.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#11110f">
   <meta name="author" content="ROSEPINA">
@@ -13,11 +14,12 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="ROSEPINA | Define Your Style">
   <meta property="og:description" content="استایل متفاوت، انتخاب متفاوت. مجموعه جدید ROSEPINA را ببینید.">
-  <meta property="og:image" content="hero.jpg">
+  <meta property="og:image" content="https://amirabbassafarbayat-commits.github.io/Rosepina/hero.jpg">
   <meta property="og:locale" content="fa_IR">
 
-  <link rel="canonical" href="https://YOUR-USERNAME.github.io/rosepina/">
+  <link rel="canonical" href="https://amirabbassafarbayat-commits.github.io/Rosepina/">
   <link rel="icon" href="logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,8 +32,8 @@
     "@type": "ClothingStore",
     "name": "ROSEPINA",
     "description": "فروشگاه آنلاین لباس، کفش و اکسسوری",
-    "url": "https://YOUR-USERNAME.github.io/rosepina/",
-    "image": "https://YOUR-USERNAME.github.io/rosepina/hero.jpg"
+    "url": "https://amirabbassafarbayat-commits.github.io/Rosepina/",
+    "image": "https://amirabbassafarbayat-commits.github.io/Rosepina/hero.jpg"
   }
   </script>
 </head>
@@ -43,7 +45,6 @@
   <p>NEW SEASON · NEW ATTITUDE</p>
   <span>کالکشن جدید ROSEPINA از راه رسید</span>
 </div>
-
 
 <!-- HEADER -->
 <header class="header">
@@ -68,7 +69,6 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-
   <div class="hero-background"></div>
 
   <div class="hero-top">
@@ -104,7 +104,6 @@
     <span>R</span>
     <small>ROSEPINA</small>
   </div>
-
 </section>
 
 <!-- INTRO -->
@@ -130,16 +129,12 @@
 
 <!-- COLLECTIONS -->
 <section class="collections section" id="collections">
-
   <div class="section-title">
     <div>
       <span class="eyebrow">EXPLORE OUR WORLD</span>
       <h2>دنیای <span>ROSEPINA</span></h2>
     </div>
     <span class="section-counter">02 — COLLECTIONS</span>
-    
-
-
   </div>
 
   <div class="collection-grid">
@@ -153,7 +148,7 @@
       </div>
     </a>
 
-    <a href="product.html" class="collection-card">
+    <a href="#men-products" class="collection-card">
       <img src="images/collection-men.jpg" alt="کالکشن لباس مردانه ROSEPINA" loading="lazy">
       <div class="collection-overlay">
         <span>02 / COLLECTION</span>
@@ -173,10 +168,9 @@
 
   </div>
 </section>
-  
+
 <!-- MEN PRODUCTS -->
 <section class="products section" id="men-products">
-
   <div class="section-title">
     <div>
       <span class="eyebrow">MEN COLLECTION</span>
@@ -186,12 +180,16 @@
   </div>
 
   <div class="product-grid">
-    <article ><a href="product.html" class="product-image">
-      
-        <img id="sweater-main-image"
-             src="images/sweater-charcoal.jpg"
-             alt="بافت یقه‌اسکی مردانه زغالی ROSEPINA"
-             loading="lazy">
+
+    <article class="product-card">
+
+      <a href="#sweater-details" class="product-image">
+        <img
+          id="sweater-main-image"
+          src="images/sweater-charcoal.jpg"
+          alt="بافت یقه‌اسکی مردانه زغالی ROSEPINA"
+          loading="lazy"
+        >
         <span class="product-tag">SPECIAL SALE</span>
         <span class="product-arrow">↗</span>
       </a>
@@ -203,43 +201,68 @@
         </div>
       </div>
 
-      <div style="padding:12px 0;">
+      <div id="sweater-details" style="padding:12px 0;">
+
         <p style="font-size:13px;">انتخاب رنگ:</p>
 
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-          <button type="button" aria-label="زغالی" onclick="changeSweaterColor('charcoal')" style="background:#343434;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;"></button>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;">
 
-          <button type="button" aria-label="قهوه‌ای" onclick="changeSweaterColor('brown')" style="background:#80502f;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;"></button>
+          <button type="button" aria-label="زغالی"
+            onclick="changeSweaterColor('charcoal')"
+            style="background:#343434;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;">
+          </button>
 
-          <button type="button" aria-label="مشکی" onclick="changeSweaterColor('black')" style="background:#080808;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;"></button>
+          <button type="button" aria-label="قهوه‌ای"
+            onclick="changeSweaterColor('brown')"
+            style="background:#80502f;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;">
+          </button>
 
-          <button type="button" aria-label="سبز زیتونی" onclick="changeSweaterColor('olive')" style="background:#34382b;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;"></button>
+          <button type="button" aria-label="مشکی"
+            onclick="changeSweaterColor('black')"
+            style="background:#080808;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;">
+          </button>
+
+          <button type="button" aria-label="سبز"
+            onclick="changeSweaterColor('green')"
+            style="background:#34382b;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;">
+          </button>
+
         </div>
 
-        <p id="sweater-color-name" style="font-size:13px;margin-top:10px;">رنگ انتخابی: زغالی</p>
+        <p id="sweater-color-name" style="font-size:13px;margin-top:10px;">
+          رنگ انتخابی: زغالی
+        </p>
+
         <p style="font-size:13px;margin-top:12px;">سایز: فری‌سایز</p>
 
         <div style="margin-top:12px;">
           <del style="color:#999;">۵,۸۰۰,۰۰۰ تومان</del>
-          <p style="font-size:19px;font-weight:bold;color:#a52a2a;">۳,۰۰۰,۰۰۰ تومان</p>
+          <p style="font-size:19px;font-weight:bold;color:#a52a2a;">
+            ۳,۰۰۰,۰۰۰ تومان
+          </p>
           <span style="color:#a52a2a;font-size:12px;">۴۸٪ تخفیف</span>
         </div>
-      </div>
 
+        <button
+          type="button"
+          onclick="orderSweater()"
+          style="display:block;width:100%;padding:13px;margin-top:15px;background:#171715;color:white;border:0;cursor:pointer;font-family:inherit;font-size:14px;">
+          سفارش از طریق واتساپ
+        </button>
+
+      </div>
     </article>
+
   </div>
 </section>
 
-
-<!-- PRODUCTS -->
+<!-- WOMEN AND OTHER PRODUCTS -->
 <section class="products section" id="products">
-
   <div class="section-title">
     <div>
       <span class="eyebrow">CURATED FOR YOU</span>
       <h2>منتخب <span>ما</span></h2>
     </div>
-
     <span class="section-counter">03 — PRODUCTS</span>
   </div>
 
@@ -311,7 +334,6 @@
     <span>LESS BUT BETTER.</span>
     <a href="#contact">برای سفارش با ما تماس بگیر <span>↗</span></a>
   </div>
-
 </section>
 
 <!-- EDITORIAL BANNER -->
@@ -353,22 +375,39 @@
 
   <p>برای اطلاع از قیمت و ثبت سفارش با ما در ارتباط باش.</p>
 
-<div class="contact-links">
-  <a href="#" onclick="document.getElementById('instagram-choice').style.display='flex'; return false;">INSTAGRAM ↗</a>
-  <a href="mailto:info@example.com">EMAIL ↗</a>
-</div>
-
-<div id="instagram-choice" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
-  <div style="background:white; padding:25px; border-radius:15px; text-align:center; width:85%; max-width:320px;">
-    <h2>ROSEPINA</h2>
-    <p>کدوم فروشگاه رو می‌خوای؟</p>
-    <a href="https://instagram.com/Rose_pina_old" target="_blank" style="display:block; padding:12px; margin:10px; background:#f5dce7; color:#333; text-decoration:none; border-radius:8px;">🌸 فروشگاه زنانه</a>
-    <a href="https://instagram.com/Rose_pina_men" target="_blank" style="display:block; padding:12px; margin:10px; background:#e5e5e5; color:#333; text-decoration:none; border-radius:8px;">🖤 فروشگاه مردانه</a>
-    <button onclick="document.getElementById('instagram-choice').style.display='none'" style="margin-top:10px; padding:8px 20px;">بستن</button>
+  <div class="contact-links">
+    <a href="#" onclick="openInstagram(); return false;">INSTAGRAM ↗</a>
+    <a href="https://wa.me/989120193510" target="_blank" rel="noopener">WHATSAPP ↗</a>
   </div>
-</div>
 
-  
+  <div id="instagram-choice"
+    onclick="closeInstagram(event)"
+    style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:99999;justify-content:center;align-items:center;">
+
+    <div onclick="event.stopPropagation()"
+      style="background:white;padding:25px;border-radius:15px;text-align:center;width:85%;max-width:320px;">
+
+      <h2>ROSEPINA</h2>
+      <p>کدوم فروشگاه رو می‌خوای؟</p>
+
+      <a href="https://instagram.com/Rose_pina_old"
+        target="_blank" rel="noopener"
+        style="display:block;padding:12px;margin:10px;background:#f5dce7;color:#333;text-decoration:none;border-radius:8px;">
+        🌸 فروشگاه زنانه
+      </a>
+
+      <a href="https://instagram.com/Rose_pina_men"
+        target="_blank" rel="noopener"
+        style="display:block;padding:12px;margin:10px;background:#e5e5e5;color:#333;text-decoration:none;border-radius:8px;">
+        🖤 فروشگاه مردانه
+      </a>
+
+      <button type="button" onclick="closeInstagram()"
+        style="margin-top:10px;padding:8px 20px;cursor:pointer;">
+        بستن
+      </button>
+    </div>
+  </div>
 
   <div class="contact-watermark">ROSEPINA</div>
 </section>
@@ -385,22 +424,24 @@
 
   <a href="#home" class="back-top">BACK TO TOP ↑</a>
 </footer>
-  
+
+<!-- JAVASCRIPT -->
 <script>
+let selectedSweaterColor = "charcoal";
 
 function changeSweaterColor(color) {
   const images = {
     charcoal: "images/sweater-charcoal.jpg",
     brown: "images/sweater-brown.jpg",
     black: "images/sweater-black.jpg",
-    olive: "images/sweater-olive.jpg"
+    green: "images/sweater-green.jpg"
   };
 
   const names = {
     charcoal: "زغالی",
     brown: "قهوه‌ای",
     black: "مشکی",
-    olive: "سبز زیتونی"
+    green: "سبز"
   };
 
   const image = document.getElementById("sweater-main-image");
@@ -408,33 +449,40 @@ function changeSweaterColor(color) {
 
   if (!image || !label || !images[color]) return;
 
+  selectedSweaterColor = color;
   image.src = images[color];
   image.alt = "بافت یقه‌اسکی " + names[color] + " ROSEPINA";
   label.textContent = "رنگ انتخابی: " + names[color];
 }
+
+function orderSweater() {
+  const names = {
+    charcoal: "زغالی",
+    brown: "قهوه‌ای",
+    black: "مشکی",
+    green: "سبز"
+  };
+
+  const colorName = names[selectedSweaterColor];
+  const message =
+    "سلام، برای سفارش بافت یقه‌اسکی مردانه ROSEPINA پیام می‌دم.\n" +
+    "رنگ انتخابی: " + colorName + "\n" +
+    "سایز: فری‌سایز\n" +
+    "قیمت: ۳,۰۰۰,۰۰۰ تومان";
+
+  const url = "https://wa.me/989120193510?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+
+function openInstagram() {
+  document.getElementById("instagram-choice").style.display = "flex";
+}
+
+function closeInstagram(event) {
+  if (event && event.target.id !== "instagram-choice") return;
+  document.getElementById("instagram-choice").style.display = "none";
+}
 </script>
-</body>
-</html>
-
-
-</script>
-<div id="instagram-choice" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:99999; justify-content:center; align-items:center;">
-  <div style="background:white; padding:25px; border-radius:15px; text-align:center; width:280px;">
-    <h2>ROSEPINA</h2>
-    <p>کدوم فروشگاه رو انتخاب می‌کنی؟</p>
-
-    <a href="https://instagram.com/Rose_pina_old" target="_blank" style="display:block; padding:14px; margin:10px; background:#f5dce7; color:#333; text-decoration:none; border-radius:8px;">
-      🌸 فروشگاه زنانه
-    </a>
-
-    <a href="https://instagram.com/Rose_pina_men" target="_blank" style="display:block; padding:14px; margin:10px; background:#e5e5e5; color:#333; text-decoration:none; border-radius:8px;">
-      🖤 فروشگاه مردانه
-    </a>
-
-    <button onclick="document.getElementById('instagram-choice').style.display='none'">بستن</button>
-  </div>
-</div>
-
 
 </body>
 </html>
