@@ -180,16 +180,16 @@
   </div>
 
   <div class="product-grid">
-
     <article class="product-card">
 
-      <a href="#sweater-details" class="product-image">
+      <a href="#sweater-order"
+         class="product-image"
+         onclick="openSweaterOrder(event)">
         <img
           id="sweater-main-image"
           src="images/sweater-charcoal.jpg"
-          alt="بافت یقه‌اسکی مردانه زغالی ROSEPINA"
-          loading="lazy"
-        >
+          alt="بافت یقه اسکی مردانه"
+          loading="lazy">
         <span class="product-tag">SPECIAL SALE</span>
         <span class="product-arrow">↗</span>
       </a>
@@ -199,86 +199,15 @@
           <span class="product-category">MEN / KNITWEAR</span>
           <h3>بافت یقه‌اسکی</h3>
         </div>
+        <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
       </div>
 
-      <div id="sweater-details" style="padding:12px 0;">
-
-        <p style="font-size:13px;">انتخاب رنگ:</p>
-
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;">
-
-          <button type="button" aria-label="زغالی"
-            onclick="changeSweaterColor('charcoal')"
-            style="background:#343434;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;">
-          </button>
-
-          <button type="button" aria-label="قهوه‌ای"
-            onclick="changeSweaterColor('brown')"
-            style="background:#80502f;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;">
-          </button>
-
-          <button type="button" aria-label="مشکی"
-            onclick="changeSweaterColor('black')"
-            style="background:#080808;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;">
-          </button>
-
-          <button type="button" aria-label="سبز"
-            onclick="changeSweaterColor('green')"
-            style="background:#34382b;width:30px;height:30px;border-radius:50%;border:2px solid #aaa;">
-          </button>
-
-        </div>
-
-        <p id="sweater-color-name" style="font-size:13px;margin-top:10px;">
-          رنگ انتخابی: زغالی
-        </p>
-
-        <p style="font-size:13px;margin-top:12px;">سایز: فری‌سایز</p>
-        <div class="quantity-box">
-function orderSweater() {
-  const quantity = document.getElementById("sweater-quantity").value;
-
-  if (!quantity || Number(quantity) < 1) {
-    alert("لطفاً تعداد را وارد کنید");
-    return;
-  }
-
-  const message = `سلام، برای سفارش بافت یقه‌اسکی تعداد ${quantity} عدد می‌خواهم.`;
-
-  const phone = "989120193510";
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-  window.open(url, "_blank");
-}
-  <input
-    type="number"
-    id="sweater-quantity"
-    value="1"
-    min="1"
-    max="20"
-  >
-        </div>
-
-        <div style="margin-top:12px;">
-          <del style="color:#999;">۵,۸۰۰,۰۰۰ تومان</del>
-          <p style="font-size:19px;font-weight:bold;color:#a52a2a;">
-            ۳,۰۰۰,۰۰۰ تومان
-          </p>
-          <span style="color:#a52a2a;font-size:12px;">۴۸٪ تخفیف</span>
-        </div>
-
-        <button
-          type="button"
-          onclick="orderSweater()"
-          style="display:block;width:100%;padding:13px;margin-top:15px;background:#171715;color:white;border:0;cursor:pointer;font-family:inherit;font-size:14px;">
-          سفارش از طریق واتساپ
-        </button>
-
-      </div>
     </article>
-
   </div>
 </section>
+
+
+
 
 <!-- WOMEN AND OTHER PRODUCTS -->
 <section class="products section" id="products">
@@ -286,8 +215,7 @@ function orderSweater() {
     <div>
       <span class="eyebrow">CURATED FOR YOU</span>
       <h2>منتخب <span>ما</span></h2>
-    </div>
-    <span class="section-counter">03 — PRODUCTS</span>
+  <span class="section-counter">03 — PRODUCTS</span>
   </div>
 
   <div class="product-grid">
