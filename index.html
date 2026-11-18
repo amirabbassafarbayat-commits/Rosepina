@@ -462,64 +462,98 @@
   <a href="#home" class="back-top">BACK TO TOP ↑</a>
 </footer>
 
-<!-- JAVASCRIPT -->
-<script>
 let selectedSweaterColor = "charcoal";
 
-function changeSweaterColor(color) {
-  const images = {
-    charcoal: "images/sweater-charcoal.jpg",
-    brown: "images/sweater-brown.jpg",
-    black: "images/sweater-black.jpg",
-    green: "images/sweater-green.jpg"
-  };
+const sweaterImages = {
+  charcoal: "images/sweater-charcoal.jpg",
+  brown: "images/sweater-brown.jpg",
+  black: "images/sweater-black.jpg",
+  green: "images/sweater-green.jpg"
+};
 
-  const names = {
-    charcoal: "زغالی",
-    brown: "قهوه‌ای",
-    black: "مشکی",
-    green: "سبز"
-  };
+const sweaterNames = {
+  charcoal: "زغالی",
+  brown: "قهوه‌ای",
+  black: "مشکی",
+  green: "سبز"
+};
 
-  const image = document.getElementById("sweater-main-image");
-  const label = document.getElementById("sweater-color-name");
+// باز کردن صفحه سفارش
+function openSweaterOrder(event) {
+  event.preventDefault();
 
-  if (!image || !label || !images[color]) return;
+  document.getElementById("sweater-order").style.display = "block";
 
-  selectedSweaterColor = color;
-  image.src = images[color];
-  image.alt = "بافت یقه‌اسکی " + names[color] + " ROSEPINA";
-  label.textContent = "رنگ انتخابی: " + names[color];
+  document.getElementById("order-sweater-image").src =
+    sweaterImages[selectedSweaterColor];
+
+  document.body.style.overflow = "hidden";
 }
 
+// بستن صفحه سفارش
+function closeSweaterOrder() {
+  document.getElementById("sweater-order").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+// تغییر رنگ محصول
+function changeSweaterColor(color) {
+  if (!sweaterImages[color]) return;
+
+  selectedSweaterColor = color;
+
+  document.getElementById("sweater-main-image").src =
+    sweaterImages[color];
+
+  document.getElementById("order-sweater-image").src =
+    sweaterImages[color];
+
+  document.getElementById("order-color-name").textContent =
+    "رنگ انتخابی: " + sweaterNames[color];
+}
+
+// ارسال سفارش به واتساپ
 function orderSweater() {
-  const names = {
-    charcoal: "زغالی",
-    brown: "قهوه‌ای",
-    black: "مشکی",
-    green: "سبز"
-  };
+  const quantity = Number(
+    document.getElementById("order-sweater-quantity").value
+  );
 
-  const colorName = names[selectedSweaterColor];
+  const note = document.getElementById("order-sweater-note").value.trim();
+
+  if (!Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
+    alert("لطفاً تعداد صحیح بین ۱ تا ۲۰ وارد کنید.");
+    return;
+  }
+
   const message =
-    "سلام، برای سفارش بافت یقه‌اسکی مردانه ROSEPINA پیام می‌دم.\n" +
-    "رنگ انتخابی: " + colorName + "\n" +
-    "سایز: فری‌سایز\n" +
-    "قیمت: ۳,۰۰۰,۰۰۰ تومان";
+    "سلام، می‌خواهم از ROSEPINA سفارش ثبت کنم 🌸\n\n" +
+    "محصول: بافت یقه‌اسکی مردانه\n" +
+    "رنگ: " + sweaterNames[selectedSweaterColor] + "\n" +
+    "تعداد: " + quantity + " عدد\n" +
+    "قیمت هر عدد: ۳,۰۰۰,۰۰۰ تومان\n" +
+    "توضیحات: " + (note || "ندارد");
 
-  const url = "https://wa.me/989120193510?text=" + encodeURIComponent(message);
+  const phone = "989120193510";
+
+  const url =
+    "https://wa.me/" + phone +
+    "?text=" + encodeURIComponent(message);
+
   window.open(url, "_blank");
 }
 
+// باز و بسته کردن پنجره اینستاگرام
 function openInstagram() {
   document.getElementById("instagram-choice").style.display = "flex";
 }
 
 function closeInstagram(event) {
   if (event && event.target.id !== "instagram-choice") return;
+
   document.getElementById("instagram-choice").style.display = "none";
 }
-</script>
+
+
 
 </body>
 </html>
