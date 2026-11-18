@@ -235,7 +235,21 @@
 
         <p style="font-size:13px;margin-top:12px;">سایز: فری‌سایز</p>
         <div class="quantity-box">
-  <label for="sweater-quantity">تعداد:</label>
+function orderSweater() {
+  const quantity = document.getElementById("sweater-quantity").value;
+
+  if (!quantity || Number(quantity) < 1) {
+    alert("لطفاً تعداد را وارد کنید");
+    return;
+  }
+
+  const message = `سلام، برای سفارش بافت یقه‌اسکی تعداد ${quantity} عدد می‌خواهم.`;
+
+  const phone = "989120193510";
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
+}
   <input
     type="number"
     id="sweater-quantity"
