@@ -1119,3 +1119,12 @@ body:has(.men-page-header) #sweater-order button {
   height: auto;
   object-fit: contain;
 }
+/* TEMPORARY HOMEPAGE SPACING TEST */
+body:not(:has(.men-page-header)) main > section {
+  margin-bottom: 30px;
+}
+
+body:not(:has(.men-page-header)) .section {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
