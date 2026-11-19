@@ -132,20 +132,64 @@
 #shirt-order h2 {font-size:23px;margin:15px 0}
 #shirt-order h3 {font-size:15px;margin:22px 0 10px}
 #shirt-order p {font-size:13px;color:#666;line-height:2}
+
+/* SHIRT IMAGE SLIDER */
+.shirt-gallery {
+  position:relative;
+  width:100%;
+  max-width:420px;
+  margin:15px auto;
+  overflow:hidden;
+  background:#f5f5f5;
+  touch-action:pan-y;
+  user-select:none;
+}
+
 #shirt-order .shirt-main-image {
-  display:block;width:100%;max-width:420px;max-height:480px;
-  object-fit:contain;background:#f5f5f5;margin:15px auto;
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:420px;
+  max-height:480px;
+  object-fit:contain;
+  background:#f5f5f5;
+  margin:0 auto;
 }
-.shirt-gallery-thumbs {
-  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;
-  max-width:420px;margin:12px auto;
+
+.shirt-slider-arrow {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+  color:#292929;
+  font-size:25px;
+  cursor:pointer;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.shirt-gallery-thumbs button {
-  padding:0;border:2px solid #eee;background:#f5f5f5;cursor:pointer;
-  overflow:hidden;border-radius:3px;
+
+.shirt-slider-prev {right:10px}
+.shirt-slider-next {left:10px}
+
+.shirt-slider-counter {
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:5px 13px;
+  border-radius:20px;
+  background:rgba(0,0,0,.65);
+  color:#fff;
+  font-size:12px;
+  direction:rtl;
 }
-.shirt-gallery-thumbs button.active {border-color:#292929}
-.shirt-gallery-thumbs img {display:block;width:100%;aspect-ratio:1/1.2;object-fit:cover}
+
 .shirt-color-options,.shirt-size-options {
   display:flex;flex-wrap:wrap;gap:8px;
 }
@@ -184,8 +228,8 @@
   #sweater-order {padding:25px 18px!important}
   .color-option {flex:1;min-width:65px;padding:10px 8px}
   #sweater-order button[onclick^="changeSweaterColor"] {flex:1;padding:10px 12px}
-  .shirt-gallery-thumbs {gap:5px}
   .shirt-color-options button,.shirt-size-options button {flex:1;min-width:50px}
+  #shirt-order .shirt-main-image {height:350px}
 }
 </style>
 </head>
@@ -373,31 +417,26 @@
     <h2>پیراهن نخی مردانه</h2>
     <p><strong>قیمت هر عدد: ۲,۰۰۰,۰۰۰ تومان</strong></p>
 
-    <img id="shirt-main-image" class="shirt-main-image"
-      src="images/shirt-cotton-colors.png" alt="رنگ‌بندی پیراهن نخی">
+    <!-- SLIDER -->
+    <div class="shirt-gallery"
+      ontouchstart="startShirtSwipe(event)"
+      ontouchend="endShirtSwipe(event)">
 
-    <div class="shirt-gallery-thumbs">
-      <button type="button" class="active" onclick="selectShirtColor('all')">
-        <img src="images/shirt-cotton-colors.png" alt="همه رنگ‌ها">
-      </button>
-      <button type="button" onclick="selectShirtColor('brown')">
-        <img src="images/shirt-cotton-brown.png" alt="قهوه‌ای">
-      </button>
-      <button type="button" onclick="selectShirtColor('olive')">
-        <img src="images/shirt-cotton-olive.png" alt="زیتونی">
-      </button>
-      <button type="button" onclick="selectShirtColor('lightblue')">
-        <img src="images/shirt-cotton-lightblue.png" alt="آبی روشن">
-      </button>
-      <button type="button" onclick="selectShirtColor('navy')">
-        <img src="images/shirt-cotton-navy.png" alt="سرمه‌ای">
-      </button>
-      <button type="button" onclick="selectShirtColor('white')">
-        <img src="images/shirt-cotton-white.png" alt="سفید">
-      </button>
-      <button type="button" onclick="selectShirtColor('cream')">
-        <img src="images/shirt-cotton-cream.png" alt="کرم">
-      </button>
+      <img id="shirt-main-image" class="shirt-main-image"
+        src="images/shirt-cotton-colors.png"
+        alt="پیراهن نخی مردانه">
+
+      <button type="button"
+        class="shirt-slider-arrow shirt-slider-prev"
+        onclick="changeShirtSlide(-1)"
+        aria-label="عکس قبلی">›</button>
+
+      <button type="button"
+        class="shirt-slider-arrow shirt-slider-next"
+        onclick="changeShirtSlide(1)"
+        aria-label="عکس بعدی">‹</button>
+
+      <div class="shirt-slider-counter" id="shirt-slider-counter">۱ از ۷</div>
     </div>
 
     <h3>انتخاب رنگ</h3>
@@ -475,11 +514,13 @@
 /* CATEGORY NAVIGATION */
 function showMenCategory(category) {
   document.getElementById("men-categories").style.display = "none";
+
   document.querySelectorAll(".men-category-products").forEach(section => {
     section.classList.remove("active");
   });
 
   const selectedSection = document.getElementById("category-" + category);
+
   if (selectedSection) {
     selectedSection.classList.add("active");
     window.scrollTo({top:0,behavior:"smooth"});
@@ -490,7 +531,9 @@ function backToMenCategories() {
   document.querySelectorAll(".men-category-products").forEach(section => {
     section.classList.remove("active");
   });
+
   document.getElementById("men-categories").style.display = "block";
+
   document.getElementById("men-categories").scrollIntoView({
     behavior:"smooth",block:"start"
   });
@@ -506,23 +549,107 @@ const shirtColors = {
   cream: {name:"کرم",image:"images/shirt-cotton-cream.png"}
 };
 
+const shirtGalleryImages = [
+  "images/shirt-cotton-colors.png",
+  "images/shirt-cotton-brown.png",
+  "images/shirt-cotton-olive.png",
+  "images/shirt-cotton-lightblue.png",
+  "images/shirt-cotton-navy.png",
+  "images/shirt-cotton-white.png",
+  "images/shirt-cotton-cream.png"
+];
+
+const shirtSlideColors = [
+  "",
+  "brown",
+  "olive",
+  "lightblue",
+  "navy",
+  "white",
+  "cream"
+];
+
 let selectedShirtColor = "";
 let selectedShirtSize = "";
+let currentShirtSlide = 0;
+let shirtTouchStartX = 0;
+
+function showShirtSlide(index) {
+  if (index < 0) {
+    index = shirtGalleryImages.length - 1;
+  }
+
+  if (index >= shirtGalleryImages.length) {
+    index = 0;
+  }
+
+  currentShirtSlide = index;
+
+  document.getElementById("shirt-main-image").src =
+    shirtGalleryImages[index];
+
+  document.getElementById("shirt-slider-counter").textContent =
+    (index + 1).toLocaleString("fa-IR") + " از " +
+    shirtGalleryImages.length.toLocaleString("fa-IR");
+
+  const color = shirtSlideColors[index];
+
+  selectedShirtColor = color;
+
+  document.getElementById("shirt-selected-color").textContent =
+    color
+      ? "رنگ انتخابی: " + shirtColors[color].name
+      : "رنگ انتخابی: هنوز انتخاب نشده";
+
+  document.querySelectorAll(".shirt-color-options button").forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.color === color
+    );
+  });
+}
+
+function changeShirtSlide(direction) {
+  showShirtSlide(currentShirtSlide + direction);
+}
+
+function startShirtSwipe(event) {
+  shirtTouchStartX = event.changedTouches[0].screenX;
+}
+
+function endShirtSwipe(event) {
+  const touchEndX = event.changedTouches[0].screenX;
+  const difference = touchEndX - shirtTouchStartX;
+
+  if (Math.abs(difference) < 40) return;
+
+  if (difference > 0) {
+    changeShirtSlide(-1);
+  } else {
+    changeShirtSlide(1);
+  }
+}
 
 function openShirtOrder() {
   selectedShirtColor = "";
   selectedShirtSize = "";
 
   document.getElementById("shirt-order").style.display = "block";
-  document.getElementById("shirt-main-image").src = "images/shirt-cotton-colors.png";
-  document.getElementById("shirt-selected-color").textContent = "رنگ انتخابی: هنوز انتخاب نشده";
-  document.getElementById("shirt-selected-size").textContent = "سایز انتخابی: هنوز انتخاب نشده";
+
+  document.getElementById("shirt-selected-size").textContent =
+    "سایز انتخابی: هنوز انتخاب نشده";
+
   document.getElementById("shirt-quantity").value = 1;
 
-  document.querySelectorAll(".shirt-color-options button").forEach(button => button.classList.remove("active"));
-  document.querySelectorAll(".shirt-size-options button").forEach(button => button.classList.remove("active"));
-  document.querySelectorAll(".shirt-gallery-thumbs button").forEach(button => button.classList.remove("active"));
-  document.querySelector(".shirt-gallery-thumbs button").classList.add("active");
+  document.querySelectorAll(".shirt-color-options button").forEach(button => {
+    button.classList.remove("active");
+  });
+
+  document.querySelectorAll(".shirt-size-options button").forEach(button => {
+    button.classList.remove("active");
+  });
+
+  showShirtSlide(0);
 
   document.body.style.overflow = "hidden";
 }
@@ -535,25 +662,16 @@ function closeShirtOrder() {
 function selectShirtColor(color) {
   if (!shirtColors[color]) return;
 
-  selectedShirtColor = color;
-  document.getElementById("shirt-main-image").src = shirtColors[color].image;
-  document.getElementById("shirt-selected-color").textContent =
-    "رنگ انتخابی: " + shirtColors[color].name;
+  const index = shirtSlideColors.indexOf(color);
 
-  document.querySelectorAll(".shirt-color-options button").forEach(button => {
-    button.classList.toggle("active", button.dataset.color === color);
-  });
-
-  const thumbButtons = document.querySelectorAll(".shirt-gallery-thumbs button");
-  thumbButtons.forEach(button => button.classList.remove("active"));
-
-  const colorOrder = ["brown","olive","lightblue","navy","white","cream"];
-  const thumbIndex = colorOrder.indexOf(color) + 1;
-  if (thumbButtons[thumbIndex]) thumbButtons[thumbIndex].classList.add("active");
+  if (index !== -1) {
+    showShirtSlide(index);
+  }
 }
 
 function selectShirtSize(size) {
   selectedShirtSize = size;
+
   document.getElementById("shirt-selected-size").textContent =
     "سایز انتخابی: " + size;
 
@@ -614,8 +732,12 @@ const sweaterNames = {
 
 function openSweaterOrder(event) {
   event.preventDefault();
+
   document.getElementById("sweater-order").style.display = "block";
-  document.getElementById("order-sweater-image").src = sweaterImages[selectedSweaterColor];
+
+  document.getElementById("order-sweater-image").src =
+    sweaterImages[selectedSweaterColor];
+
   document.body.style.overflow = "hidden";
 }
 
@@ -626,19 +748,31 @@ function closeSweaterOrder() {
 
 function changeSweaterColor(color) {
   if (!sweaterImages[color]) return;
+
   selectedSweaterColor = color;
 
   document.querySelectorAll(".color-option").forEach(button => {
-    button.classList.toggle("active",button.textContent.trim() === sweaterNames[color]);
+    button.classList.toggle(
+      "active",
+      button.textContent.trim() === sweaterNames[color]
+    );
   });
 
-  document.getElementById("sweater-main-image").src = sweaterImages[color];
-  document.getElementById("order-sweater-image").src = sweaterImages[color];
-  document.getElementById("order-color-name").textContent = "رنگ انتخابی: " + sweaterNames[color];
+  document.getElementById("sweater-main-image").src =
+    sweaterImages[color];
+
+  document.getElementById("order-sweater-image").src =
+    sweaterImages[color];
+
+  document.getElementById("order-color-name").textContent =
+    "رنگ انتخابی: " + sweaterNames[color];
 }
 
 function orderSweater() {
-  const quantity = Number(document.getElementById("order-sweater-quantity").value);
+  const quantity = Number(
+    document.getElementById("order-sweater-quantity").value
+  );
+
   const note = document.getElementById("order-sweater-note").value.trim();
 
   if (!Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
