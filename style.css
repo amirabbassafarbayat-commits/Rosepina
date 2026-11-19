@@ -1276,3 +1276,135 @@ body:not(:has(.men-page-header)) .products .products-bottom {
     min-width: 0;
   }
 }
+
+/* ==============================
+   ROSEPINA MINIMAL LUXURY FOOTER
+================================ */
+
+body:not(:has(.men-page-header)) .rp-footer {
+  display: block;
+  width: 100%;
+  padding: 65px 8% 22px;
+  background: #ffffff;
+  color: #222;
+  border-top: 1px solid #eaeaea;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 45px;
+  padding-bottom: 50px;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #171717;
+  font-family: Georgia, serif;
+  font-size: 27px;
+  letter-spacing: 2px;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-logo img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-brand p {
+  margin-top: 17px;
+  color: #888;
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-links,
+body:not(:has(.men-page-header)) .rp-footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-links h3,
+body:not(:has(.men-page-header)) .rp-footer-contact h3 {
+  margin-bottom: 8px;
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-links a,
+body:not(:has(.men-page-header)) .rp-footer-contact a {
+  color: #858585;
+  font-size: 12px;
+  transition: color .25s ease;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-links a:hover,
+body:not(:has(.men-page-header)) .rp-footer-contact a:hover {
+  color: #b69a73;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid #ededed;
+  color: #999;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: .7px;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-bottom a {
+  color: #777;
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+/* MOBILE FOOTER */
+
+@media (max-width: 600px) {
+  body:not(:has(.men-page-header)) .rp-footer {
+    padding: 45px 6% 20px;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 18px;
+    padding-bottom: 30px;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-logo {
+    font-size: 24px;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-links,
+  body:not(:has(.men-page-header)) .rp-footer-contact {
+    gap: 10px;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 9px;
+  }
+}
+
