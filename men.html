@@ -118,6 +118,88 @@
   color: #999999;
 }
 
+/* ROSEPINA MEN HERO BANNER */
+
+.men-hero-banner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 35px;
+  padding: 55px 7%;
+  background: #202020;
+  color: #fff;
+  overflow: hidden;
+}
+
+.men-hero-content {
+  text-align: right;
+}
+
+.men-hero-content .eyebrow {
+  color: #b9b9b9;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.men-hero-content h2 {
+  font-family: "DM Sans", "Vazirmatn", sans-serif;
+  font-size: clamp(34px, 5vw, 65px);
+  line-height: 1.2;
+  margin: 18px 0;
+  color: #fff;
+}
+
+.men-hero-content p {
+  color: #c5c5c5;
+  font-size: 14px;
+  line-height: 2.2;
+}
+
+.men-hero-button {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 13px 25px;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.men-hero-button:hover {
+  background: #c9c9c9;
+}
+
+.men-hero-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  height: 340px;
+}
+
+.men-hero-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #555, #292929);
+  color: #ddd;
+  font-size: 12px;
+  border: 1px solid #555;
+  overflow: hidden;
+  position: relative;
+}
+
+.men-hero-photo:first-child {
+  grid-row: span 2;
+}
+
+.men-hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 @media (max-width: 600px) {
   .men-page-header {
     padding: 15px 5%;
@@ -126,8 +208,22 @@
   .men-intro {
     padding: 55px 20px 35px;
   }
+
+  .men-hero-banner {
+    grid-template-columns: 1fr;
+    padding: 40px 6%;
+    gap: 28px;
+  }
+
+  .men-hero-content {
+    text-align: center;
+  }
+
+  .men-hero-gallery {
+    height: 240px;
+  }
 }
-  
+
 /* LUXURY ORDER FORM */
 
 #sweater-order {
@@ -220,7 +316,8 @@
     padding: 10px 12px;
   }
 }
-  /* LUXURY COLOR BUTTONS */
+
+/* LUXURY COLOR BUTTONS */
 
 .color-options {
   display: flex;
@@ -261,98 +358,7 @@
     padding: 10px 8px;
   }
 }
-  /* ROSEPINA MEN HERO BANNER */
-
-.men-hero-banner {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  align-items: center;
-  gap: 35px;
-  padding: 55px 7%;
-  background: #202020;
-  color: #fff;
-  overflow: hidden;
-}
-
-.men-hero-content {
-  text-align: right;
-}
-
-.men-hero-content .eyebrow {
-  color: #b9b9b9;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.men-hero-content h2 {
-  font-family: "DM Sans", "Vazirmatn", sans-serif;
-  font-size: clamp(34px, 5vw, 65px);
-  line-height: 1.2;
-  margin: 18px 0;
-  color: #fff;
-}
-
-.men-hero-content p {
-  color: #c5c5c5;
-  font-size: 14px;
-  line-height: 2.2;
-}
-
-.men-hero-button {
-  display: inline-block;
-  margin-top: 22px;
-  padding: 13px 25px;
-  background: #fff;
-  color: #222;
-  text-decoration: none;
-  font-size: 12px;
-  transition: .3s;
-}
-
-.men-hero-button:hover {
-  background: #c9c9c9;
-}
-
-.men-hero-gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  height: 340px;
-}
-
-.men-hero-photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, #555, #292929);
-  color: #ddd;
-  font-size: 12px;
-  border: 1px solid #555;
-}
-
-.men-hero-photo:first-child {
-  grid-row: span 2;
-}
-
-@media (max-width: 600px) {
-  .men-hero-banner {
-    grid-template-columns: 1fr;
-    padding: 40px 6%;
-    gap: 28px;
-  }
-
-  .men-hero-content {
-    text-align: center;
-  }
-
-  .men-hero-gallery {
-    height: 240px;
-  }
-}
-
 </style>
-
-  
 </head>
 
 <body>
@@ -366,6 +372,25 @@
 </header>
 
 <main>
+
+  <!-- ROSEPINA MEN HERO -->
+  <section class="men-hero-banner">
+    <div class="men-hero-content">
+      <span class="eyebrow">ROSEPINA / MEN COLLECTION</span>
+      <h2>ROSEPINA<br>MEN</h2>
+      <p>استایل متفاوت، انتخاب متفاوت</p>
+      <a href="#men-products" class="men-hero-button">
+        مشاهده محصولات ↗
+      </a>
+    </div>
+
+    <div class="men-hero-gallery">
+      <div class="men-hero-photo">جای عکس محصول اول</div>
+      <div class="men-hero-photo">جای عکس محصول دوم</div>
+      <div class="men-hero-photo">جای عکس محصول سوم</div>
+    </div>
+  </section>
+
   <section class="men-intro">
     <span class="eyebrow">ROSEPINA / MEN</span>
     <h1>کالکشن <span>مردانه</span></h1>
@@ -373,7 +398,7 @@
     <a class="men-back" href="index.html">← بازگشت به فروشگاه</a>
   </section>
 
-  <section class="products section men-products-area">
+  <section class="products section men-products-area" id="men-products">
     <div class="section-title">
       <div>
         <span class="eyebrow">MEN COLLECTION</span>
@@ -406,8 +431,10 @@
       </article>
     </div>
   </section>
+
 </main>
 
+<!-- SWEATER ORDER FORM -->
 <section id="sweater-order" style="
   display:none;
   position:fixed;
@@ -434,13 +461,14 @@
     <p id="order-color-name">رنگ انتخابی: زغالی</p>
 
     <h3>انتخاب رنگ</h3>
-    
-<div class="color-options">
-  <button class="color-option active" type="button" onclick="changeSweaterColor('charcoal')">زغالی</button>
-  <button class="color-option" type="button" onclick="changeSweaterColor('brown')">قهوه‌ای</button>
-  <button class="color-option" type="button" onclick="changeSweaterColor('black')">مشکی</button>
-  <button class="color-option" type="button" onclick="changeSweaterColor('green')">سبز</button>
-</div>
+
+    <div class="color-options">
+      <button class="color-option active" type="button" onclick="changeSweaterColor('charcoal')">زغالی</button>
+      <button class="color-option" type="button" onclick="changeSweaterColor('brown')">قهوه‌ای</button>
+      <button class="color-option" type="button" onclick="changeSweaterColor('black')">مشکی</button>
+      <button class="color-option" type="button" onclick="changeSweaterColor('green')">سبز</button>
+    </div>
+
     <h3>تعداد</h3>
     <input id="order-sweater-quantity" type="number"
       min="1" max="20" value="1"
@@ -495,12 +523,14 @@ function changeSweaterColor(color) {
   if (!sweaterImages[color]) return;
 
   selectedSweaterColor = color;
+
   document.querySelectorAll(".color-option").forEach(button => {
-  button.classList.toggle(
-    "active",
-    button.textContent.trim() === sweaterNames[color]
-  );
-});
+    button.classList.toggle(
+      "active",
+      button.textContent.trim() === sweaterNames[color]
+    );
+  });
+
   document.getElementById("sweater-main-image").src = sweaterImages[color];
   document.getElementById("order-sweater-image").src = sweaterImages[color];
   document.getElementById("order-color-name").textContent =
