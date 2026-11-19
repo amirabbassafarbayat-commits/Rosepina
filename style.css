@@ -1413,4 +1413,18 @@ body:not(:has(.men-page-header)) footer.rp-footer {
   color: #222222 !important;
   display: block !important;
 }
+body:not(:has(.men-page-header)) .rp-footer-contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
 
+body:not(:has(.men-page-header)) .rp-footer-contact h3 {
+  width: 100%;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-contact a:last-child {
+  width: 100%;
+}
