@@ -1132,3 +1132,42 @@ body:not(:has(.men-page-header)) .section {
 body:not(:has(.men-page-header)) .intro {
   background: #ffffff;
 }
+/* ROSEPINA COLLECTIONS - REFINED */
+body:not(:has(.men-page-header)) .collections {
+  background: #fff;
+}
+
+body:not(:has(.men-page-header)) .collections .section-title {
+  margin-bottom: 42px;
+}
+
+body:not(:has(.men-page-header)) .collections .eyebrow {
+  font-family: "Vazirmatn", sans-serif;
+  letter-spacing: 0;
+  font-size: 11px;
+  color: #817b73;
+}
+
+body:not(:has(.men-page-header)) .collections .collection-grid {
+  gap: 20px;
+}
+
+body:not(:has(.men-page-header)) .collections .collection-card {
+  background: #eee;
+}
+
+body:not(:has(.men-page-header)) .collections .collection-overlay {
+  padding: 28px;
+  background: linear-gradient(
+    180deg,
+    transparent 25%,
+    rgba(0,0,0,.58) 100%
+  );
+}
+
+body:not(:has(.men-page-header)) .collections .collection-overlay span,
+body:not(:has(.men-page-header)) .collections .collection-overlay b {
+  font-family: "Vazirmatn", sans-serif;
+  letter-spacing: 0;
+  font-size: 11px;
+}
