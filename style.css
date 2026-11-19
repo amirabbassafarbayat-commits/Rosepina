@@ -68,7 +68,7 @@ img {
   font-weight: 800;
 }
 
-/* HEADER */
+/* OLD HEADER - PRESERVED */
 
 .header {
   width: 100%;
@@ -134,16 +134,7 @@ img {
   display: none;
 }
 
-/* HERO */
-.hero {
-  min-height: 510px;
-  height: auto;
-  padding: 22px 6%;
-  background-size: 100% auto;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-color: #222;
-}
+/* OLD HERO - PRESERVED */
 
 .hero {
   min-height: 650px;
@@ -151,8 +142,8 @@ img {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(20,19,17,0.82), 
-                    url("./hero.png?v=9999") center/cover no-repeat,
+    linear-gradient(90deg, rgba(20,19,17,0.82), rgba(20,19,17,0.25)),
+    url("./hero.png?v=9999") center/cover no-repeat,
     #39332d;
   color: white;
   display: flex;
@@ -163,11 +154,12 @@ img {
 .hero-background {
   position: absolute;
   inset: 0;
-  
-background:
-  linear-gradient(90deg, rgba(20,19,17,0.82), rgba(20,19,17,0.25)),
-  url("./hero.png?v=9999") center/cover no-repeat,
-  #39332d;
+  background:
+    linear-gradient(90deg, rgba(20,19,17,0.82), rgba(20,19,17,0.25)),
+    url("./hero.png?v=9999") center/cover no-repeat,
+    #39332d;
+}
+
 .hero-top,
 .hero-bottom {
   position: relative;
@@ -506,7 +498,7 @@ background:
   letter-spacing: 1px;
 }
 
-/* MEN COLLECTION */
+/* MEN COLLECTION - PRESERVED */
 
 #men-products {
   background: #e9e1d7;
@@ -940,7 +932,7 @@ background:
   }
 }
 
-@media (max-width: 360px) 
+@media (max-width: 360px) {
   .navigation {
     gap: 12px;
     font-size: 10px;
@@ -954,11 +946,8 @@ background:
     grid-template-rows: 260px 170px;
   }
 }
-{
-  
-/* ==============================
-   ROSEPINA MEN - MINIMAL LUXURY
-================================ */
+
+/* ROSEPINA MEN - MINIMAL LUXURY */
 
 .men-page-header {
   background: #ffffff !important;
@@ -1018,10 +1007,9 @@ body:has(.men-page-header) .product-price {
 body:has(.men-page-header) #sweater-order button {
   border-radius: 0 !important;
 }
- 
-}
 
 /* ROSEPINA LUXURY HEADER */
+
 .rp-header {
   position: sticky;
   top: 0;
@@ -1085,7 +1073,7 @@ body:has(.men-page-header) #sweater-order button {
   text-decoration: none;
 }
 
-@media (max-width: 700px) 
+@media (max-width: 700px) {
   .rp-header {
     min-height: 70px;
     padding: 10px 14px;
@@ -1114,6 +1102,7 @@ body:has(.men-page-header) #sweater-order button {
     font-size: 12px;
   }
 }
+
 /* ROSEPINA FULL HERO IMAGE */
 
 .hero-image-section {
@@ -1130,5 +1119,3 @@ body:has(.men-page-header) #sweater-order button {
   height: auto;
   object-fit: contain;
 }
-
-    
