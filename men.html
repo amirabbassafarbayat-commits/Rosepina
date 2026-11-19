@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -13,409 +14,178 @@
 
 <style>
 .men-page-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 18px 5%;
-  background: #fff;
-  color: #333;
-  border-bottom: 1px solid #e5e5e5;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:15px;padding:18px 5%;background:#fff;color:#333;
+  border-bottom:1px solid #e5e5e5;
 }
+.men-page-header a {color:#333;text-decoration:none;font-size:12px}
+.men-page-header .logo-img {max-width:130px}
+.men-intro {text-align:center;padding:55px 20px 35px;background:#fff;color:#292929}
+.men-intro .eyebrow {color:#888;font-size:11px;letter-spacing:2px}
+.men-intro h1 {margin:12px 0;font-size:30px;font-weight:600}
+.men-intro h1 span {color:#777}
+.men-intro p {color:#888;font-size:13px}
 
-.men-page-header a {
-  color: #333;
-  text-decoration: none;
-  font-size: 12px;
-}
-
-.men-page-header .logo-img {
-  max-width: 130px;
-}
-
-.men-intro {
-  text-align: center;
-  padding: 55px 20px 35px;
-  background: #fff;
-  color: #292929;
-}
-
-.men-intro .eyebrow {
-  color: #888;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.men-intro h1 {
-  margin: 12px 0;
-  font-size: 30px;
-  font-weight: 600;
-}
-
-.men-intro h1 span {
-  color: #777;
-}
-
-.men-intro p {
-  color: #888;
-  font-size: 13px;
-}
-
-/* CATEGORY SECTION */
-
-.men-categories {
-  padding: 25px 5% 65px;
-  background: #fff;
-}
-
-.men-section-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-.men-section-heading .eyebrow {
-  color: #999;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-.men-section-heading h2 {
-  color: #292929;
-  font-size: 23px;
-  font-weight: 600;
-  margin: 8px 0 0;
-}
-
-.men-section-heading h2 span {
-  color: #888;
-}
-
-.men-category-count {
-  color: #999;
-  font-size: 10px;
-  white-space: nowrap;
-}
-
-.men-category-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-}
-
+.men-categories {padding:25px 5% 65px;background:#fff}
+.men-section-heading {display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:25px}
+.men-section-heading .eyebrow {color:#999;font-size:10px;letter-spacing:2px}
+.men-section-heading h2 {color:#292929;font-size:23px;font-weight:600;margin:8px 0 0}
+.men-section-heading h2 span {color:#888}
+.men-category-count {color:#999;font-size:10px;white-space:nowrap}
+.men-category-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
 .men-category-card {
-  display: block;
-  min-width: 0;
-  padding: 0;
-  border: 0;
-  background: #f3f3f3;
-  color: #292929;
-  text-align: right;
-  cursor: pointer;
-  overflow: hidden;
-  font-family: "Vazirmatn", sans-serif;
+  display:block;min-width:0;padding:0;border:0;background:#f3f3f3;
+  color:#292929;text-align:right;cursor:pointer;overflow:hidden;
+  font-family:"Vazirmatn",sans-serif;
 }
-
-.men-category-card:hover .men-category-image {
-  background: #dedede;
-}
-
+.men-category-card:hover .men-category-image {background:#dedede}
 .men-category-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 1 / 1.05;
-  background: linear-gradient(145deg, #eeeeee, #d9d9d9);
-  color: #999;
-  font-size: 11px;
-  transition: background .3s ease;
-  overflow: hidden;
+  display:flex;align-items:center;justify-content:center;width:100%;
+  aspect-ratio:1 / 1.05;background:linear-gradient(145deg,#eee,#d9d9d9);
+  color:#999;font-size:11px;transition:background .3s ease;overflow:hidden;
 }
-
-.men-category-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+.men-category-image img {display:block;width:100%;height:100%;object-fit:cover}
 .men-category-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 12px;
-  background: #f7f7f7;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:8px;padding:13px 12px;background:#f7f7f7;
 }
+.men-category-info h3 {margin:0;font-size:13px;font-weight:600;color:#292929}
+.men-category-info span {color:#888;font-size:16px}
 
-.men-category-info h3 {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: #292929;
-}
-
-.men-category-info span {
-  color: #888;
-  font-size: 16px;
-}
-
-/* CATEGORY PRODUCTS */
-
-.men-category-products {
-  display: none;
-  padding: 35px 5% 70px;
-  background: #fff;
-}
-
-.men-category-products.active {
-  display: block;
-}
-
-.men-category-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 30px;
-}
-
-.men-category-top h2 {
-  margin: 5px 0 0;
-  font-size: 23px;
-  color: #292929;
-}
-
-.men-category-top .eyebrow {
-  color: #999;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
+.men-category-products {display:none;padding:35px 5% 70px;background:#fff}
+.men-category-products.active {display:block}
+.men-category-top {display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:30px}
+.men-category-top h2 {margin:5px 0 0;font-size:23px;color:#292929}
+.men-category-top .eyebrow {color:#999;font-size:10px;letter-spacing:2px}
 .men-back-button {
-  padding: 10px 15px;
-  border: 1px solid #ddd;
-  background: #fff;
-  color: #444;
-  font-family: "Vazirmatn", sans-serif;
-  font-size: 11px;
-  cursor: pointer;
+  padding:10px 15px;border:1px solid #ddd;background:#fff;color:#444;
+  font-family:"Vazirmatn",sans-serif;font-size:11px;cursor:pointer;
 }
+.men-back-button:hover {background:#292929;color:#fff;border-color:#292929}
+.men-empty-message {padding:65px 15px;text-align:center;background:#f7f7f7;color:#888;font-size:13px;line-height:2.2}
+.men-empty-message strong {display:block;margin-bottom:8px;color:#444;font-size:16px}
 
-.men-back-button:hover {
-  background: #292929;
-  color: #fff;
-  border-color: #292929;
-}
-
-.men-empty-message {
-  padding: 65px 15px;
-  text-align: center;
-  background: #f7f7f7;
-  color: #888;
-  font-size: 13px;
-  line-height: 2.2;
-}
-
-.men-empty-message strong {
-  display: block;
-  margin-bottom: 8px;
-  color: #444;
-  font-size: 16px;
-}
-
-/* SWEATER PRODUCT */
-
+/* PRODUCT CARDS */
 .men-products-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 380px);
-  justify-content: center;
+  display:grid;grid-template-columns:minmax(0,380px);justify-content:center;
 }
+.men-products-grid .product-card {width:100%;background:#f5f5f5}
+.men-products-grid .product-image {background:#eee}
+.men-products-grid .product-tag {background:#333;color:#fff}
+.men-products-grid .product-category {color:#888}
+.men-products-grid .product-price {color:#333}
 
-.men-products-grid .product-card {
-  width: 100%;
-  background: #f5f5f5;
+/* SHIRT PRODUCT */
+.shirt-product-card {
+  background:#f5f5f5;cursor:pointer;
+  border:0;padding:0;text-align:right;width:100%;
+  font-family:"Vazirmatn",sans-serif;color:#292929;
 }
+.shirt-product-card img {display:block;width:100%;aspect-ratio:1/1.15;object-fit:cover}
+.shirt-product-info {padding:15px}
+.shirt-product-info small {color:#888;font-size:10px}
+.shirt-product-info h3 {font-size:16px;margin:7px 0}
+.shirt-product-info p {margin:0;color:#333;font-size:14px;font-weight:600}
 
-.men-products-grid .product-image {
-  background: #eee;
-}
-
-.men-products-grid .product-tag {
-  background: #333;
-  color: #fff;
-}
-
-.men-products-grid .product-category {
-  color: #888;
-}
-
-.men-products-grid .product-price {
-  color: #333;
-}
-
-/* ORDER FORM */
-
+/* SWEATER ORDER FORM */
 #sweater-order {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #fff;
-  overflow-y: auto;
-  padding: 30px 20px;
-  font-family: "Vazirmatn", sans-serif !important;
-  color: #292929;
+  display:none;position:fixed;inset:0;z-index:9999;background:#fff;
+  overflow-y:auto;padding:30px 20px;font-family:"Vazirmatn",sans-serif!important;color:#292929;
 }
-
-#sweater-order .order-inner {
-  max-width: 600px;
-  margin: auto;
-}
-
-#sweater-order h2 {
-  font-size: 25px;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
-
-#sweater-order h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 25px 0 12px;
-}
-
-#sweater-order p {
-  font-size: 14px;
-  color: #666;
-  margin: 12px 0;
-}
-
+#sweater-order .order-inner {max-width:600px;margin:auto}
+#sweater-order h2 {font-size:25px;font-weight:700;margin-bottom:25px}
+#sweater-order h3 {font-size:16px;font-weight:600;margin:25px 0 12px}
+#sweater-order p {font-size:14px;color:#666;margin:12px 0}
 #sweater-order button[onclick^="changeSweaterColor"] {
-  font-family: "Vazirmatn", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 11px 20px;
-  min-width: 75px;
-  border: 1px solid #d5d5d5;
-  border-radius: 3px;
-  background: #f7f7f7;
-  color: #333;
-  transition: all .25s ease;
+  font-family:"Vazirmatn",sans-serif;font-size:14px;font-weight:500;
+  padding:11px 20px;min-width:75px;border:1px solid #d5d5d5;
+  border-radius:3px;background:#f7f7f7;color:#333;transition:all .25s ease;
 }
-
 #sweater-order button[onclick^="changeSweaterColor"]:hover {
-  background: #333;
-  color: white;
-  border-color: #333;
-  transform: translateY(-2px);
+  background:#333;color:white;border-color:#333;transform:translateY(-2px);
 }
-
-#sweater-order input,
-#sweater-order textarea {
-  font-family: "Vazirmatn", sans-serif;
-  font-size: 14px;
-  border: 1px solid #dedede;
-  border-radius: 3px;
-  background: #fafafa;
-  outline: none;
+#sweater-order input,#sweater-order textarea {
+  font-family:"Vazirmatn",sans-serif;font-size:14px;border:1px solid #dedede;
+  border-radius:3px;background:#fafafa;outline:none;
 }
-
-#sweater-order input:focus,
-#sweater-order textarea:focus {
-  border-color: #555;
-  background: #fff;
-}
-
+#sweater-order input:focus,#sweater-order textarea:focus {border-color:#555;background:#fff}
 #sweater-order button[onclick="orderSweater()"] {
-  font-family: "Vazirmatn", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  background: #292929 !important;
-  color: white !important;
-  border: 1px solid #292929 !important;
-  border-radius: 3px;
-  cursor: pointer;
+  font-family:"Vazirmatn",sans-serif;font-size:16px;font-weight:600;
+  background:#292929!important;color:white!important;
+  border:1px solid #292929!important;border-radius:3px;cursor:pointer;
 }
-
-.color-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 12px;
-}
-
+.color-options {display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .color-option {
-  font-family: "Vazirmatn", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  min-width: 85px;
-  padding: 11px 18px;
-  border: 1px solid #d8d8d8;
-  border-radius: 4px;
-  background: #fff;
-  color: #333;
-  cursor: pointer;
+  font-family:"Vazirmatn",sans-serif;font-size:14px;font-weight:500;
+  min-width:85px;padding:11px 18px;border:1px solid #d8d8d8;
+  border-radius:4px;background:#fff;color:#333;cursor:pointer;
 }
+.color-option.active {background:#292929;color:#fff;border-color:#292929}
 
-.color-option.active {
-  background: #292929;
-  color: #fff;
-  border-color: #292929;
+/* SHIRT ORDER */
+#shirt-order {
+  display:none;position:fixed;inset:0;z-index:10000;background:#fff;
+  overflow-y:auto;padding:25px 18px;
+  font-family:"Vazirmatn",sans-serif;color:#292929;
+}
+#shirt-order .shirt-order-inner {max-width:600px;margin:auto}
+#shirt-order h2 {font-size:23px;margin:15px 0}
+#shirt-order h3 {font-size:15px;margin:22px 0 10px}
+#shirt-order p {font-size:13px;color:#666;line-height:2}
+#shirt-order .shirt-main-image {
+  display:block;width:100%;max-width:420px;max-height:480px;
+  object-fit:contain;background:#f5f5f5;margin:15px auto;
+}
+.shirt-gallery-thumbs {
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;
+  max-width:420px;margin:12px auto;
+}
+.shirt-gallery-thumbs button {
+  padding:0;border:2px solid #eee;background:#f5f5f5;cursor:pointer;
+  overflow:hidden;border-radius:3px;
+}
+.shirt-gallery-thumbs button.active {border-color:#292929}
+.shirt-gallery-thumbs img {display:block;width:100%;aspect-ratio:1/1.2;object-fit:cover}
+.shirt-color-options,.shirt-size-options {
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.shirt-color-options button,.shirt-size-options button {
+  padding:10px 14px;border:1px solid #ddd;background:#fff;color:#333;
+  font-family:"Vazirmatn",sans-serif;font-size:13px;cursor:pointer;
+  border-radius:3px;
+}
+.shirt-color-options button.active,.shirt-size-options button.active {
+  background:#292929;color:#fff;border-color:#292929;
+}
+#shirt-order input {
+  width:100%;max-width:180px;padding:11px;box-sizing:border-box;
+  border:1px solid #ddd;font-family:"Vazirmatn",sans-serif;
+}
+.shirt-order-submit {
+  display:block;width:100%;padding:15px;margin-top:22px;
+  border:0;background:#292929;color:#fff;
+  font-family:"Vazirmatn",sans-serif;font-size:15px;cursor:pointer;
+}
+.shirt-stock-note {
+  padding:12px;background:#f5f5f5;color:#666;
+  font-size:12px;line-height:2;margin-top:15px;
 }
 
 /* MOBILE */
-
-@media (max-width: 600px) {
-  .men-page-header {
-    padding: 15px 5%;
-  }
-
-  .men-intro {
-    padding: 45px 20px 25px;
-  }
-
-  .men-categories {
-    padding: 20px 4% 50px;
-  }
-
-  .men-category-grid {
-    gap: 11px;
-  }
-
-  .men-category-info {
-    padding: 11px 9px;
-  }
-
-  .men-category-info h3 {
-    font-size: 12px;
-  }
-
-  .men-section-heading h2 {
-    font-size: 20px;
-  }
-
-  .men-category-top h2 {
-    font-size: 19px;
-  }
-
-  #sweater-order {
-    padding: 25px 18px !important;
-  }
-
-  .color-option {
-    flex: 1;
-    min-width: 65px;
-    padding: 10px 8px;
-  }
-
-  #sweater-order button[onclick^="changeSweaterColor"] {
-    flex: 1;
-    padding: 10px 12px;
-  }
+@media (max-width:600px) {
+  .men-page-header {padding:15px 5%}
+  .men-intro {padding:45px 20px 25px}
+  .men-categories {padding:20px 4% 50px}
+  .men-category-grid {gap:11px}
+  .men-category-info {padding:11px 9px}
+  .men-category-info h3 {font-size:12px}
+  .men-section-heading h2 {font-size:20px}
+  .men-category-top h2 {font-size:19px}
+  #sweater-order {padding:25px 18px!important}
+  .color-option {flex:1;min-width:65px;padding:10px 8px}
+  #sweater-order button[onclick^="changeSweaterColor"] {flex:1;padding:10px 12px}
+  .shirt-gallery-thumbs {gap:5px}
+  .shirt-color-options button,.shirt-size-options button {flex:1;min-width:50px}
 }
 </style>
 </head>
@@ -426,21 +196,17 @@
   <a href="index.html" aria-label="بازگشت به صفحه اصلی">
     <img src="logo.png" alt="ROSEPINA" class="logo-img">
   </a>
-
   <a href="index.html">بازگشت به صفحه اصلی ↗</a>
 </header>
 
 <main>
-
   <section class="men-intro">
     <span class="eyebrow">ROSEPINA / MEN</span>
     <h1>کالکشن <span>مردانه</span></h1>
     <p>استایل متفاوت، انتخاب متفاوت</p>
   </section>
 
-  <!-- CATEGORY LIST -->
   <section class="men-categories" id="men-categories">
-
     <div class="men-section-heading">
       <div>
         <span class="eyebrow">ROSEPINA MEN COLLECTION</span>
@@ -451,238 +217,142 @@
 
     <div class="men-category-grid">
 
-      <!-- SNEAKERS: KEEP EXISTING IMAGE -->
       <button class="men-category-card" type="button" onclick="showMenCategory('sneakers')">
         <div class="men-category-image">
-          <img
-            src="images/sneakers-jordan-chicago.png"
-            alt="کتونی جردن شیکاگو"
-            loading="lazy">
+          <img src="images/sneakers-jordan-chicago.png" alt="کتونی جردن شیکاگو" loading="lazy">
         </div>
-        <div class="men-category-info">
-          <h3>کتونی</h3>
-          <span>↗</span>
-        </div>
+        <div class="men-category-info"><h3>کتونی</h3><span>↗</span></div>
       </button>
 
-      <!-- SHIRTS -->
       <button class="men-category-card" type="button" onclick="showMenCategory('shirts')">
         <div class="men-category-image">
-          <img
-            src="images/shirts-pink.png"
-            alt="پیراهن مردانه صورتی"
-            loading="lazy">
+          <img src="images/shirts-pink.png" alt="پیراهن مردانه" loading="lazy">
         </div>
-        <div class="men-category-info">
-          <h3>پیراهن</h3>
-          <span>↗</span>
-        </div>
+        <div class="men-category-info"><h3>پیراهن</h3><span>↗</span></div>
       </button>
 
-      <!-- PANTS -->
       <button class="men-category-card" type="button" onclick="showMenCategory('pants')">
         <div class="men-category-image">
-          <img
-            src="images/pants-category.png"
-            alt="شلوار جین بگ و پارچه‌ای مشکی"
-            loading="lazy">
+          <img src="images/pants-category.png" alt="شلوار مردانه" loading="lazy">
         </div>
-        <div class="men-category-info">
-          <h3>شلوار</h3>
-          <span>↗</span>
-        </div>
+        <div class="men-category-info"><h3>شلوار</h3><span>↗</span></div>
       </button>
 
-      <!-- SUNGLASSES -->
       <button class="men-category-card" type="button" onclick="showMenCategory('sunglasses')">
         <div class="men-category-image">
-          <img
-            src="images/sunglasses-black.png"
-            alt="عینک آفتابی مشکی"
-            loading="lazy">
+          <img src="images/sunglasses-black.png" alt="عینک آفتابی مشکی" loading="lazy">
         </div>
-        <div class="men-category-info">
-          <h3>عینک آفتابی</h3>
-          <span>↗</span>
-        </div>
+        <div class="men-category-info"><h3>عینک آفتابی</h3><span>↗</span></div>
       </button>
 
-      <!-- SETS -->
       <button class="men-category-card" type="button" onclick="showMenCategory('sets')">
         <div class="men-category-image">
-          <img
-            src="images/sets-hermes.png"
-            alt="ست سویشرت و شلوار هرمس"
-            loading="lazy">
+          <img src="images/sets-hermes.png" alt="ست سویشرت و شلوار هرمس" loading="lazy">
         </div>
-        <div class="men-category-info">
-          <h3>ست شلوار و شلوارک</h3>
-          <span>↗</span>
-        </div>
+        <div class="men-category-info"><h3>ست شلوار و شلوارک</h3><span>↗</span></div>
       </button>
 
-      <!-- SHORTS -->
       <button class="men-category-card" type="button" onclick="showMenCategory('shorts')">
         <div class="men-category-image">
-          <img
-            src="images/shorts-category.png"
-            alt="شلوارک جین تیره"
-            loading="lazy">
+          <img src="images/shorts-category.png" alt="شلوارک جین تیره" loading="lazy">
         </div>
-        <div class="men-category-info">
-          <h3>شلوارک</h3>
-          <span>↗</span>
-        </div>
+        <div class="men-category-info"><h3>شلوارک</h3><span>↗</span></div>
       </button>
 
-      <!-- T-SHIRTS AND TANK TOPS: IMAGE PENDING -->
       <button class="men-category-card" type="button" onclick="showMenCategory('tshirts')">
-        <div class="men-category-image">
-          <span>جای عکس تیشرت و رکابی</span>
-        </div>
-        <div class="men-category-info">
-          <h3>رکابی و تیشرت</h3>
-          <span>↗</span>
-        </div>
+        <div class="men-category-image"><span>جای عکس تیشرت و رکابی</span></div>
+        <div class="men-category-info"><h3>رکابی و تیشرت</h3><span>↗</span></div>
       </button>
 
-      <!-- KNITWEAR: IMAGE PENDING -->
       <button class="men-category-card" type="button" onclick="showMenCategory('knitwear')">
-        <div class="men-category-image">
-          <span>جای عکس بافت</span>
-        </div>
-        <div class="men-category-info">
-          <h3>بافت و پلیور</h3>
-          <span>↗</span>
-        </div>
+        <div class="men-category-image"><span>جای عکس بافت</span></div>
+        <div class="men-category-info"><h3>بافت و پلیور</h3><span>↗</span></div>
       </button>
 
     </div>
   </section>
-
-  <!-- CATEGORY PRODUCT VIEWS -->
 
   <section class="men-category-products" id="category-sneakers">
     <div class="men-category-top">
-      <div>
-        <span class="eyebrow">ROSEPINA / MEN</span>
-        <h2>کتونی</h2>
-      </div>
+      <div><span class="eyebrow">ROSEPINA / MEN</span><h2>کتونی</h2></div>
       <button class="men-back-button" onclick="backToMenCategories()">← دسته‌بندی‌ها</button>
     </div>
-    <div class="men-empty-message">
-      <strong>کتونی‌های ROSEPINA</strong>
-      محصولات این دسته به‌زودی اضافه می‌شوند.
-    </div>
+    <div class="men-empty-message"><strong>کتونی‌های ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
   </section>
 
+  <!-- SHIRTS -->
   <section class="men-category-products" id="category-shirts">
     <div class="men-category-top">
-      <div>
-        <span class="eyebrow">ROSEPINA / MEN</span>
-        <h2>پیراهن</h2>
-      </div>
+      <div><span class="eyebrow">ROSEPINA / MEN</span><h2>پیراهن</h2></div>
       <button class="men-back-button" onclick="backToMenCategories()">← دسته‌بندی‌ها</button>
     </div>
-    <div class="men-empty-message">
-      <strong>پیراهن‌های ROSEPINA</strong>
-      محصولات این دسته به‌زودی اضافه می‌شوند.
+
+    <div class="men-products-grid">
+      <button class="shirt-product-card" type="button" onclick="openShirtOrder()">
+        <img src="images/shirt-cotton-colors.png" alt="پیراهن نخی مردانه در شش رنگ" loading="lazy">
+        <div class="shirt-product-info">
+          <small>MEN / COTTON SHIRT</small>
+          <h3>پیراهن نخی مردانه</h3>
+          <p>۲,۰۰۰,۰۰۰ تومان</p>
+        </div>
+      </button>
     </div>
   </section>
 
   <section class="men-category-products" id="category-pants">
     <div class="men-category-top">
-      <div>
-        <span class="eyebrow">ROSEPINA / MEN</span>
-        <h2>شلوار</h2>
-      </div>
+      <div><span class="eyebrow">ROSEPINA / MEN</span><h2>شلوار</h2></div>
       <button class="men-back-button" onclick="backToMenCategories()">← دسته‌بندی‌ها</button>
     </div>
-    <div class="men-empty-message">
-      <strong>شلوارهای ROSEPINA</strong>
-      محصولات این دسته به‌زودی اضافه می‌شوند.
-    </div>
+    <div class="men-empty-message"><strong>شلوارهای ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
   </section>
 
   <section class="men-category-products" id="category-sunglasses">
     <div class="men-category-top">
-      <div>
-        <span class="eyebrow">ROSEPINA / MEN</span>
-        <h2>عینک آفتابی</h2>
-      </div>
+      <div><span class="eyebrow">ROSEPINA / MEN</span><h2>عینک آفتابی</h2></div>
       <button class="men-back-button" onclick="backToMenCategories()">← دسته‌بندی‌ها</button>
     </div>
-    <div class="men-empty-message">
-      <strong>عینک‌های ROSEPINA</strong>
-      محصولات این دسته به‌زودی اضافه می‌شوند.
-    </div>
+    <div class="men-empty-message"><strong>عینک‌های ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
   </section>
 
   <section class="men-category-products" id="category-sets">
     <div class="men-category-top">
-      <div>
-        <span class="eyebrow">ROSEPINA / MEN</span>
-        <h2>ست لباس</h2>
-      </div>
+      <div><span class="eyebrow">ROSEPINA / MEN</span><h2>ست لباس</h2></div>
       <button class="men-back-button" onclick="backToMenCategories()">← دسته‌بندی‌ها</button>
     </div>
-    <div class="men-empty-message">
-      <strong>ست‌های ROSEPINA</strong>
-      محصولات این دسته به‌زودی اضافه می‌شوند.
-    </div>
+    <div class="men-empty-message"><strong>ست‌های ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
   </section>
 
   <section class="men-category-products" id="category-shorts">
     <div class="men-category-top">
-      <div>
-        <span class="eyebrow">ROSEPINA / MEN</span>
-        <h2>شلوارک</h2>
-      </div>
+      <div><span class="eyebrow">ROSEPINA / MEN</span><h2>شلوارک</h2></div>
       <button class="men-back-button" onclick="backToMenCategories()">← دسته‌بندی‌ها</button>
     </div>
-    <div class="men-empty-message">
-      <strong>شلوارک‌های ROSEPINA</strong>
-      محصولات این دسته به‌زودی اضافه می‌شوند.
-    </div>
+    <div class="men-empty-message"><strong>شلوارک‌های ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
   </section>
 
   <section class="men-category-products" id="category-tshirts">
     <div class="men-category-top">
-      <div>
-        <span class="eyebrow">ROSEPINA / MEN</span>
-        <h2>رکابی و تیشرت</h2>
-      </div>
+      <div><span class="eyebrow">ROSEPINA / MEN</span><h2>رکابی و تیشرت</h2></div>
       <button class="men-back-button" onclick="backToMenCategories()">← دسته‌بندی‌ها</button>
     </div>
-    <div class="men-empty-message">
-      <strong>تیشرت‌ها و رکابی‌های ROSEPINA</strong>
-      محصولات این دسته به‌زودی اضافه می‌شوند.
-    </div>
+    <div class="men-empty-message"><strong>تیشرت‌ها و رکابی‌های ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
   </section>
 
+  <!-- KNITWEAR -->
   <section class="men-category-products" id="category-knitwear">
     <div class="men-category-top">
-      <div>
-        <span class="eyebrow">ROSEPINA / MEN</span>
-        <h2>بافت و پلیور</h2>
-      </div>
+      <div><span class="eyebrow">ROSEPINA / MEN</span><h2>بافت و پلیور</h2></div>
       <button class="men-back-button" onclick="backToMenCategories()">← دسته‌بندی‌ها</button>
     </div>
 
     <div class="men-products-grid">
       <article class="product-card">
-        <a href="#sweater-order"
-           class="product-image"
-           onclick="openSweaterOrder(event)">
-          <img
-            id="sweater-main-image"
-            src="images/sweater-charcoal.jpg"
-            alt="بافت یقه اسکی مردانه"
-            loading="lazy">
+        <a href="#sweater-order" class="product-image" onclick="openSweaterOrder(event)">
+          <img id="sweater-main-image" src="images/sweater-charcoal.jpg" alt="بافت یقه اسکی مردانه" loading="lazy">
           <span class="product-tag">SPECIAL SALE</span>
           <span class="product-arrow">↗</span>
         </a>
-
         <div class="product-info">
           <div>
             <span class="product-category">MEN / KNITWEAR</span>
@@ -693,29 +363,89 @@
       </article>
     </div>
   </section>
-
 </main>
 
-<!-- SWEATER ORDER FORM -->
+<!-- SHIRT ORDER FORM -->
+<section id="shirt-order">
+  <div class="shirt-order-inner">
+    <button type="button" class="men-back-button" onclick="closeShirtOrder()">← بازگشت به محصولات</button>
 
+    <h2>پیراهن نخی مردانه</h2>
+    <p><strong>قیمت هر عدد: ۲,۰۰۰,۰۰۰ تومان</strong></p>
+
+    <img id="shirt-main-image" class="shirt-main-image"
+      src="images/shirt-cotton-colors.png" alt="رنگ‌بندی پیراهن نخی">
+
+    <div class="shirt-gallery-thumbs">
+      <button type="button" class="active" onclick="selectShirtColor('all')">
+        <img src="images/shirt-cotton-colors.png" alt="همه رنگ‌ها">
+      </button>
+      <button type="button" onclick="selectShirtColor('brown')">
+        <img src="images/shirt-cotton-brown.png" alt="قهوه‌ای">
+      </button>
+      <button type="button" onclick="selectShirtColor('olive')">
+        <img src="images/shirt-cotton-olive.png" alt="زیتونی">
+      </button>
+      <button type="button" onclick="selectShirtColor('lightblue')">
+        <img src="images/shirt-cotton-lightblue.png" alt="آبی روشن">
+      </button>
+      <button type="button" onclick="selectShirtColor('navy')">
+        <img src="images/shirt-cotton-navy.png" alt="سرمه‌ای">
+      </button>
+      <button type="button" onclick="selectShirtColor('white')">
+        <img src="images/shirt-cotton-white.png" alt="سفید">
+      </button>
+      <button type="button" onclick="selectShirtColor('cream')">
+        <img src="images/shirt-cotton-cream.png" alt="کرم">
+      </button>
+    </div>
+
+    <h3>انتخاب رنگ</h3>
+    <div class="shirt-color-options">
+      <button type="button" data-color="brown" onclick="selectShirtColor('brown')">قهوه‌ای</button>
+      <button type="button" data-color="olive" onclick="selectShirtColor('olive')">زیتونی</button>
+      <button type="button" data-color="lightblue" onclick="selectShirtColor('lightblue')">آبی روشن</button>
+      <button type="button" data-color="navy" onclick="selectShirtColor('navy')">سرمه‌ای</button>
+      <button type="button" data-color="white" onclick="selectShirtColor('white')">سفید</button>
+      <button type="button" data-color="cream" onclick="selectShirtColor('cream')">کرم</button>
+    </div>
+
+    <p id="shirt-selected-color">رنگ انتخابی: هنوز انتخاب نشده</p>
+
+    <h3>انتخاب سایز</h3>
+    <div class="shirt-size-options">
+      <button type="button" data-size="S" onclick="selectShirtSize('S')">S</button>
+      <button type="button" data-size="M" onclick="selectShirtSize('M')">M</button>
+      <button type="button" data-size="L" onclick="selectShirtSize('L')">L</button>
+      <button type="button" data-size="XL" onclick="selectShirtSize('XL')">XL</button>
+      <button type="button" data-size="XXL" onclick="selectShirtSize('XXL')">XXL</button>
+    </div>
+
+    <p id="shirt-selected-size">سایز انتخابی: هنوز انتخاب نشده</p>
+
+    <h3>تعداد</h3>
+    <input id="shirt-quantity" type="number" min="1" max="20" value="1">
+
+    <div class="shirt-stock-note">
+      موجودی رنگ و سایز محدود است. موجودی نهایی پس از ارسال سفارش در واتساپ تأیید می‌شود.
+    </div>
+
+    <button type="button" class="shirt-order-submit" onclick="orderCottonShirt()">
+      ثبت سفارش در واتساپ
+    </button>
+  </div>
+</section>
+
+<!-- SWEATER ORDER FORM: EXISTING -->
 <section id="sweater-order">
   <div class="order-inner">
-
-    <button onclick="closeSweaterOrder()" style="padding:12px 22px;margin-bottom:25px;">
-      بازگشت
-    </button>
-
+    <button onclick="closeSweaterOrder()" style="padding:12px 22px;margin-bottom:25px;">بازگشت</button>
     <h2>ثبت سفارش بافت یقه‌اسکی</h2>
 
-    <img
-      id="order-sweater-image"
-      src="images/sweater-charcoal.jpg"
-      alt="بافت یقه‌اسکی"
-      style="width:100%;max-width:350px;display:block;margin:20px auto;"
-    >
+    <img id="order-sweater-image" src="images/sweater-charcoal.jpg" alt="بافت یقه‌اسکی"
+      style="width:100%;max-width:350px;display:block;margin:20px auto;">
 
     <p id="order-color-name">رنگ انتخابی: زغالی</p>
-
     <h3>انتخاب رنگ</h3>
 
     <div class="color-options">
@@ -726,53 +456,33 @@
     </div>
 
     <h3>تعداد</h3>
-
-    <input
-      id="order-sweater-quantity"
-      type="number"
-      min="1"
-      max="20"
-      value="1"
-      style="padding:10px;width:100%;max-width:200px;"
-    >
+    <input id="order-sweater-quantity" type="number" min="1" max="20" value="1"
+      style="padding:10px;width:100%;max-width:200px;">
 
     <p>قیمت هر عدد: ۳,۰۰۰,۰۰۰ تومان</p>
-
     <h3>توضیحات (اختیاری)</h3>
+    <textarea id="order-sweater-note" placeholder="اگر توضیحی دارید اینجا بنویسید..."
+      rows="4" style="width:100%;padding:10px;box-sizing:border-box;"></textarea>
 
-    <textarea
-      id="order-sweater-note"
-      placeholder="اگر توضیحی دارید اینجا بنویسید..."
-      rows="4"
-      style="width:100%;padding:10px;box-sizing:border-box;"
-    ></textarea>
-
-    <button
-      type="button"
-      onclick="orderSweater()"
-      style="display:block;width:100%;padding:15px;margin-top:20px;background:#222;color:white;border:0;"
-    >
+    <button type="button" onclick="orderSweater()"
+      style="display:block;width:100%;padding:15px;margin-top:20px;background:#222;color:white;border:0;">
       ثبت سفارش در واتساپ
     </button>
-
   </div>
 </section>
 
 <script>
 /* CATEGORY NAVIGATION */
-
 function showMenCategory(category) {
   document.getElementById("men-categories").style.display = "none";
-
   document.querySelectorAll(".men-category-products").forEach(section => {
     section.classList.remove("active");
   });
 
   const selectedSection = document.getElementById("category-" + category);
-
   if (selectedSection) {
     selectedSection.classList.add("active");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({top:0,behavior:"smooth"});
   }
 }
 
@@ -780,40 +490,132 @@ function backToMenCategories() {
   document.querySelectorAll(".men-category-products").forEach(section => {
     section.classList.remove("active");
   });
-
   document.getElementById("men-categories").style.display = "block";
   document.getElementById("men-categories").scrollIntoView({
-    behavior: "smooth",
-    block: "start"
+    behavior:"smooth",block:"start"
   });
 }
 
-/* SWEATER ORDER */
+/* COTTON SHIRT ORDER */
+const shirtColors = {
+  brown: {name:"قهوه‌ای",image:"images/shirt-cotton-brown.png"},
+  olive: {name:"زیتونی",image:"images/shirt-cotton-olive.png"},
+  lightblue: {name:"آبی روشن",image:"images/shirt-cotton-lightblue.png"},
+  navy: {name:"سرمه‌ای",image:"images/shirt-cotton-navy.png"},
+  white: {name:"سفید",image:"images/shirt-cotton-white.png"},
+  cream: {name:"کرم",image:"images/shirt-cotton-cream.png"}
+};
 
+let selectedShirtColor = "";
+let selectedShirtSize = "";
+
+function openShirtOrder() {
+  selectedShirtColor = "";
+  selectedShirtSize = "";
+
+  document.getElementById("shirt-order").style.display = "block";
+  document.getElementById("shirt-main-image").src = "images/shirt-cotton-colors.png";
+  document.getElementById("shirt-selected-color").textContent = "رنگ انتخابی: هنوز انتخاب نشده";
+  document.getElementById("shirt-selected-size").textContent = "سایز انتخابی: هنوز انتخاب نشده";
+  document.getElementById("shirt-quantity").value = 1;
+
+  document.querySelectorAll(".shirt-color-options button").forEach(button => button.classList.remove("active"));
+  document.querySelectorAll(".shirt-size-options button").forEach(button => button.classList.remove("active"));
+  document.querySelectorAll(".shirt-gallery-thumbs button").forEach(button => button.classList.remove("active"));
+  document.querySelector(".shirt-gallery-thumbs button").classList.add("active");
+
+  document.body.style.overflow = "hidden";
+}
+
+function closeShirtOrder() {
+  document.getElementById("shirt-order").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+function selectShirtColor(color) {
+  if (!shirtColors[color]) return;
+
+  selectedShirtColor = color;
+  document.getElementById("shirt-main-image").src = shirtColors[color].image;
+  document.getElementById("shirt-selected-color").textContent =
+    "رنگ انتخابی: " + shirtColors[color].name;
+
+  document.querySelectorAll(".shirt-color-options button").forEach(button => {
+    button.classList.toggle("active", button.dataset.color === color);
+  });
+
+  const thumbButtons = document.querySelectorAll(".shirt-gallery-thumbs button");
+  thumbButtons.forEach(button => button.classList.remove("active"));
+
+  const colorOrder = ["brown","olive","lightblue","navy","white","cream"];
+  const thumbIndex = colorOrder.indexOf(color) + 1;
+  if (thumbButtons[thumbIndex]) thumbButtons[thumbIndex].classList.add("active");
+}
+
+function selectShirtSize(size) {
+  selectedShirtSize = size;
+  document.getElementById("shirt-selected-size").textContent =
+    "سایز انتخابی: " + size;
+
+  document.querySelectorAll(".shirt-size-options button").forEach(button => {
+    button.classList.toggle("active", button.dataset.size === size);
+  });
+}
+
+function orderCottonShirt() {
+  if (!selectedShirtColor) {
+    alert("لطفاً رنگ پیراهن را انتخاب کنید.");
+    return;
+  }
+
+  if (!selectedShirtSize) {
+    alert("لطفاً سایز پیراهن را انتخاب کنید.");
+    return;
+  }
+
+  const quantity = Number(document.getElementById("shirt-quantity").value);
+
+  if (!Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
+    alert("لطفاً تعداد صحیح بین ۱ تا ۲۰ وارد کنید.");
+    return;
+  }
+
+  const message =
+    "سلام، می‌خواهم از ROSEPINA سفارش ثبت کنم 🌸\n\n" +
+    "محصول: پیراهن نخی مردانه\n" +
+    "رنگ: " + shirtColors[selectedShirtColor].name + "\n" +
+    "سایز: " + selectedShirtSize + "\n" +
+    "تعداد: " + quantity + " عدد\n" +
+    "قیمت هر عدد: ۲,۰۰۰,۰۰۰ تومان\n" +
+    "لطفاً موجودی رنگ و سایز را تأیید کنید.";
+
+  window.open(
+    "https://wa.me/989120193510?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+/* SWEATER ORDER: ORIGINAL LOGIC */
 let selectedSweaterColor = "charcoal";
 
 const sweaterImages = {
-  charcoal: "images/sweater-charcoal.jpg",
-  brown: "images/sweater-brown.jpg",
-  black: "images/sweater-black.jpg",
-  green: "images/sweater-green.jpg"
+  charcoal:"images/sweater-charcoal.jpg",
+  brown:"images/sweater-brown.jpg",
+  black:"images/sweater-black.jpg",
+  green:"images/sweater-green.jpg"
 };
 
 const sweaterNames = {
-  charcoal: "زغالی",
-  brown: "قهوه‌ای",
-  black: "مشکی",
-  green: "سبز"
+  charcoal:"زغالی",
+  brown:"قهوه‌ای",
+  black:"مشکی",
+  green:"سبز"
 };
 
 function openSweaterOrder(event) {
   event.preventDefault();
-
   document.getElementById("sweater-order").style.display = "block";
-
-  document.getElementById("order-sweater-image").src =
-    sweaterImages[selectedSweaterColor];
-
+  document.getElementById("order-sweater-image").src = sweaterImages[selectedSweaterColor];
   document.body.style.overflow = "hidden";
 }
 
@@ -824,31 +626,19 @@ function closeSweaterOrder() {
 
 function changeSweaterColor(color) {
   if (!sweaterImages[color]) return;
-
   selectedSweaterColor = color;
 
   document.querySelectorAll(".color-option").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.textContent.trim() === sweaterNames[color]
-    );
+    button.classList.toggle("active",button.textContent.trim() === sweaterNames[color]);
   });
 
-  document.getElementById("sweater-main-image").src =
-    sweaterImages[color];
-
-  document.getElementById("order-sweater-image").src =
-    sweaterImages[color];
-
-  document.getElementById("order-color-name").textContent =
-    "رنگ انتخابی: " + sweaterNames[color];
+  document.getElementById("sweater-main-image").src = sweaterImages[color];
+  document.getElementById("order-sweater-image").src = sweaterImages[color];
+  document.getElementById("order-color-name").textContent = "رنگ انتخابی: " + sweaterNames[color];
 }
 
 function orderSweater() {
-  const quantity = Number(
-    document.getElementById("order-sweater-quantity").value
-  );
-
+  const quantity = Number(document.getElementById("order-sweater-quantity").value);
   const note = document.getElementById("order-sweater-note").value.trim();
 
   if (!Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
