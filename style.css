@@ -1171,3 +1171,85 @@ body:not(:has(.men-page-header)) .collections .collection-overlay b {
   letter-spacing: 0;
   font-size: 11px;
 }
+/* ROSEPINA HOMEPAGE PRODUCTS - LUXURY */
+body:not(:has(.men-page-header)) .products {
+  background: #ffffff;
+}
+
+body:not(:has(.men-page-header)) .products .section-title {
+  margin-bottom: 45px;
+}
+
+body:not(:has(.men-page-header)) .products .eyebrow {
+  font-family: "Vazirmatn", sans-serif;
+  letter-spacing: 0;
+  font-size: 11px;
+  color: #817b73;
+}
+
+body:not(:has(.men-page-header)) .products .section-counter {
+  font-family: "Vazirmatn", sans-serif;
+  letter-spacing: 0;
+}
+
+body:not(:has(.men-page-header)) .products .product-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body:not(:has(.men-page-header)) .products .product-card {
+  background: #ffffff;
+  padding-bottom: 12px;
+}
+
+body:not(:has(.men-page-header)) .products .product-image {
+  background: #f5f5f3;
+}
+
+body:not(:has(.men-page-header)) .products .product-image img {
+  aspect-ratio: 3 / 4;
+  transition: transform .7s ease;
+}
+
+body:not(:has(.men-page-header)) .products .product-card:hover .product-image img {
+  transform: scale(1.045);
+}
+
+body:not(:has(.men-page-header)) .products .product-tag {
+  background: rgba(255,255,255,.92);
+  color: #333;
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0;
+}
+
+body:not(:has(.men-page-header)) .products .product-info {
+  padding: 15px 4px;
+}
+
+body:not(:has(.men-page-header)) .products .product-category {
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0;
+  color: #999;
+}
+
+body:not(:has(.men-page-header)) .products .product-info h3 {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+body:not(:has(.men-page-header)) .products .product-price {
+  color: #777;
+  font-size: 11px;
+}
+
+body:not(:has(.men-page-header)) .products .product-arrow {
+  background: #fff;
+  color: #222;
+  transition: .3s ease;
+}
+
+body:not(:has(.men-page-header)) .products .products-bottom {
+  margin-top: 45px;
+}
