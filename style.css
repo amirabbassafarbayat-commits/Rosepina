@@ -1407,4 +1407,10 @@ body:not(:has(.men-page-header)) .rp-footer-bottom a {
     font-size: 9px;
   }
 }
+/* FOOTER COLOR TEST */
+body:not(:has(.men-page-header)) footer.rp-footer {
+  background: #ffffff !important;
+  color: #222222 !important;
+  display: block !important;
+}
 
