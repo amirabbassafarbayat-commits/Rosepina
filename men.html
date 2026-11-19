@@ -127,6 +127,100 @@
     padding: 55px 20px 35px;
   }
 }
+  
+/* LUXURY ORDER FORM */
+
+#sweater-order {
+  font-family: "Vazirmatn", sans-serif !important;
+  color: #292929;
+}
+
+#sweater-order h2 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+#sweater-order h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 25px 0 12px;
+}
+
+#sweater-order p {
+  font-size: 14px;
+  color: #666;
+  margin: 12px 0;
+}
+
+#sweater-order button[onclick^="changeSweaterColor"] {
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 20px;
+  min-width: 75px;
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  background: #f7f7f7;
+  color: #333;
+  transition: all 0.25s ease;
+}
+
+#sweater-order button[onclick^="changeSweaterColor"]:hover {
+  background: #333;
+  color: white;
+  border-color: #333;
+  transform: translateY(-2px);
+}
+
+#sweater-order input,
+#sweater-order textarea {
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 14px;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  background: #fafafa;
+  outline: none;
+  transition: border 0.25s;
+}
+
+#sweater-order input:focus,
+#sweater-order textarea:focus {
+  border-color: #555;
+  background: #fff;
+}
+
+#sweater-order button[onclick="orderSweater()"] {
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  background: #292929 !important;
+  color: white !important;
+  border: 1px solid #292929 !important;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#sweater-order button[onclick="orderSweater()"]:hover {
+  background: #fff !important;
+  color: #292929 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 600px) {
+  #sweater-order {
+    padding: 25px 18px !important;
+  }
+
+  #sweater-order button[onclick^="changeSweaterColor"] {
+    flex: 1;
+    padding: 10px 12px;
+  }
+}
+
 </style>
 
   
