@@ -142,8 +142,8 @@ img {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(20,19,17,0.82), rgba(20,19,17,0.25)),
-    url("./hero.png?v=2") center/cover no-repeat,
+    linear-gradient(90deg, rgba(20,19,17,0.82), 
+                    url("./hero.png?v=9999") center/cover no-repeat,
     #39332d;
   color: white;
   display: flex;
