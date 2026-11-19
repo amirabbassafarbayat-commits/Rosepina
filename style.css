@@ -1113,5 +1113,21 @@ body:has(.men-page-header) #sweater-order button {
     font-size: 12px;
   }
 }
+/* ROSEPINA FULL HERO IMAGE */
+
+.hero-image-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 
     
