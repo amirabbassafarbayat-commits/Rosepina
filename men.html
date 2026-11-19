@@ -220,6 +220,47 @@
     padding: 10px 12px;
   }
 }
+  /* LUXURY COLOR BUTTONS */
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.color-option {
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 85px;
+  padding: 11px 18px;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  transition: all 0.25s ease;
+}
+
+.color-option:hover {
+  border-color: #333;
+  transform: translateY(-2px);
+}
+
+.color-option.active {
+  background: #292929;
+  color: #fff;
+  border-color: #292929;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 600px) {
+  .color-option {
+    flex: 1;
+    min-width: 65px;
+    padding: 10px 8px;
+  }
+}
 
 </style>
 
@@ -366,6 +407,12 @@ function changeSweaterColor(color) {
   if (!sweaterImages[color]) return;
 
   selectedSweaterColor = color;
+  document.querySelectorAll(".color-option").forEach(button => {
+  button.classList.toggle(
+    "active",
+    button.textContent.trim() === sweaterNames[color]
+  );
+});
   document.getElementById("sweater-main-image").src = sweaterImages[color];
   document.getElementById("order-sweater-image").src = sweaterImages[color];
   document.getElementById("order-color-name").textContent =
