@@ -1260,3 +1260,9 @@ body:not(:has(.men-page-header)) .products .products-bottom {
     gap: 14px;
   }
 }
+@media (max-width: 600px) {
+  body:not(:has(.men-page-header)) .products .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px;
+  }
+}
