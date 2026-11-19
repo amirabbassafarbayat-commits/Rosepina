@@ -1128,3 +1128,7 @@ body:not(:has(.men-page-header)) .section {
   padding-top: 90px;
   padding-bottom: 90px;
 }
+/* ROSEPINA INTRO - WHITE BACKGROUND */
+body:not(:has(.men-page-header)) .intro {
+  background: #ffffff;
+}
