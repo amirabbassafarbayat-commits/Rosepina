@@ -163,10 +163,11 @@ img {
 .hero-background {
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 35%, rgba(189,155,105,0.18));
-  pointer-events: none;
-}
-
+  
+background:
+  linear-gradient(90deg, rgba(20,19,17,0.82), rgba(20,19,17,0.25)),
+  url("./hero.png?v=9999") center/cover no-repeat,
+  #39332d;
 .hero-top,
 .hero-bottom {
   position: relative;
