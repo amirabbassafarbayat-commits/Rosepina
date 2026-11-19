@@ -1,1 +1,240 @@
 
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کالکشن مردانه | ROSEPINA</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    .men-page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 18px 5%;
+      background: #11110f;
+      color: white;
+    }
+
+    .men-page-header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .men-page-header .logo-img {
+      max-width: 130px;
+    }
+
+    .men-intro {
+      text-align: center;
+      padding: 65px 20px 35px;
+      background: #e9e1d7;
+    }
+
+    .men-intro h1 {
+      margin: 12px 0;
+    }
+
+    .men-products-area {
+      padding: 35px 5%;
+      background: #e9e1d7;
+    }
+
+    .men-products-area .product-grid {
+      grid-template-columns: minmax(0, 380px);
+      justify-content: center;
+    }
+
+    .men-products-area .product-card {
+      width: 100%;
+    }
+
+    .men-back {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="men-page-header">
+  <a href="index.html" aria-label="بازگشت به صفحه اصلی">
+    <img src="logo.png" alt="ROSEPINA" class="logo-img">
+  </a>
+
+  <a href="index.html">بازگشت به صفحه اصلی ↗</a>
+</header>
+
+<main>
+  <section class="men-intro">
+    <span class="eyebrow">ROSEPINA / MEN</span>
+    <h1>کالکشن <span>مردانه</span></h1>
+    <p>انتخابی خاص برای استایلی متفاوت</p>
+    <a class="men-back" href="index.html">← بازگشت به فروشگاه</a>
+  </section>
+
+  <section class="products section men-products-area">
+    <div class="section-title">
+      <div>
+        <span class="eyebrow">MEN COLLECTION</span>
+        <h2>محصولات <span>مردانه</span></h2>
+      </div>
+      <span class="section-counter">01 — PRODUCTS</span>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <a href="#sweater-order"
+           class="product-image"
+           onclick="openSweaterOrder(event)">
+          <img
+            id="sweater-main-image"
+            src="images/sweater-charcoal.jpg"
+            alt="بافت یقه اسکی مردانه"
+            loading="lazy">
+          <span class="product-tag">SPECIAL SALE</span>
+          <span class="product-arrow">↗</span>
+        </a>
+
+        <div class="product-info">
+          <div>
+            <span class="product-category">MEN / KNITWEAR</span>
+            <h3>بافت یقه‌اسکی</h3>
+          </div>
+          <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<section id="sweater-order" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#fff;
+  overflow-y:auto;
+  padding:30px 20px;
+">
+  <div style="max-width:600px;margin:auto;">
+    <button onclick="closeSweaterOrder()" style="padding:12px 22px;margin-bottom:25px;">
+      بازگشت
+    </button>
+
+    <h2>ثبت سفارش بافت یقه‌اسکی</h2>
+
+    <img
+      id="order-sweater-image"
+      src="images/sweater-charcoal.jpg"
+      alt="بافت یقه‌اسکی"
+      style="width:100%;max-width:350px;display:block;margin:20px auto;"
+    >
+
+    <p id="order-color-name">رنگ انتخابی: زغالی</p>
+
+    <h3>انتخاب رنگ</h3>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button type="button" onclick="changeSweaterColor('charcoal')">زغالی</button>
+      <button type="button" onclick="changeSweaterColor('brown')">قهوه‌ای</button>
+      <button type="button" onclick="changeSweaterColor('black')">مشکی</button>
+      <button type="button" onclick="changeSweaterColor('green')">سبز</button>
+    </div>
+
+    <h3>تعداد</h3>
+    <input id="order-sweater-quantity" type="number"
+      min="1" max="20" value="1"
+      style="padding:10px;width:100%;max-width:200px;">
+
+    <p>قیمت هر عدد: ۳,۰۰۰,۰۰۰ تومان</p>
+
+    <h3>توضیحات (اختیاری)</h3>
+    <textarea id="order-sweater-note"
+      placeholder="اگر توضیحی دارید اینجا بنویسید..."
+      rows="4"
+      style="width:100%;padding:10px;box-sizing:border-box;"></textarea>
+
+    <button type="button" onclick="orderSweater()"
+      style="display:block;width:100%;padding:15px;margin-top:20px;background:#222;color:white;border:0;">
+      ثبت سفارش در واتساپ
+    </button>
+  </div>
+</section>
+
+<script>
+let selectedSweaterColor = "charcoal";
+
+const sweaterImages = {
+  charcoal: "images/sweater-charcoal.jpg",
+  brown: "images/sweater-brown.jpg",
+  black: "images/sweater-black.jpg",
+  green: "images/sweater-green.jpg"
+};
+
+const sweaterNames = {
+  charcoal: "زغالی",
+  brown: "قهوه‌ای",
+  black: "مشکی",
+  green: "سبز"
+};
+
+function openSweaterOrder(event) {
+  event.preventDefault();
+  document.getElementById("sweater-order").style.display = "block";
+  document.getElementById("order-sweater-image").src =
+    sweaterImages[selectedSweaterColor];
+  document.body.style.overflow = "hidden";
+}
+
+function closeSweaterOrder() {
+  document.getElementById("sweater-order").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+function changeSweaterColor(color) {
+  if (!sweaterImages[color]) return;
+
+  selectedSweaterColor = color;
+  document.getElementById("sweater-main-image").src = sweaterImages[color];
+  document.getElementById("order-sweater-image").src = sweaterImages[color];
+  document.getElementById("order-color-name").textContent =
+    "رنگ انتخابی: " + sweaterNames[color];
+}
+
+function orderSweater() {
+  const quantity = Number(
+    document.getElementById("order-sweater-quantity").value
+  );
+  const note = document.getElementById("order-sweater-note").value.trim();
+
+  if (!Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
+    alert("لطفاً تعداد صحیح بین ۱ تا ۲۰ وارد کنید.");
+    return;
+  }
+
+  const message =
+    "سلام، می‌خواهم از ROSEPINA سفارش ثبت کنم 🌸\n\n" +
+    "محصول: بافت یقه‌اسکی مردانه\n" +
+    "رنگ: " + sweaterNames[selectedSweaterColor] + "\n" +
+    "تعداد: " + quantity + " عدد\n" +
+    "قیمت هر عدد: ۳,۰۰۰,۰۰۰ تومان\n" +
+    "توضیحات: " + (note || "ندارد");
+
+  window.open(
+    "https://wa.me/989120193510?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
