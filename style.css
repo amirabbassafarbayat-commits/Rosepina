@@ -135,6 +135,15 @@ img {
 }
 
 /* HERO */
+.hero {
+  min-height: 510px;
+  height: auto;
+  padding: 22px 6%;
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #222;
+}
 
 .hero {
   min-height: 650px;
