@@ -944,3 +944,70 @@ img {
     grid-template-rows: 260px 170px;
   }
 }
+{
+  
+/* ==============================
+   ROSEPINA MEN - MINIMAL LUXURY
+================================ */
+
+.men-page-header {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+}
+
+.men-page-header a {
+  color: #333333 !important;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.men-page-header a:hover {
+  color: #888888 !important;
+}
+
+.men-page-header img {
+  filter: none;
+}
+
+body:has(.men-page-header) {
+  background: #ffffff;
+  color: #292929;
+}
+
+body:has(.men-page-header) .products {
+  background: #ffffff;
+}
+
+body:has(.men-page-header) .section-title h2 {
+  color: #292929;
+  letter-spacing: 1px;
+}
+
+body:has(.men-page-header) .eyebrow,
+body:has(.men-page-header) .product-category {
+  color: #888888;
+}
+
+body:has(.men-page-header) .product-card {
+  background: #f7f7f7;
+}
+
+body:has(.men-page-header) .product-image {
+  background: #eeeeee;
+}
+
+body:has(.men-page-header) .product-tag {
+  background: #333333;
+  color: #ffffff;
+}
+
+body:has(.men-page-header) .product-price {
+  color: #333333;
+}
+
+body:has(.men-page-header) #sweater-order button {
+  border-radius: 0 !important;
+}
+ 
+}
+
