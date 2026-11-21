@@ -78,25 +78,162 @@
 .men-empty-message {padding:65px 15px;text-align:center;background:#f7f7f7;color:#888;font-size:13px;line-height:2.2}
 .men-empty-message strong {display:block;margin-bottom:8px;color:#444;font-size:16px}
 
+/* PRODUCT CARDS - REFINED DESIGN */
 .men-products-grid {
-  display:grid;grid-template-columns:minmax(0,380px);justify-content:center;
+  display:grid;
+  grid-template-columns:minmax(0,380px);
+  justify-content:center;
+  gap:25px;
+  width:100%;
 }
-.men-products-grid .product-card {width:100%;background:#f5f5f5}
-.men-products-grid .product-image {background:#eee}
-.men-products-grid .product-tag {background:#333;color:#fff}
-.men-products-grid .product-category {color:#888}
-.men-products-grid .product-price {color:#333}
+
+.men-products-grid .product-card,
+.men-products-grid .shirt-product-card {
+  width:100%;
+  min-width:0;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #eaeaea;
+  border-radius:5px;
+  box-shadow:0 5px 20px rgba(0,0,0,.045);
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+
+.men-products-grid .product-card:hover,
+.men-products-grid .shirt-product-card:hover {
+  transform:translateY(-5px);
+  border-color:#d5d5d5;
+  box-shadow:0 12px 30px rgba(0,0,0,.09);
+}
+
+.men-products-grid .product-image {
+  display:block;
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:#f5f5f5;
+}
+
+.men-products-grid .product-image img {
+  display:block;
+  width:100%;
+  aspect-ratio:1/1.15;
+  object-fit:cover;
+  transition:transform .5s ease;
+}
+
+.men-products-grid .product-card:hover .product-image img {
+  transform:scale(1.035);
+}
+
+.men-products-grid .product-tag {
+  background:#292929;
+  color:#fff;
+  font-size:9px;
+  letter-spacing:1px;
+  padding:7px 11px;
+}
+
+.men-products-grid .product-arrow {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:rgba(255,255,255,.92);
+  color:#292929;
+}
+
+.men-products-grid .product-info {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:18px 17px;
+  background:#fff;
+}
+
+.men-products-grid .product-category {
+  display:block;
+  color:#999;
+  font-family:"DM Sans",sans-serif;
+  font-size:9px;
+  letter-spacing:1.4px;
+  margin-bottom:7px;
+}
+
+.men-products-grid .product-info h3 {
+  margin:0;
+  color:#292929;
+  font-family:"Vazirmatn",sans-serif;
+  font-size:15px;
+  font-weight:600;
+}
+
+.men-products-grid .product-price {
+  flex-shrink:0;
+  color:#292929;
+  font-family:"Vazirmatn",sans-serif;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* SHIRT PRODUCT CARD */
+.shirt-product-card {
+  display:block;
+  cursor:pointer;
+  border:0;
+  padding:0;
+  text-align:right;
+  font-family:"Vazirmatn",sans-serif;
+  color:#292929;
+}
+
+.shirt-product-card img {
+  display:block;
+  width:100%;
+  aspect-ratio:1/1.15;
+  object-fit:cover;
+  transition:transform .5s ease;
+}
+
+.shirt-product-card:hover img {
+  transform:scale(1.035);
+}
 
 .shirt-product-card {
-  background:#f5f5f5;cursor:pointer;
-  border:0;padding:0;text-align:right;width:100%;
-  font-family:"Vazirmatn",sans-serif;color:#292929;
+  overflow:hidden;
 }
-.shirt-product-card img {display:block;width:100%;aspect-ratio:1/1.15;object-fit:cover}
-.shirt-product-info {padding:15px}
-.shirt-product-info small {color:#888;font-size:10px}
-.shirt-product-info h3 {font-size:16px;margin:7px 0}
-.shirt-product-info p {margin:0;color:#333;font-size:14px;font-weight:600}
+
+.shirt-product-info {
+  padding:18px 17px;
+  background:#fff;
+}
+
+.shirt-product-info small {
+  display:block;
+  color:#999;
+  font-family:"DM Sans",sans-serif;
+  font-size:9px;
+  letter-spacing:1.4px;
+  margin-bottom:7px;
+}
+
+.shirt-product-info h3 {
+  font-size:15px;
+  font-weight:600;
+  margin:0 0 9px;
+  color:#292929;
+}
+
+.shirt-product-info p {
+  margin:0;
+  color:#292929;
+  font-size:13px;
+  font-weight:700;
+}
 
 /* SWEATER ORDER FORM */
 #sweater-order {
@@ -231,6 +368,41 @@
   .shirt-color-options button,.shirt-size-options button {flex:1;min-width:50px}
   #shirt-order .shirt-main-image {height:350px}
   #sweater-order .sweater-main-image {height:350px}
+
+  .men-category-products {padding:25px 4% 55px}
+
+  .men-products-grid {
+    grid-template-columns:minmax(0,1fr);
+    gap:20px;
+  }
+
+  .men-products-grid .product-info {
+    padding:15px 13px;
+    gap:8px;
+  }
+
+  .men-products-grid .product-info h3,
+  .shirt-product-info h3 {
+    font-size:14px;
+  }
+
+  .men-products-grid .product-price,
+  .shirt-product-info p {
+    font-size:12px;
+  }
+
+  .shirt-product-info {
+    padding:15px 13px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .men-products-grid .product-card,
+  .men-products-grid .shirt-product-card,
+  .men-products-grid .product-image img,
+  .shirt-product-card img {
+    transition:none;
+  }
 }
 </style>
 </head>
