@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -17,7 +18,23 @@
   border-bottom:1px solid #e5e5e5;
 }
 .men-page-header a {color:#333;text-decoration:none;font-size:12px}
-.men-page-header .logo-img {max-width:130px}
+.men-page-header .logo-img {max-width:130px;display:block}
+
+/* MEN HERO IMAGE */
+.men-hero {
+  width:100%;
+  overflow:hidden;
+  background:#f5f5f5;
+}
+.men-hero img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:520px;
+  object-fit:cover;
+  object-position:center;
+}
+
 .men-intro {text-align:center;padding:55px 20px 35px;background:#fff;color:#292929}
 .men-intro .eyebrow {color:#888;font-size:11px;letter-spacing:2px}
 .men-intro h1 {margin:12px 0;font-size:30px;font-weight:600}
@@ -195,6 +212,11 @@
 /* MOBILE */
 @media (max-width:600px) {
   .men-page-header {padding:15px 5%}
+  .men-hero img {
+    min-height:220px;
+    max-height:320px;
+    object-fit:cover;
+  }
   .men-intro {padding:45px 20px 25px}
   .men-categories {padding:20px 4% 50px}
   .men-category-grid {gap:11px}
@@ -220,6 +242,11 @@
   </a>
   <a href="index.html">بازگشت به صفحه اصلی ↗</a>
 </header>
+
+<!-- MEN HERO IMAGE -->
+<section class="men-hero">
+  <img src="images/men-hero.png" alt="کالکشن مردانه ROSEPINA">
+</section>
 
 <main>
   <section class="men-intro">
@@ -281,7 +308,6 @@
         <div class="men-category-info"><h3>شلوارک</h3><span>↗</span></div>
       </button>
 
-      <!-- T-SHIRT CATEGORY IMAGE -->
       <button class="men-category-card" type="button" onclick="showMenCategory('tshirts')">
         <div class="men-category-image">
           <img src="images/Tshirt.png" alt="تیشرت مردانه هرمس" loading="lazy">
@@ -289,7 +315,6 @@
         <div class="men-category-info"><h3>رکابی و تیشرت</h3><span>↗</span></div>
       </button>
 
-      <!-- KNITWEAR CATEGORY IMAGE -->
       <button class="men-category-card" type="button" onclick="showMenCategory('knitwear')">
         <div class="men-category-image">
           <img src="images/Baft.png" alt="بافت مردانه" loading="lazy">
@@ -434,7 +459,7 @@
 <!-- SWEATER ORDER FORM -->
 <section id="sweater-order">
   <div class="order-inner">
-    <button onclick="closeSweaterOrder()" style="padding:12px 22px;margin-bottom:25px;">بازگشت</button>
+    <button type="button" class="men-back-button" onclick="closeSweaterOrder()" style="padding:12px 22px;margin-bottom:25px;">بازگشت</button>
     <h2>ثبت سفارش بافت یقه‌اسکی</h2>
 
     <div class="sweater-gallery" ontouchstart="startSweaterSwipe(event)" ontouchend="endSweaterSwipe(event)">
@@ -447,11 +472,14 @@
     <p id="order-color-name">رنگ انتخابی: زغالی</p>
     <h3>انتخاب رنگ</h3>
     <div class="color-options">
-      <button class="color-option active" type="button" onclick="changeSweaterColor('charcoal')">زغالی</button>
-      <button class="color-option" type="button" onclick="changeSweaterColor('brown')">قهوه‌ای</button>
-      <button class="color-option" type="button" onclick="changeSweaterColor('black')">مشکی</button>
-      <button class="color-option" type="button" onclick="changeSweaterColor('olive')">زیتونی</button>
+      <button class="color-option active" type="button" data-color="charcoal" onclick="changeSweaterColor('charcoal')">زغالی</button>
+      <button class="color-option" type="button" data-color="brown" onclick="changeSweaterColor('brown')">قهوه‌ای</button>
+      <button class="color-option" type="button" data-color="black" onclick="changeSweaterColor('black')">مشکی</button>
+      <button class="color-option" type="button" data-color="olive" onclick="changeSweaterColor('olive')">زیتونی</button>
     </div>
+
+    <h3>سایز</h3>
+    <p>Free Size (فری‌سایز)</p>
 
     <h3>تعداد</h3>
     <input id="order-sweater-quantity" type="number" min="1" max="20" value="1" style="padding:10px;width:100%;max-width:200px;">
@@ -691,10 +719,7 @@ function showSweaterSlide(index) {
     "رنگ انتخابی: " + sweaterNames[color];
 
   document.querySelectorAll("#sweater-order .color-option").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.textContent.trim() === sweaterNames[color]
-    );
+    button.classList.toggle("active", button.dataset.color === color);
   });
 }
 
@@ -720,6 +745,8 @@ function openSweaterOrder(event) {
   if (event) event.preventDefault();
 
   document.getElementById("sweater-order").style.display = "block";
+  document.getElementById("order-sweater-quantity").value = 1;
+  document.getElementById("order-sweater-note").value = "";
 
   const selectedIndex = sweaterSlideColors.indexOf(selectedSweaterColor);
   showSweaterSlide(selectedIndex);
@@ -756,6 +783,7 @@ function orderSweater() {
     "سلام، می‌خواهم از ROSEPINA سفارش ثبت کنم 🌸\n\n" +
     "محصول: بافت یقه‌اسکی مردانه\n" +
     "رنگ: " + sweaterNames[selectedSweaterColor] + "\n" +
+    "سایز: Free Size\n" +
     "تعداد: " + quantity + " عدد\n" +
     "قیمت هر عدد: ۳,۰۰۰,۰۰۰ تومان\n" +
     "توضیحات: " + (note || "ندارد");
