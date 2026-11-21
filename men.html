@@ -30,9 +30,9 @@
   display:block;
   width:100%;
   height:auto;
-  max-height:520px;
-  object-fit:cover;
-  object-position:center;
+  max-height:none;
+  object-fit:contain;
+  object-position:center top;
 }
 
 .men-intro {text-align:center;padding:55px 20px 35px;background:#fff;color:#292929}
@@ -213,9 +213,12 @@
 @media (max-width:600px) {
   .men-page-header {padding:15px 5%}
   .men-hero img {
-    min-height:220px;
-    max-height:320px;
-    object-fit:cover;
+    width:100%;
+    height:auto;
+    min-height:0;
+    max-height:none;
+    object-fit:contain;
+    object-position:center top;
   }
   .men-intro {padding:45px 20px 25px}
   .men-categories {padding:20px 4% 50px}
