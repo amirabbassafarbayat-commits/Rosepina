@@ -22,6 +22,7 @@
 
 /* MEN HERO IMAGE SLIDER */
 .men-hero {
+  position:relative;
   width:100%;
   overflow:hidden;
   background:#f5f5f5;
@@ -38,6 +39,61 @@
 }
 .men-hero img.is-fading {
   opacity:0;
+}
+
+/* BUTTONS ON FEATURED SNEAKER IMAGE */
+.men-hero-actions {
+  display:none;
+  position:absolute;
+  left:50%;
+  bottom:8%;
+  transform:translateX(-50%);
+  width:min(90%,460px);
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  z-index:5;
+}
+.men-hero.is-featured .men-hero-actions {
+  display:flex;
+}
+.men-hero-action {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  min-height:46px;
+  padding:12px 22px;
+  border:1px solid #292929;
+  border-radius:3px;
+  background:#292929;
+  color:#fff;
+  font-family:"Vazirmatn",sans-serif;
+  font-size:12px;
+  font-weight:600;
+  text-decoration:none;
+  text-align:center;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+.men-hero-action.secondary {
+  background:rgba(255,255,255,.94);
+  color:#292929;
+  border-color:#fff;
+}
+.men-hero-action:hover {
+  background:#fff;
+  color:#292929;
+  border-color:#fff;
+  transform:translateY(-2px);
+}
+.men-hero-action.secondary:hover {
+  background:#292929;
+  color:#fff;
+  border-color:#292929;
+}
+.men-hero-action:focus-visible {
+  outline:2px solid #777;
+  outline-offset:4px;
 }
 
 .men-intro {text-align:center;padding:55px 20px 35px;background:#fff;color:#292929}
@@ -240,7 +296,7 @@
   font-size:16px;
 }
 
-/* PRODUCT CARDS - REFINED DESIGN */
+/* PRODUCT CARDS */
 .men-products-grid {
   display:grid;
   grid-template-columns:minmax(0,380px);
@@ -524,6 +580,17 @@
     object-fit:contain;
     object-position:center top;
   }
+  .men-hero-actions {
+    width:92%;
+    bottom:5%;
+    gap:8px;
+  }
+  .men-hero-action {
+    flex:1;
+    min-height:40px;
+    padding:9px 8px;
+    font-size:10px;
+  }
   .men-intro {padding:45px 20px 25px}
   .men-categories {padding:25px 4% 55px}
   .men-section-heading {margin-bottom:22px}
@@ -549,29 +616,23 @@
   .shirt-color-options button,.shirt-size-options button {flex:1;min-width:50px}
   #shirt-order .shirt-main-image {height:350px}
   #sweater-order .sweater-main-image {height:350px}
-
   .men-category-products {padding:25px 4% 55px}
-
   .men-products-grid {
     grid-template-columns:minmax(0,1fr);
     gap:20px;
   }
-
   .men-products-grid .product-info {
     padding:15px 13px;
     gap:8px;
   }
-
   .men-products-grid .product-info h3,
   .shirt-product-info h3 {
     font-size:14px;
   }
-
   .men-products-grid .product-price,
   .shirt-product-info p {
     font-size:12px;
   }
-
   .shirt-product-info {
     padding:15px 13px;
   }
@@ -602,12 +663,30 @@
 </header>
 
 <!-- MEN HERO IMAGE SLIDER -->
-<section class="men-hero">
+<section class="men-hero" id="men-hero">
   <img
     id="men-hero-image"
     src="images/men-banner.png"
     alt="کالکشن مردانه ROSEPINA"
   >
+
+  <div class="men-hero-actions" id="men-hero-actions">
+    <button
+      type="button"
+      class="men-hero-action"
+      onclick="orderFeaturedSneaker()"
+    >
+      ثبت سفارش کتونی
+    </button>
+
+    <button
+      type="button"
+      class="men-hero-action secondary"
+      onclick="goToMenCategories()"
+    >
+      مشاهده دسته‌بندی‌ها
+    </button>
+  </div>
 </section>
 
 <main>
@@ -856,11 +935,12 @@
 </section>
 
 <script>
-/* MEN HERO AUTOMATIC SLIDER */
+/* MEN HERO AUTOMATIC SLIDER + FEATURED BUTTONS */
 (function () {
+  const hero = document.getElementById("men-hero");
   const heroImage = document.getElementById("men-hero-image");
 
-  if (!heroImage) return;
+  if (!hero || !heroImage) return;
 
   const heroImages = [
     "images/men-banner.png",
@@ -869,42 +949,47 @@
 
   let currentHeroIndex = 0;
   let heroTimer = null;
-  let isChangingHero = false;
 
-  // تصویر دوم را از قبل بارگذاری می‌کنیم تا در صورت نبودن فایل،
-  // بنر فعلی بدون مشکل باقی بماند.
   const featuredPreload = new Image();
 
   featuredPreload.onload = function () {
     heroTimer = window.setInterval(function () {
-      if (isChangingHero) return;
+      const nextIndex = currentHeroIndex === 0 ? 1 : 0;
+      const nextImage = new Image();
 
-      isChangingHero = true;
       heroImage.classList.add("is-fading");
 
       window.setTimeout(function () {
-        currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+        nextImage.onload = function () {
+          currentHeroIndex = nextIndex;
+          heroImage.src = heroImages[currentHeroIndex];
 
-        heroImage.src = heroImages[currentHeroIndex];
+          if (currentHeroIndex === 1) {
+            hero.classList.add("is-featured");
+          } else {
+            hero.classList.remove("is-featured");
+          }
 
-        heroImage.onload = function () {
-          heroImage.classList.remove("is-fading");
-          isChangingHero = false;
-          heroImage.onload = null;
+          window.requestAnimationFrame(function () {
+            heroImage.classList.remove("is-fading");
+          });
         };
 
-        // اگر تصویر در کش مرورگر موجود باشد، ممکن است onload اجرا نشود.
-        if (heroImage.complete && heroImage.naturalWidth > 0) {
+        nextImage.onerror = function () {
           heroImage.classList.remove("is-fading");
-          isChangingHero = false;
-          heroImage.onload = null;
+        };
+
+        nextImage.src = heroImages[nextIndex];
+
+        if (nextImage.complete && nextImage.naturalWidth > 0) {
+          nextImage.onload();
         }
       }, 700);
+
     }, 5000);
   };
 
   featuredPreload.onerror = function () {
-    // اگر عکس کتونی وجود نداشته باشد، اسلایدر شروع نمی‌شود.
     if (heroTimer) {
       window.clearInterval(heroTimer);
       heroTimer = null;
@@ -913,6 +998,29 @@
 
   featuredPreload.src = heroImages[1];
 })();
+
+/* HERO BUTTON ACTIONS */
+function orderFeaturedSneaker() {
+  const message =
+    "سلام، از سایت ROSEPINA برای کتونی پیام می‌دهم 🌸\n\n" +
+    "لطفاً اطلاعات قیمت، سایزبندی و موجودی کتونی داخل تصویر هدر را برای من ارسال کنید.";
+
+  const whatsappUrl =
+    "https://wa.me/989120193510?text=" + encodeURIComponent(message);
+
+  window.open(whatsappUrl, "_blank");
+}
+
+function goToMenCategories() {
+  const categories = document.getElementById("men-categories");
+
+  if (categories) {
+    categories.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+  }
+}
 
 /* CATEGORY NAVIGATION */
 function showMenCategory(category) {
