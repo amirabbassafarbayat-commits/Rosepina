@@ -39,44 +39,201 @@
 .men-intro .eyebrow {color:#888;font-size:11px;letter-spacing:2px}
 .men-intro p {color:#888;font-size:13px}
 
-.men-categories {padding:25px 5% 65px;background:#fff}
-.men-section-heading {display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:25px}
-.men-section-heading .eyebrow {color:#999;font-size:10px;letter-spacing:2px}
-.men-section-heading h2 {color:#292929;font-size:23px;font-weight:600;margin:8px 0 0}
-.men-section-heading h2 span {color:#888}
-.men-category-count {color:#999;font-size:10px;white-space:nowrap}
-.men-category-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
-.men-category-card {
-  display:block;min-width:0;padding:0;border:0;background:#f3f3f3;
-  color:#292929;text-align:right;cursor:pointer;overflow:hidden;
-  font-family:"Vazirmatn",sans-serif;
+/* PREMIUM CATEGORY SECTION */
+.men-categories {
+  padding:35px 5% 75px;
+  background:#fff;
 }
-.men-category-card:hover .men-category-image {background:#dedede}
-.men-category-image {
-  display:flex;align-items:center;justify-content:center;width:100%;
-  aspect-ratio:1 / 1.05;background:linear-gradient(145deg,#eee,#d9d9d9);
-  color:#999;font-size:11px;transition:background .3s ease;overflow:hidden;
-}
-.men-category-image img {display:block;width:100%;height:100%;object-fit:cover}
-.men-category-info {
-  display:flex;justify-content:space-between;align-items:center;
-  gap:8px;padding:13px 12px;background:#f7f7f7;
-}
-.men-category-info h3 {margin:0;font-size:13px;font-weight:600;color:#292929}
-.men-category-info span {color:#888;font-size:16px}
 
-.men-category-products {display:none;padding:35px 5% 70px;background:#fff}
-.men-category-products.active {display:block}
-.men-category-top {display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:30px}
-.men-category-top h2 {margin:5px 0 0;font-size:23px;color:#292929}
-.men-category-top .eyebrow {color:#999;font-size:10px;letter-spacing:2px}
-.men-back-button {
-  padding:10px 15px;border:1px solid #ddd;background:#fff;color:#444;
-  font-family:"Vazirmatn",sans-serif;font-size:11px;cursor:pointer;
+.men-section-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:15px;
+  margin-bottom:30px;
 }
-.men-back-button:hover {background:#292929;color:#fff;border-color:#292929}
-.men-empty-message {padding:65px 15px;text-align:center;background:#f7f7f7;color:#888;font-size:13px;line-height:2.2}
-.men-empty-message strong {display:block;margin-bottom:8px;color:#444;font-size:16px}
+
+.men-section-heading .eyebrow {
+  color:#999;
+  font-family:"DM Sans",sans-serif;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.men-section-heading h2 {
+  color:#292929;
+  font-size:24px;
+  font-weight:500;
+  margin:9px 0 0;
+  letter-spacing:-.5px;
+}
+
+.men-section-heading h2 span {color:#888}
+
+.men-category-count {
+  color:#aaa;
+  font-family:"DM Sans",sans-serif;
+  font-size:10px;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+
+.men-category-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:20px;
+}
+
+.men-category-card {
+  display:block;
+  min-width:0;
+  padding:0;
+  border:1px solid #ededed;
+  border-radius:5px;
+  background:#fff;
+  color:#292929;
+  text-align:right;
+  cursor:pointer;
+  overflow:hidden;
+  font-family:"Vazirmatn",sans-serif;
+  box-shadow:0 3px 15px rgba(0,0,0,.025);
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+
+.men-category-card:hover {
+  transform:translateY(-5px);
+  border-color:#d8d8d8;
+  box-shadow:0 12px 28px rgba(0,0,0,.075);
+}
+
+.men-category-card:focus-visible {
+  outline:2px solid #555;
+  outline-offset:4px;
+}
+
+.men-category-image {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  width:100%;
+  aspect-ratio:1 / 1.08;
+  background:#f3f3f3;
+  color:#999;
+  font-size:11px;
+  overflow:hidden;
+}
+
+.men-category-image img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .65s cubic-bezier(.2,.7,.2,1);
+}
+
+.men-category-card:hover .men-category-image img {
+  transform:scale(1.045);
+}
+
+.men-category-info {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  min-height:58px;
+  padding:12px 15px;
+  background:#fff;
+  border-top:1px solid #f1f1f1;
+}
+
+.men-category-info h3 {
+  margin:0;
+  font-size:13px;
+  font-weight:500;
+  color:#292929;
+  transition:color .25s ease;
+}
+
+.men-category-info span {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:27px;
+  height:27px;
+  border:1px solid #e9e9e9;
+  border-radius:50%;
+  color:#777;
+  font-family:"DM Sans",sans-serif;
+  font-size:13px;
+  transition:all .25s ease;
+}
+
+.men-category-card:hover .men-category-info span {
+  background:#292929;
+  color:#fff;
+  border-color:#292929;
+}
+
+/* CATEGORY PRODUCTS */
+.men-category-products {
+  display:none;
+  padding:35px 5% 70px;
+  background:#fff;
+}
+.men-category-products.active {display:block}
+
+.men-category-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:30px;
+}
+
+.men-category-top h2 {
+  margin:5px 0 0;
+  font-size:23px;
+  color:#292929;
+}
+
+.men-category-top .eyebrow {
+  color:#999;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.men-back-button {
+  padding:10px 15px;
+  border:1px solid #ddd;
+  background:#fff;
+  color:#444;
+  font-family:"Vazirmatn",sans-serif;
+  font-size:11px;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+
+.men-back-button:hover {
+  background:#292929;
+  color:#fff;
+  border-color:#292929;
+}
+
+.men-empty-message {
+  padding:65px 15px;
+  text-align:center;
+  background:#f7f7f7;
+  color:#888;
+  font-size:13px;
+  line-height:2.2;
+}
+.men-empty-message strong {
+  display:block;
+  margin-bottom:8px;
+  color:#444;
+  font-size:16px;
+}
 
 /* PRODUCT CARDS - REFINED DESIGN */
 .men-products-grid {
@@ -345,6 +502,13 @@
 }
 
 /* MOBILE */
+@media (max-width:900px) {
+  .men-category-grid {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:15px;
+  }
+}
+
 @media (max-width:600px) {
   .men-page-header {padding:15px 5%}
   .men-hero img {
@@ -356,11 +520,23 @@
     object-position:center top;
   }
   .men-intro {padding:45px 20px 25px}
-  .men-categories {padding:20px 4% 50px}
-  .men-category-grid {gap:11px}
-  .men-category-info {padding:11px 9px}
-  .men-category-info h3 {font-size:12px}
+  .men-categories {padding:25px 4% 55px}
+  .men-section-heading {margin-bottom:22px}
   .men-section-heading h2 {font-size:20px}
+  .men-category-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+  .men-category-info {
+    padding:11px 10px;
+    min-height:51px;
+  }
+  .men-category-info h3 {font-size:12px}
+  .men-category-info span {
+    width:24px;
+    height:24px;
+    font-size:12px;
+  }
   .men-category-top h2 {font-size:19px}
   #sweater-order {padding:25px 18px!important}
   .color-option {flex:1;min-width:65px;padding:10px 8px}
@@ -397,6 +573,9 @@
 }
 
 @media (prefers-reduced-motion:reduce) {
+  .men-category-card,
+  .men-category-image img,
+  .men-category-info span,
   .men-products-grid .product-card,
   .men-products-grid .shirt-product-card,
   .men-products-grid .product-image img,
