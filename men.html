@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -239,45 +238,65 @@
     </div>
 
     <div class="men-category-grid">
+
       <button class="men-category-card" type="button" onclick="showMenCategory('sneakers')">
-        <div class="men-category-image"><img src="images/sneakers-jordan-chicago.png" alt="کتونی جردن شیکاگو" loading="lazy"></div>
+        <div class="men-category-image">
+          <img src="images/sneakers-jordan-chicago.png" alt="کتونی جردن شیکاگو" loading="lazy">
+        </div>
         <div class="men-category-info"><h3>کتونی</h3><span>↗</span></div>
       </button>
 
       <button class="men-category-card" type="button" onclick="showMenCategory('shirts')">
-        <div class="men-category-image"><img src="images/shirts-pink.png" alt="پیراهن مردانه" loading="lazy"></div>
+        <div class="men-category-image">
+          <img src="images/shirts-pink.png" alt="پیراهن مردانه" loading="lazy">
+        </div>
         <div class="men-category-info"><h3>پیراهن</h3><span>↗</span></div>
       </button>
 
       <button class="men-category-card" type="button" onclick="showMenCategory('pants')">
-        <div class="men-category-image"><img src="images/pants-category.png" alt="شلوار مردانه" loading="lazy"></div>
+        <div class="men-category-image">
+          <img src="images/pants-category.png" alt="شلوار مردانه" loading="lazy">
+        </div>
         <div class="men-category-info"><h3>شلوار</h3><span>↗</span></div>
       </button>
 
       <button class="men-category-card" type="button" onclick="showMenCategory('sunglasses')">
-        <div class="men-category-image"><img src="images/sunglasses-black.png" alt="عینک آفتابی مشکی" loading="lazy"></div>
+        <div class="men-category-image">
+          <img src="images/sunglasses-black.png" alt="عینک آفتابی مشکی" loading="lazy">
+        </div>
         <div class="men-category-info"><h3>عینک آفتابی</h3><span>↗</span></div>
       </button>
 
       <button class="men-category-card" type="button" onclick="showMenCategory('sets')">
-        <div class="men-category-image"><img src="images/sets-hermes.png" alt="ست سویشرت و شلوار هرمس" loading="lazy"></div>
+        <div class="men-category-image">
+          <img src="images/sets-hermes.png" alt="ست سویشرت و شلوار هرمس" loading="lazy">
+        </div>
         <div class="men-category-info"><h3>ست شلوار و شلوارک</h3><span>↗</span></div>
       </button>
 
       <button class="men-category-card" type="button" onclick="showMenCategory('shorts')">
-        <div class="men-category-image"><img src="images/shorts-category.png" alt="شلوارک جین تیره" loading="lazy"></div>
+        <div class="men-category-image">
+          <img src="images/shorts-category.png" alt="شلوارک جین تیره" loading="lazy">
+        </div>
         <div class="men-category-info"><h3>شلوارک</h3><span>↗</span></div>
       </button>
 
+      <!-- T-SHIRT CATEGORY IMAGE -->
       <button class="men-category-card" type="button" onclick="showMenCategory('tshirts')">
-        <div class="men-category-image"><span>جای عکس تیشرت و رکابی</span></div>
+        <div class="men-category-image">
+          <img src="images/Tshirt.png" alt="تیشرت مردانه هرمس" loading="lazy">
+        </div>
         <div class="men-category-info"><h3>رکابی و تیشرت</h3><span>↗</span></div>
       </button>
 
+      <!-- KNITWEAR CATEGORY IMAGE -->
       <button class="men-category-card" type="button" onclick="showMenCategory('knitwear')">
-        <div class="men-category-image"><span>جای عکس بافت</span></div>
+        <div class="men-category-image">
+          <img src="images/Baft.png" alt="بافت مردانه" loading="lazy">
+        </div>
         <div class="men-category-info"><h3>بافت و پلیور</h3><span>↗</span></div>
       </button>
+
     </div>
   </section>
 
@@ -451,10 +470,13 @@
 /* CATEGORY NAVIGATION */
 function showMenCategory(category) {
   document.getElementById("men-categories").style.display = "none";
+
   document.querySelectorAll(".men-category-products").forEach(section => {
     section.classList.remove("active");
   });
+
   const selectedSection = document.getElementById("category-" + category);
+
   if (selectedSection) {
     selectedSection.classList.add("active");
     window.scrollTo({top:0,behavior:"smooth"});
@@ -465,8 +487,12 @@ function backToMenCategories() {
   document.querySelectorAll(".men-category-products").forEach(section => {
     section.classList.remove("active");
   });
+
   document.getElementById("men-categories").style.display = "block";
-  document.getElementById("men-categories").scrollIntoView({behavior:"smooth",block:"start"});
+  document.getElementById("men-categories").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
 }
 
 /* COTTON SHIRT ORDER */
@@ -499,15 +525,21 @@ let shirtTouchStartX = 0;
 function showShirtSlide(index) {
   if (index < 0) index = shirtGalleryImages.length - 1;
   if (index >= shirtGalleryImages.length) index = 0;
+
   currentShirtSlide = index;
+
   document.getElementById("shirt-main-image").src = shirtGalleryImages[index];
+
   document.getElementById("shirt-slider-counter").textContent =
     (index + 1).toLocaleString("fa-IR") + " از " +
     shirtGalleryImages.length.toLocaleString("fa-IR");
+
   const color = shirtSlideColors[index];
   selectedShirtColor = color;
+
   document.getElementById("shirt-selected-color").textContent =
     color ? "رنگ انتخابی: " + shirtColors[color].name : "رنگ انتخابی: هنوز انتخاب نشده";
+
   document.querySelectorAll(".shirt-color-options button").forEach(button => {
     button.classList.toggle("active", button.dataset.color === color);
   });
@@ -524,7 +556,9 @@ function startShirtSwipe(event) {
 function endShirtSwipe(event) {
   const touchEndX = event.changedTouches[0].screenX;
   const difference = touchEndX - shirtTouchStartX;
+
   if (Math.abs(difference) < 40) return;
+
   if (difference > 0) changeShirtSlide(-1);
   else changeShirtSlide(1);
 }
@@ -532,11 +566,19 @@ function endShirtSwipe(event) {
 function openShirtOrder() {
   selectedShirtColor = "";
   selectedShirtSize = "";
+
   document.getElementById("shirt-order").style.display = "block";
   document.getElementById("shirt-selected-size").textContent = "سایز انتخابی: هنوز انتخاب نشده";
   document.getElementById("shirt-quantity").value = 1;
-  document.querySelectorAll(".shirt-color-options button").forEach(button => button.classList.remove("active"));
-  document.querySelectorAll(".shirt-size-options button").forEach(button => button.classList.remove("active"));
+
+  document.querySelectorAll(".shirt-color-options button").forEach(button => {
+    button.classList.remove("active");
+  });
+
+  document.querySelectorAll(".shirt-size-options button").forEach(button => {
+    button.classList.remove("active");
+  });
+
   showShirtSlide(0);
   document.body.style.overflow = "hidden";
 }
@@ -548,13 +590,18 @@ function closeShirtOrder() {
 
 function selectShirtColor(color) {
   if (!shirtColors[color]) return;
+
   const index = shirtSlideColors.indexOf(color);
+
   if (index !== -1) showShirtSlide(index);
 }
 
 function selectShirtSize(size) {
   selectedShirtSize = size;
-  document.getElementById("shirt-selected-size").textContent = "سایز انتخابی: " + size;
+
+  document.getElementById("shirt-selected-size").textContent =
+    "سایز انتخابی: " + size;
+
   document.querySelectorAll(".shirt-size-options button").forEach(button => {
     button.classList.toggle("active", button.dataset.size === size);
   });
@@ -565,15 +612,19 @@ function orderCottonShirt() {
     alert("لطفاً رنگ پیراهن را انتخاب کنید.");
     return;
   }
+
   if (!selectedShirtSize) {
     alert("لطفاً سایز پیراهن را انتخاب کنید.");
     return;
   }
+
   const quantity = Number(document.getElementById("shirt-quantity").value);
+
   if (!Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
     alert("لطفاً تعداد صحیح بین ۱ تا ۲۰ وارد کنید.");
     return;
   }
+
   const message =
     "سلام، می‌خواهم از ROSEPINA سفارش ثبت کنم 🌸\n\n" +
     "محصول: پیراهن نخی مردانه\n" +
@@ -582,7 +633,11 @@ function orderCottonShirt() {
     "تعداد: " + quantity + " عدد\n" +
     "قیمت هر عدد: ۲,۰۰۰,۰۰۰ تومان\n" +
     "لطفاً موجودی رنگ و سایز را تأیید کنید.";
-  window.open("https://wa.me/989120193510?text=" + encodeURIComponent(message), "_blank");
+
+  window.open(
+    "https://wa.me/989120193510?text=" + encodeURIComponent(message),
+    "_blank"
+  );
 }
 
 /* SWEATER ORDER AND IMAGE SLIDER */
@@ -618,11 +673,15 @@ function showSweaterSlide(index) {
   if (index >= sweaterGalleryImages.length) index = 0;
 
   currentSweaterSlide = index;
+
   const color = sweaterSlideColors[index];
   selectedSweaterColor = color;
 
-  document.getElementById("order-sweater-image").src = sweaterGalleryImages[index];
-  document.getElementById("sweater-main-image").src = sweaterGalleryImages[index];
+  document.getElementById("order-sweater-image").src =
+    sweaterGalleryImages[index];
+
+  document.getElementById("sweater-main-image").src =
+    sweaterGalleryImages[index];
 
   document.getElementById("sweater-slider-counter").textContent =
     (index + 1).toLocaleString("fa-IR") + " از " +
@@ -632,7 +691,10 @@ function showSweaterSlide(index) {
     "رنگ انتخابی: " + sweaterNames[color];
 
   document.querySelectorAll("#sweater-order .color-option").forEach(button => {
-    button.classList.toggle("active", button.textContent.trim() === sweaterNames[color]);
+    button.classList.toggle(
+      "active",
+      button.textContent.trim() === sweaterNames[color]
+    );
   });
 }
 
@@ -647,16 +709,21 @@ function startSweaterSwipe(event) {
 function endSweaterSwipe(event) {
   const touchEndX = event.changedTouches[0].screenX;
   const difference = touchEndX - sweaterTouchStartX;
+
   if (Math.abs(difference) < 40) return;
+
   if (difference > 0) changeSweaterSlide(-1);
   else changeSweaterSlide(1);
 }
 
 function openSweaterOrder(event) {
-  event.preventDefault();
+  if (event) event.preventDefault();
+
   document.getElementById("sweater-order").style.display = "block";
+
   const selectedIndex = sweaterSlideColors.indexOf(selectedSweaterColor);
   showSweaterSlide(selectedIndex);
+
   document.body.style.overflow = "hidden";
 }
 
@@ -667,12 +734,17 @@ function closeSweaterOrder() {
 
 function changeSweaterColor(color) {
   if (!sweaterImages[color]) return;
+
   const index = sweaterSlideColors.indexOf(color);
+
   if (index !== -1) showSweaterSlide(index);
 }
 
 function orderSweater() {
-  const quantity = Number(document.getElementById("order-sweater-quantity").value);
+  const quantity = Number(
+    document.getElementById("order-sweater-quantity").value
+  );
+
   const note = document.getElementById("order-sweater-note").value.trim();
 
   if (!Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
