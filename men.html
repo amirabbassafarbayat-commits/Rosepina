@@ -20,7 +20,7 @@
 .men-page-header a {color:#333;text-decoration:none;font-size:12px}
 .men-page-header .logo-img {max-width:130px;display:block}
 
-/* MEN HERO IMAGE */
+/* MEN HERO IMAGE SLIDER */
 .men-hero {
   width:100%;
   overflow:hidden;
@@ -33,6 +33,11 @@
   max-height:none;
   object-fit:contain;
   object-position:center top;
+  opacity:1;
+  transition:opacity .7s ease;
+}
+.men-hero img.is-fading {
+  opacity:0;
 }
 
 .men-intro {text-align:center;padding:55px 20px 35px;background:#fff;color:#292929}
@@ -573,6 +578,7 @@
 }
 
 @media (prefers-reduced-motion:reduce) {
+  .men-hero img,
   .men-category-card,
   .men-category-image img,
   .men-category-info span,
@@ -595,9 +601,13 @@
   <a href="index.html">بازگشت به صفحه اصلی ↗</a>
 </header>
 
-<!-- MEN HERO IMAGE -->
+<!-- MEN HERO IMAGE SLIDER -->
 <section class="men-hero">
-  <img src="images/men-banner.png" alt="کالکشن مردانه ROSEPINA">
+  <img
+    id="men-hero-image"
+    src="images/men-banner.png"
+    alt="کالکشن مردانه ROSEPINA"
+  >
 </section>
 
 <main>
@@ -846,6 +856,64 @@
 </section>
 
 <script>
+/* MEN HERO AUTOMATIC SLIDER */
+(function () {
+  const heroImage = document.getElementById("men-hero-image");
+
+  if (!heroImage) return;
+
+  const heroImages = [
+    "images/men-banner.png",
+    "images/featured-sneaker.jpg"
+  ];
+
+  let currentHeroIndex = 0;
+  let heroTimer = null;
+  let isChangingHero = false;
+
+  // تصویر دوم را از قبل بارگذاری می‌کنیم تا در صورت نبودن فایل،
+  // بنر فعلی بدون مشکل باقی بماند.
+  const featuredPreload = new Image();
+
+  featuredPreload.onload = function () {
+    heroTimer = window.setInterval(function () {
+      if (isChangingHero) return;
+
+      isChangingHero = true;
+      heroImage.classList.add("is-fading");
+
+      window.setTimeout(function () {
+        currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+
+        heroImage.src = heroImages[currentHeroIndex];
+
+        heroImage.onload = function () {
+          heroImage.classList.remove("is-fading");
+          isChangingHero = false;
+          heroImage.onload = null;
+        };
+
+        // اگر تصویر در کش مرورگر موجود باشد، ممکن است onload اجرا نشود.
+        if (heroImage.complete && heroImage.naturalWidth > 0) {
+          heroImage.classList.remove("is-fading");
+          isChangingHero = false;
+          heroImage.onload = null;
+        }
+      }, 700);
+    }, 5000);
+  };
+
+  featuredPreload.onerror = function () {
+    // اگر عکس کتونی وجود نداشته باشد، اسلایدر شروع نمی‌شود.
+    if (heroTimer) {
+      window.clearInterval(heroTimer);
+      heroTimer = null;
+    }
+  };
+
+  featuredPreload.src = heroImages[1];
+})();
+
 /* CATEGORY NAVIGATION */
 function showMenCategory(category) {
   document.getElementById("men-categories").style.display = "none";
