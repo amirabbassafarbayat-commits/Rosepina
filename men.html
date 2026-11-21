@@ -37,9 +37,7 @@
   opacity:1;
   transition:opacity .7s ease;
 }
-.men-hero img.is-fading {
-  opacity:0;
-}
+.men-hero img.is-fading {opacity:0}
 
 /* BUTTONS ON FEATURED SNEAKER IMAGE */
 .men-hero-actions {
@@ -54,9 +52,7 @@
   gap:12px;
   z-index:5;
 }
-.men-hero.is-featured .men-hero-actions {
-  display:flex;
-}
+.men-hero.is-featured .men-hero-actions {display:flex}
 .men-hero-action {
   display:inline-flex;
   justify-content:center;
@@ -74,6 +70,9 @@
   text-align:center;
   cursor:pointer;
   transition:all .25s ease;
+  pointer-events:auto;
+  position:relative;
+  z-index:6;
 }
 .men-hero-action.secondary {
   background:rgba(255,255,255,.94);
@@ -105,7 +104,6 @@
   padding:35px 5% 75px;
   background:#fff;
 }
-
 .men-section-heading {
   display:flex;
   justify-content:space-between;
@@ -113,14 +111,12 @@
   gap:15px;
   margin-bottom:30px;
 }
-
 .men-section-heading .eyebrow {
   color:#999;
   font-family:"DM Sans",sans-serif;
   font-size:10px;
   letter-spacing:2px;
 }
-
 .men-section-heading h2 {
   color:#292929;
   font-size:24px;
@@ -128,9 +124,7 @@
   margin:9px 0 0;
   letter-spacing:-.5px;
 }
-
 .men-section-heading h2 span {color:#888}
-
 .men-category-count {
   color:#aaa;
   font-family:"DM Sans",sans-serif;
@@ -138,13 +132,11 @@
   letter-spacing:1px;
   white-space:nowrap;
 }
-
 .men-category-grid {
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
   gap:20px;
 }
-
 .men-category-card {
   display:block;
   min-width:0;
@@ -160,18 +152,15 @@
   box-shadow:0 3px 15px rgba(0,0,0,.025);
   transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
 }
-
 .men-category-card:hover {
   transform:translateY(-5px);
   border-color:#d8d8d8;
   box-shadow:0 12px 28px rgba(0,0,0,.075);
 }
-
 .men-category-card:focus-visible {
   outline:2px solid #555;
   outline-offset:4px;
 }
-
 .men-category-image {
   display:flex;
   align-items:center;
@@ -184,7 +173,6 @@
   font-size:11px;
   overflow:hidden;
 }
-
 .men-category-image img {
   display:block;
   width:100%;
@@ -192,11 +180,7 @@
   object-fit:cover;
   transition:transform .65s cubic-bezier(.2,.7,.2,1);
 }
-
-.men-category-card:hover .men-category-image img {
-  transform:scale(1.045);
-}
-
+.men-category-card:hover .men-category-image img {transform:scale(1.045)}
 .men-category-info {
   display:flex;
   justify-content:space-between;
@@ -207,7 +191,6 @@
   background:#fff;
   border-top:1px solid #f1f1f1;
 }
-
 .men-category-info h3 {
   margin:0;
   font-size:13px;
@@ -215,7 +198,6 @@
   color:#292929;
   transition:color .25s ease;
 }
-
 .men-category-info span {
   display:flex;
   align-items:center;
@@ -229,7 +211,6 @@
   font-size:13px;
   transition:all .25s ease;
 }
-
 .men-category-card:hover .men-category-info span {
   background:#292929;
   color:#fff;
@@ -243,7 +224,6 @@
   background:#fff;
 }
 .men-category-products.active {display:block}
-
 .men-category-top {
   display:flex;
   justify-content:space-between;
@@ -251,19 +231,16 @@
   gap:12px;
   margin-bottom:30px;
 }
-
 .men-category-top h2 {
   margin:5px 0 0;
   font-size:23px;
   color:#292929;
 }
-
 .men-category-top .eyebrow {
   color:#999;
   font-size:10px;
   letter-spacing:2px;
 }
-
 .men-back-button {
   padding:10px 15px;
   border:1px solid #ddd;
@@ -274,13 +251,11 @@
   cursor:pointer;
   transition:all .25s ease;
 }
-
 .men-back-button:hover {
   background:#292929;
   color:#fff;
   border-color:#292929;
 }
-
 .men-empty-message {
   padding:65px 15px;
   text-align:center;
@@ -304,7 +279,6 @@
   gap:25px;
   width:100%;
 }
-
 .men-products-grid .product-card,
 .men-products-grid .shirt-product-card {
   width:100%;
@@ -316,14 +290,12 @@
   box-shadow:0 5px 20px rgba(0,0,0,.045);
   transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
 }
-
 .men-products-grid .product-card:hover,
 .men-products-grid .shirt-product-card:hover {
   transform:translateY(-5px);
   border-color:#d5d5d5;
   box-shadow:0 12px 30px rgba(0,0,0,.09);
 }
-
 .men-products-grid .product-image {
   display:block;
   position:relative;
@@ -331,7 +303,6 @@
   overflow:hidden;
   background:#f5f5f5;
 }
-
 .men-products-grid .product-image img {
   display:block;
   width:100%;
@@ -339,11 +310,7 @@
   object-fit:cover;
   transition:transform .5s ease;
 }
-
-.men-products-grid .product-card:hover .product-image img {
-  transform:scale(1.035);
-}
-
+.men-products-grid .product-card:hover .product-image img {transform:scale(1.035)}
 .men-products-grid .product-tag {
   background:#292929;
   color:#fff;
@@ -351,7 +318,6 @@
   letter-spacing:1px;
   padding:7px 11px;
 }
-
 .men-products-grid .product-arrow {
   display:flex;
   align-items:center;
@@ -362,7 +328,6 @@
   background:rgba(255,255,255,.92);
   color:#292929;
 }
-
 .men-products-grid .product-info {
   display:flex;
   justify-content:space-between;
@@ -371,7 +336,6 @@
   padding:18px 17px;
   background:#fff;
 }
-
 .men-products-grid .product-category {
   display:block;
   color:#999;
@@ -380,7 +344,6 @@
   letter-spacing:1.4px;
   margin-bottom:7px;
 }
-
 .men-products-grid .product-info h3 {
   margin:0;
   color:#292929;
@@ -388,7 +351,6 @@
   font-size:15px;
   font-weight:600;
 }
-
 .men-products-grid .product-price {
   flex-shrink:0;
   color:#292929;
@@ -408,7 +370,6 @@
   font-family:"Vazirmatn",sans-serif;
   color:#292929;
 }
-
 .shirt-product-card img {
   display:block;
   width:100%;
@@ -416,20 +377,9 @@
   object-fit:cover;
   transition:transform .5s ease;
 }
-
-.shirt-product-card:hover img {
-  transform:scale(1.035);
-}
-
-.shirt-product-card {
-  overflow:hidden;
-}
-
-.shirt-product-info {
-  padding:18px 17px;
-  background:#fff;
-}
-
+.shirt-product-card:hover img {transform:scale(1.035)}
+.shirt-product-card {overflow:hidden}
+.shirt-product-info {padding:18px 17px;background:#fff}
 .shirt-product-info small {
   display:block;
   color:#999;
@@ -438,14 +388,12 @@
   letter-spacing:1.4px;
   margin-bottom:7px;
 }
-
 .shirt-product-info h3 {
   font-size:15px;
   font-weight:600;
   margin:0 0 9px;
   color:#292929;
 }
-
 .shirt-product-info p {
   margin:0;
   color:#292929;
@@ -569,27 +517,17 @@
     gap:15px;
   }
 }
-
 @media (max-width:600px) {
   .men-page-header {padding:15px 5%}
   .men-hero img {
-    width:100%;
-    height:auto;
-    min-height:0;
-    max-height:none;
-    object-fit:contain;
-    object-position:center top;
+    width:100%;height:auto;min-height:0;max-height:none;
+    object-fit:contain;object-position:center top;
   }
   .men-hero-actions {
-    width:92%;
-    bottom:5%;
-    gap:8px;
+    width:92%;bottom:5%;gap:8px;
   }
   .men-hero-action {
-    flex:1;
-    min-height:40px;
-    padding:9px 8px;
-    font-size:10px;
+    flex:1;min-height:40px;padding:9px 8px;font-size:10px;
   }
   .men-intro {padding:45px 20px 25px}
   .men-categories {padding:25px 4% 55px}
@@ -599,16 +537,9 @@
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:12px;
   }
-  .men-category-info {
-    padding:11px 10px;
-    min-height:51px;
-  }
+  .men-category-info {padding:11px 10px;min-height:51px}
   .men-category-info h3 {font-size:12px}
-  .men-category-info span {
-    width:24px;
-    height:24px;
-    font-size:12px;
-  }
+  .men-category-info span {width:24px;height:24px;font-size:12px}
   .men-category-top h2 {font-size:19px}
   #sweater-order {padding:25px 18px!important}
   .color-option {flex:1;min-width:65px;padding:10px 8px}
@@ -617,27 +548,14 @@
   #shirt-order .shirt-main-image {height:350px}
   #sweater-order .sweater-main-image {height:350px}
   .men-category-products {padding:25px 4% 55px}
-  .men-products-grid {
-    grid-template-columns:minmax(0,1fr);
-    gap:20px;
-  }
-  .men-products-grid .product-info {
-    padding:15px 13px;
-    gap:8px;
-  }
+  .men-products-grid {grid-template-columns:minmax(0,1fr);gap:20px}
+  .men-products-grid .product-info {padding:15px 13px;gap:8px}
   .men-products-grid .product-info h3,
-  .shirt-product-info h3 {
-    font-size:14px;
-  }
+  .shirt-product-info h3 {font-size:14px}
   .men-products-grid .product-price,
-  .shirt-product-info p {
-    font-size:12px;
-  }
-  .shirt-product-info {
-    padding:15px 13px;
-  }
+  .shirt-product-info p {font-size:12px}
+  .shirt-product-info {padding:15px 13px}
 }
-
 @media (prefers-reduced-motion:reduce) {
   .men-hero img,
   .men-category-card,
@@ -646,9 +564,7 @@
   .men-products-grid .product-card,
   .men-products-grid .shirt-product-card,
   .men-products-grid .product-image img,
-  .shirt-product-card img {
-    transition:none;
-  }
+  .shirt-product-card img {transition:none}
 }
 </style>
 </head>
@@ -664,26 +580,13 @@
 
 <!-- MEN HERO IMAGE SLIDER -->
 <section class="men-hero" id="men-hero">
-  <img
-    id="men-hero-image"
-    src="images/men-banner.png"
-    alt="کالکشن مردانه ROSEPINA"
-  >
+  <img id="men-hero-image" src="images/men-banner.png" alt="کالکشن مردانه ROSEPINA">
 
   <div class="men-hero-actions" id="men-hero-actions">
-    <button
-      type="button"
-      class="men-hero-action"
-      onclick="orderFeaturedSneaker()"
-    >
+    <button type="button" class="men-hero-action" id="featured-sneaker-order">
       ثبت سفارش کتونی
     </button>
-
-    <button
-      type="button"
-      class="men-hero-action secondary"
-      onclick="goToMenCategories()"
-    >
+    <button type="button" class="men-hero-action secondary" id="featured-sneaker-categories">
       مشاهده دسته‌بندی‌ها
     </button>
   </div>
@@ -705,7 +608,6 @@
     </div>
 
     <div class="men-category-grid">
-
       <button class="men-category-card" type="button" onclick="showMenCategory('sneakers')">
         <div class="men-category-image">
           <img src="images/sneakers-jordan-chicago.png" alt="کتونی جردن شیکاگو" loading="lazy">
@@ -761,7 +663,6 @@
         </div>
         <div class="men-category-info"><h3>بافت و پلیور</h3><span>↗</span></div>
       </button>
-
     </div>
   </section>
 
@@ -935,7 +836,10 @@
 </section>
 
 <script>
-/* MEN HERO AUTOMATIC SLIDER + FEATURED BUTTONS */
+/* MEN HERO SLIDER
+   بنر اصلی: ۵ ثانیه
+   عکس کتونی: ۱۰ ثانیه
+*/
 (function () {
   const hero = document.getElementById("men-hero");
   const heroImage = document.getElementById("men-hero-image");
@@ -947,53 +851,74 @@
     "images/featured-sneaker.jpg"
   ];
 
+  const bannerDuration = 5000;
+  const sneakerDuration = 10000;
+  const fadeDuration = 700;
+
   let currentHeroIndex = 0;
   let heroTimer = null;
+  let isChanging = false;
 
   const featuredPreload = new Image();
 
-  featuredPreload.onload = function () {
-    heroTimer = window.setInterval(function () {
-      const nextIndex = currentHeroIndex === 0 ? 1 : 0;
-      const nextImage = new Image();
+  function scheduleNextSlide() {
+    if (heroTimer) window.clearTimeout(heroTimer);
 
-      heroImage.classList.add("is-fading");
+    const duration = currentHeroIndex === 1
+      ? sneakerDuration
+      : bannerDuration;
 
-      window.setTimeout(function () {
-        nextImage.onload = function () {
-          currentHeroIndex = nextIndex;
-          heroImage.src = heroImages[currentHeroIndex];
+    heroTimer = window.setTimeout(changeHeroSlide, duration);
+  }
 
-          if (currentHeroIndex === 1) {
-            hero.classList.add("is-featured");
-          } else {
-            hero.classList.remove("is-featured");
-          }
+  function changeHeroSlide() {
+    if (isChanging) return;
 
-          window.requestAnimationFrame(function () {
-            heroImage.classList.remove("is-fading");
-          });
-        };
+    isChanging = true;
 
-        nextImage.onerror = function () {
-          heroImage.classList.remove("is-fading");
-        };
+    const nextIndex = currentHeroIndex === 0 ? 1 : 0;
+    const nextImage = new Image();
 
-        nextImage.src = heroImages[nextIndex];
+    heroImage.classList.add("is-fading");
 
-        if (nextImage.complete && nextImage.naturalWidth > 0) {
-          nextImage.onload();
+    window.setTimeout(function () {
+      nextImage.onload = function () {
+        currentHeroIndex = nextIndex;
+        heroImage.src = heroImages[currentHeroIndex];
+
+        if (currentHeroIndex === 1) {
+          hero.classList.add("is-featured");
+        } else {
+          hero.classList.remove("is-featured");
         }
-      }, 700);
 
-    }, 5000);
+        window.requestAnimationFrame(function () {
+          heroImage.classList.remove("is-fading");
+          isChanging = false;
+          scheduleNextSlide();
+        });
+      };
+
+      nextImage.onerror = function () {
+        heroImage.classList.remove("is-fading");
+        isChanging = false;
+        scheduleNextSlide();
+      };
+
+      nextImage.src = heroImages[nextIndex];
+
+      if (nextImage.complete && nextImage.naturalWidth > 0) {
+        nextImage.onload();
+      }
+    }, fadeDuration);
+  }
+
+  featuredPreload.onload = function () {
+    scheduleNextSlide();
   };
 
   featuredPreload.onerror = function () {
-    if (heroTimer) {
-      window.clearInterval(heroTimer);
-      heroTimer = null;
-    }
+    hero.classList.remove("is-featured");
   };
 
   featuredPreload.src = heroImages[1];
@@ -1008,23 +933,54 @@ function orderFeaturedSneaker() {
   const whatsappUrl =
     "https://wa.me/989120193510?text=" + encodeURIComponent(message);
 
-  window.open(whatsappUrl, "_blank");
+  /* باز شدن واتساپ در همان زبانه برای جلوگیری از مسدود شدن پنجره */
+  window.location.href = whatsappUrl;
 }
 
 function goToMenCategories() {
   const categories = document.getElementById("men-categories");
 
-  if (categories) {
-    categories.scrollIntoView({
-      behavior:"smooth",
-      block:"start"
+  if (!categories) return;
+
+  categories.style.display = "block";
+
+  document.querySelectorAll(".men-category-products").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  categories.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+}
+
+/* اتصال مستقیم عملکرد دو دکمه روی عکس */
+document.addEventListener("DOMContentLoaded", function () {
+  const orderButton = document.getElementById("featured-sneaker-order");
+  const categoriesButton = document.getElementById("featured-sneaker-categories");
+
+  if (orderButton) {
+    orderButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      orderFeaturedSneaker();
     });
   }
-}
+
+  if (categoriesButton) {
+    categoriesButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      goToMenCategories();
+    });
+  }
+});
 
 /* CATEGORY NAVIGATION */
 function showMenCategory(category) {
-  document.getElementById("men-categories").style.display = "none";
+  const categories = document.getElementById("men-categories");
+
+  if (categories) categories.style.display = "none";
 
   document.querySelectorAll(".men-category-products").forEach(section => {
     section.classList.remove("active");
@@ -1043,11 +999,15 @@ function backToMenCategories() {
     section.classList.remove("active");
   });
 
-  document.getElementById("men-categories").style.display = "block";
-  document.getElementById("men-categories").scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
+  const categories = document.getElementById("men-categories");
+
+  if (categories) {
+    categories.style.display = "block";
+    categories.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+  }
 }
 
 /* COTTON SHIRT ORDER */
