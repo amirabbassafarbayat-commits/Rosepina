@@ -17,25 +17,43 @@ body{background:#f5f0e9}
 button,input,textarea{font-family:inherit}
 button{cursor:pointer}
 
-/* هدر: استفاده از استایل اصلی style.css */
+/* هدر */
+body > header{
+ width:100%;min-height:110px;display:flex !important;
+ flex-direction:row;justify-content:space-between !important;
+ align-items:center !important;gap:15px;padding:12px 5% !important;
+ background:#f5f0e9 !important;border-bottom:1px solid #eee;position:relative;
+}
+body > header a{
+ display:inline-flex !important;align-items:center;color:#333 !important;
+ text-decoration:none !important;font-size:14px !important;
+}
+body > header a:first-child{flex-shrink:0}
+body > header a:first-child img{
+ display:block !important;width:120px !important;height:120px !important;
+ max-width:120px !important;object-fit:contain !important;
+}
+body > header a:last-child{white-space:nowrap}
 
-/* بنر: حذف عکس پس‌زمینه تکراری */
+/* بنر مردانه - حذف تصویر پس‌زمینه اضافی style.css */
 .hero{
+ min-height:0 !important;
+ height:auto !important;
+ margin:0 !important;
+ padding:0 !important;
+ position:relative !important;
+ overflow:hidden !important;
  background:none !important;
- background-image:none !important;
- position:relative;
- overflow:hidden;
+ color:inherit !important;
+ display:block !important;
 }
-.hero::before,.hero::after{
- content:none !important;
- display:none !important;
- background:none !important;
-}
+.hero::before,.hero::after{display:none !important}
 .hero img{
- width:100%;
- height:auto;
- display:block;
- position:relative;
+ display:block !important;
+ width:100% !important;
+ height:auto !important;
+ max-width:100% !important;
+ object-fit:contain !important;
  background:none !important;
 }
 
@@ -176,6 +194,9 @@ button{cursor:pointer}
 
 /* موبایل */
 @media(max-width:700px){
+ body > header{min-height:100px;padding:10px 4% !important}
+ body > header a:first-child img{width:100px !important;height:100px !important}
+ body > header a:last-child{font-size:12px !important}
  .category-grid{grid-template-columns:repeat(2,1fr);gap:10px}
  .sneakers-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
  .sneaker-info{padding:12px 7px}
@@ -183,6 +204,10 @@ button{cursor:pointer}
  .sneaker-info p{font-size:12px}
  .category-products,.categories{padding:25px 4% 50px}
  .category-top h2{font-size:18px}
+}
+@media(max-width:360px){
+ body > header a:first-child img{width:80px !important;height:80px !important}
+ body > header a:last-child{font-size:11px !important}
 }
 </style>
 </head>
