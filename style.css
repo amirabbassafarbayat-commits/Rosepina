@@ -14,32 +14,21 @@ body:not(:has(.men-page-header)) .collections .collection-grid {
   gap: 20px !important;
 }
 
-body:not(:has(.men-page-header)) .collections .collection-card,
-body:not(:has(.men-page-header)) .collections .collection-card.collection-large {
+body:not(:has(.men-page-header)) .collections .collection-card {
   display: block !important;
   width: 100% !important;
   height: 580px !important;
-  min-height: 580px !important;
+  min-height: 0 !important;
   max-height: 580px !important;
   grid-column: auto !important;
   grid-row: auto !important;
   overflow: hidden !important;
-}
-
-/* تصویر کارت مردانه */
-body:not(:has(.men-page-header)) .collections .collection-card:not(.collection-large) img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-}
-
-/* تصویر کارت زنانه؛ نمایش کامل تصویر */
-body:not(:has(.men-page-header)) .collections .collection-card.collection-large {
   background: #fff !important;
 }
 
-body:not(:has(.men-page-header)) .collections .collection-card.collection-large img {
+/* تصاویر زنانه و مردانه */
+body:not(:has(.men-page-header)) .collections .collection-card img {
+  display: block !important;
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
@@ -47,7 +36,7 @@ body:not(:has(.men-page-header)) .collections .collection-card.collection-large 
   transform: none !important;
 }
 
-body:not(:has(.men-page-header)) .collections .collection-card.collection-large:hover img {
+body:not(:has(.men-page-header)) .collections .collection-card:hover img {
   transform: none !important;
 }
 
@@ -60,14 +49,10 @@ body:not(:has(.men-page-header)) .collections .collection-card.collection-large:
     gap: 10px !important;
   }
 
-  body:not(:has(.men-page-header)) .collections .collection-card,
-  body:not(:has(.men-page-header)) .collections .collection-card.collection-large {
-    width: 100% !important;
+  body:not(:has(.men-page-header)) .collections .collection-card {
     height: 310px !important;
-    min-height: 310px !important;
+    min-height: 0 !important;
     max-height: 310px !important;
-    grid-column: auto !important;
-    grid-row: auto !important;
   }
 }
 
@@ -78,10 +63,8 @@ body:not(:has(.men-page-header)) .collections .collection-card.collection-large:
     grid-auto-rows: 260px !important;
   }
 
-  body:not(:has(.men-page-header)) .collections .collection-card,
-  body:not(:has(.men-page-header)) .collections .collection-card.collection-large {
+  body:not(:has(.men-page-header)) .collections .collection-card {
     height: 260px !important;
-    min-height: 260px !important;
     max-height: 260px !important;
   }
 }
