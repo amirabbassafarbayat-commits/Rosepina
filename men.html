@@ -17,26 +17,29 @@ body{background:#f5f0e9}
 button,input,textarea{font-family:inherit}
 button{cursor:pointer}
 
-/* هدر */
-body > header{
- width:100%;min-height:110px;display:flex !important;
- flex-direction:row;justify-content:space-between !important;
- align-items:center !important;gap:15px;padding:12px 5% !important;
- background:#f5f0e9 !important;border-bottom:1px solid #eee;position:relative;
-}
-body > header a{
- display:inline-flex !important;align-items:center;color:#333 !important;
- text-decoration:none !important;font-size:14px !important;
-}
-body > header a:first-child{flex-shrink:0}
-body > header a:first-child img{
- display:block !important;width:120px !important;height:120px !important;
- max-width:120px !important;object-fit:contain !important;
-}
-body > header a:last-child{white-space:nowrap}
+/* هدر: استفاده از استایل اصلی style.css */
 
-/* بنر */
-.hero img{width:100%;height:auto;display:block}
+/* بنر: حذف عکس پس‌زمینه تکراری */
+.hero{
+ background:none !important;
+ background-image:none !important;
+ position:relative;
+ overflow:hidden;
+}
+.hero::before,.hero::after{
+ content:none !important;
+ display:none !important;
+ background:none !important;
+}
+.hero img{
+ width:100%;
+ height:auto;
+ display:block;
+ position:relative;
+ background:none !important;
+}
+
+/* معرفی */
 .intro{text-align:center;padding:40px 15px;color:#777;background:#fff}
 
 /* دسته بندی */
@@ -173,9 +176,6 @@ body > header a:last-child{white-space:nowrap}
 
 /* موبایل */
 @media(max-width:700px){
- body > header{min-height:100px;padding:10px 4% !important}
- body > header a:first-child img{width:100px !important;height:100px !important}
- body > header a:last-child{font-size:12px !important}
  .category-grid{grid-template-columns:repeat(2,1fr);gap:10px}
  .sneakers-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
  .sneaker-info{padding:12px 7px}
@@ -183,10 +183,6 @@ body > header a:last-child{white-space:nowrap}
  .sneaker-info p{font-size:12px}
  .category-products,.categories{padding:25px 4% 50px}
  .category-top h2{font-size:18px}
-}
-@media(max-width:360px){
- body > header a:first-child img{width:80px !important;height:80px !important}
- body > header a:last-child{font-size:11px !important}
 }
 </style>
 </head>
