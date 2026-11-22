@@ -1430,4 +1430,29 @@ body:not(:has(.men-page-header)) .rp-footer-contact h3 {
 
 body:not(:has(.men-page-header)) .rp-footer-contact a:last-child {
   width: 100%;}
+/* ROSEPINA - COLLECTION IMAGE FIX */
 
+.collections .collection-grid {
+  align-items: stretch;
+}
+
+.collections .collection-card {
+  min-width: 0;
+  height: 100%;
+}
+
+.collections .collection-card img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+}
+
+/* تصویر کالکشن زنانه کامل دیده شود */
+.collections .collection-card.collection-large img {
+  object-fit: contain !important;
+}
+
+/* تصویر کالکشن مردانه قاب را کامل پر کند */
+.collections .collection-card:not(.collection-large) img {
+  object-fit: cover;
+}
