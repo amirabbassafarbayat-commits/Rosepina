@@ -1456,3 +1456,65 @@ body:not(:has(.men-page-header)) .rp-footer-contact a:last-child {
 .collections .collection-card:not(.collection-large) img {
   object-fit: cover;
 }
+/* ==========================================
+   ROSEPINA - FINAL COLLECTION SIZE FIX
+   فقط مخصوص کالکشن صفحه اصلی
+========================================== */
+
+/* دو کارت هم‌اندازه در دسکتاپ */
+body:has(.hero-image-section) .collections .collection-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 500px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+body:has(.hero-image-section) .collections .collection-card {
+  grid-column: auto;
+  grid-row: auto;
+  width: 100%;
+  height: 500px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* نمایش کامل تصویر زنانه */
+body:has(.hero-image-section) .collections .collection-card.collection-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center;
+  transform: none;
+}
+
+/* تصویر مردانه */
+body:has(.hero-image-section) .collections .collection-card:not(.collection-large) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* موبایل */
+@media (max-width: 600px) {
+  body:has(.hero-image-section) .collections .collection-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 310px;
+    gap: 10px;
+  }
+
+  body:has(.hero-image-section) .collections .collection-card {
+    height: 310px;
+  }
+}
+
+/* گوشی‌های کوچک */
+@media (max-width: 360px) {
+  body:has(.hero-image-section) .collections .collection-grid {
+    grid-template-rows: 260px;
+  }
+
+  body:has(.hero-image-section) .collections .collection-card {
+    height: 260px;
+  }
+}
