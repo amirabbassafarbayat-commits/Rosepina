@@ -1429,5 +1429,5 @@ body:not(:has(.men-page-header)) .rp-footer-contact h3 {
 }
 
 body:not(:has(.men-page-header)) .rp-footer-contact a:last-child {
-  width: 100%;
+  width: 100%;}
 
