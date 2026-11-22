@@ -1428,3 +1428,10 @@ body:not(:has(.men-page-header)) .rp-footer-contact h3 {
 body:not(:has(.men-page-header)) .rp-footer-contact a:last-child {
   width: 100%;
 }
+
+/* ROSEPINA - نمایش کامل تصویر کالکشن زنانه */
+.collection-card.collection-large img {
+  object-fit: contain;
+  object-position: center;
+}
+
