@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -291,6 +292,34 @@ body > .hero img{
 <img src="images/black-sneaker.png" alt="جوردن وان">
 <div class="sneaker-info"><h3>جوردن وان</h3><p>۳,۰۰۰,۰۰۰ تومان</p><button onclick="openSneakerOrder('jordan-one-black')">انتخاب سایز</button></div>
 </article>
+
+<!-- سه کتونی جدید -->
+<article class="sneaker-card">
+<img src="images/cream-sneaker.png" alt="کتونی اسپرت کرم کلاسیک">
+<div class="sneaker-info">
+<h3>کتونی اسپرت کرم کلاسیک</h3>
+<p>۳,۰۰۰,۰۰۰ تومان</p>
+<button onclick="openSneakerOrder('cream-classic')">انتخاب سایز</button>
+</div>
+</article>
+
+<article class="sneaker-card">
+<img src="images/brown-sneaker.png" alt="کتونی اسپرت قهوه‌ای ROSE">
+<div class="sneaker-info">
+<h3>کتونی اسپرت قهوه‌ای ROSE</h3>
+<p>۳,۰۰۰,۰۰۰ تومان</p>
+<button onclick="openSneakerOrder('brown-rose')">انتخاب سایز</button>
+</div>
+</article>
+
+<article class="sneaker-card">
+<img src="images/jordan-blue-white.png" alt="جردن وان آبی و سفید">
+<div class="sneaker-info">
+<h3>جردن وان آبی و سفید</h3>
+<p>۳,۰۰۰,۰۰۰ تومان</p>
+<button onclick="openSneakerOrder('jordan-blue-white')">انتخاب سایز</button>
+</div>
+</article>
 </div>
 </section>
 
@@ -429,7 +458,10 @@ const sneakers={
  "jordan-black":{name:"جردن وان مشکی، کرم و قرمز",image:"images/jordan-1-black-cream-red.png"},
  "lv-black":{name:"لویی ویتون مشکی و کرم",image:"images/louis-vuitton-black-cream.png"},
  "lv-cream":{name:"لویی ویتون کرم",image:"images/louis-vuitton-cream.png"},
- "jordan-one-black":{name:"جوردن وان",image:"images/black-sneaker.png"}
+ "jordan-one-black":{name:"جوردن وان",image:"images/black-sneaker.png"},
+ "cream-classic":{name:"کتونی اسپرت کرم کلاسیک",image:"images/cream-sneaker.png"},
+ "brown-rose":{name:"کتونی اسپرت قهوه‌ای ROSE",image:"images/brown-sneaker.png"},
+ "jordan-blue-white":{name:"جردن وان آبی و سفید",image:"images/jordan-blue-white.png"}
 };
 
 const shirtColors={
@@ -608,6 +640,7 @@ function selectSweaterColor(color){
  if(sweaterSlide>=0)updateSweaterSlide();
 }
 
+/* افزودن بافت به سبد خرید */
 function addSweaterToCart(){
  const qty=validQuantity("sweater-quantity");
  if(!qty)return;
