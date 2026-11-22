@@ -1277,9 +1277,7 @@ body:not(:has(.men-page-header)) .products .products-bottom {
   }
 }
 
-/* ==============================
-   ROSEPINA MINIMAL LUXURY FOOTER
-================================ */
+/* ROSEPINA MINIMAL LUXURY FOOTER */
 
 body:not(:has(.men-page-header)) .rp-footer {
   display: block;
@@ -1407,12 +1405,15 @@ body:not(:has(.men-page-header)) .rp-footer-bottom a {
     font-size: 9px;
   }
 }
+
 /* FOOTER COLOR TEST */
+
 body:not(:has(.men-page-header)) footer.rp-footer {
   background: #ffffff !important;
   color: #222222 !important;
   display: block !important;
 }
+
 body:not(:has(.men-page-header)) .rp-footer-contact {
   display: flex;
   flex-direction: row;
@@ -1429,9 +1430,20 @@ body:not(:has(.men-page-header)) .rp-footer-contact a:last-child {
   width: 100%;
 }
 
-/* ROSEPINA - نمایش کامل تصویر کالکشن زنانه */
-.collection-card.collection-large img {
-  object-fit: contain;
-  object-position: center;
+/* WOMEN COLLECTION IMAGE FIX */
+
+body:not(:has(.men-page-header)) .collections .collection-card.collection-large {
+  background: #fff;
 }
 
+body:not(:has(.men-page-header)) .collections .collection-card.collection-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center center;
+  transform: none;
+}
+
+body:not(:has(.men-page-header)) .collections .collection-card.collection-large:hover img {
+  transform: none;
+}
