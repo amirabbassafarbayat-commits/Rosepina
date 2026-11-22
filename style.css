@@ -1447,3 +1447,72 @@ body:not(:has(.men-page-header)) .collections .collection-card.collection-large 
 body:not(:has(.men-page-header)) .collections .collection-card.collection-large:hover img {
   transform: none;
 }
+/* =================================
+   ROSEPINA - TWO COLLECTION CARDS
+   MEN & WOMEN SAME SIZE
+================================= */
+
+/* دو کارت هم‌اندازه در دسکتاپ */
+body:not(:has(.men-page-header)) .collections .collection-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 580px;
+  gap: 20px;
+}
+
+/* هر دو کارت با ابعاد یکسان */
+body:not(:has(.men-page-header)) .collections .collection-card {
+  grid-row: auto;
+  min-width: 0;
+  height: 580px;
+}
+
+/* تصویر کارت مردانه */
+body:not(:has(.men-page-header)) .collections .collection-card:not(.collection-large) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* حفظ نمایش کامل تصویر زنانه */
+body:not(:has(.men-page-header)) .collections .collection-card.collection-large {
+  background: #fff;
+}
+
+body:not(:has(.men-page-header)) .collections .collection-card.collection-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center;
+  transform: none;
+}
+
+body:not(:has(.men-page-header)) .collections .collection-card.collection-large:hover img {
+  transform: none;
+}
+
+/* موبایل */
+@media (max-width: 600px) {
+  body:not(:has(.men-page-header)) .collections .collection-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 310px;
+    gap: 10px;
+  }
+
+  body:not(:has(.men-page-header)) .collections .collection-card {
+    height: 310px;
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+/* گوشی‌های کوچک */
+@media (max-width: 360px) {
+  body:not(:has(.men-page-header)) .collections .collection-grid {
+    grid-template-rows: 260px;
+  }
+
+  body:not(:has(.men-page-header)) .collections .collection-card {
+    height: 260px;
+  }
+}
