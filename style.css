@@ -1,70 +1,1496 @@
 
-/* =================================
-   ROSEPINA - FINAL COLLECTION FIX
-   MEN & WOMEN EXACT SAME SIZE
-================================= */
+/* ==============================
+   ROSEPINA - MAIN STYLESHEET
+================================ */
 
-/* دسکتاپ */
+:root {
+  --black: #171715;
+  --cream: #f3eee7;
+  --white: #fffdf9;
+  --gold: #bd9b69;
+  --gray: #817b73;
+  --border: rgba(23, 23, 21, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  direction: rtl;
+  background: var(--cream);
+  color: var(--black);
+  font-family: "Vazirmatn", sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ANNOUNCEMENT */
+
+.announcement {
+  min-height: 35px;
+  padding: 6px 5%;
+  background: var(--gold);
+  color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.announcement p {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 800;
+}
+
+/* OLD HEADER - PRESERVED */
+
+.header {
+  width: 100%;
+  min-height: 90px;
+  padding: 12px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 145px;
+  max-height: 65px;
+  object-fit: contain;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  font-size: 13px;
+}
+
+.navigation a {
+  transition: color 0.25s;
+}
+
+.navigation a:hover {
+  color: var(--gold);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-shop {
+  background: var(--black);
+  color: var(--white);
+  padding: 10px 18px;
+  font-size: 12px;
+  transition: 0.25s;
+}
+
+.header-shop:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.mobile-shop {
+  display: none;
+}
+
+/* OLD HERO - PRESERVED */
+
+.hero {
+  min-height: 650px;
+  padding: 35px 8%;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(20,19,17,0.82), rgba(20,19,17,0.25)),
+    url("./hero.png?v=9999") center/cover no-repeat,
+    #39332d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(20,19,17,0.82), rgba(20,19,17,0.25)),
+    url("./hero.png?v=9999") center/cover no-repeat,
+    #39332d;
+}
+
+.hero-top,
+.hero-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  margin: auto 0;
+  padding: 55px 0;
+}
+
+.hero-label,
+.eyebrow {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 85px);
+  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero-content p {
+  font-size: 15px;
+  color: #eee6dc;
+  margin-bottom: 30px;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 30px;
+  padding: 12px 22px;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 13px;
+  transition: 0.25s;
+}
+
+.hero-button:hover {
+  background: white;
+}
+
+.hero-stamp {
+  position: absolute;
+  left: 8%;
+  bottom: 23%;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "DM Sans", sans-serif;
+  z-index: 2;
+}
+
+.hero-stamp span {
+  font-size: 45px;
+  line-height: 1;
+}
+
+.hero-stamp small {
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+  padding: 90px 8%;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  line-height: 1.5;
+}
+
+.section-title h2 span {
+  color: var(--gold);
+}
+
+.section-counter,
+.intro-number {
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--gray);
+}
+
+/* INTRO */
+
+.intro {
+  background: var(--white);
+  min-height: 390px;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-content {
+  max-width: 650px;
+  margin-top: 35px;
+  position: relative;
+  z-index: 2;
+}
+
+.intro-content h2 {
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.intro-content h2 span {
+  color: var(--gold);
+}
+
+.intro-content p {
+  max-width: 540px;
+  color: var(--gray);
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.text-link {
+  display: inline-block;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+
+.intro-decoration {
+  position: absolute;
+  left: 8%;
+  bottom: -100px;
+  color: rgba(189,155,105,0.10);
+  font-family: "DM Sans", sans-serif;
+  font-size: 300px;
+  font-weight: 800;
+  direction: ltr;
+}
+
+/* COLLECTIONS */
+
+.collections {
+  background: var(--cream);
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: repeat(2, 290px);
+  gap: 18px;
+}
+
+.collection-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: #d9d0c5;
+  min-width: 0;
+}
+
+.collection-large {
+  grid-row: span 2;
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.collection-card:hover img {
+  transform: scale(1.05);
+}
+
+.collection-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: flex-start;
+  color: white;
+  background: linear-gradient(transparent 30%, rgba(0,0,0,0.72));
+}
+
+.collection-overlay span {
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.collection-overlay h3 {
+  font-size: 25px;
+  margin: 8px 0;
+}
+
+.collection-overlay b {
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* PRODUCTS */
+
+.products {
+  background: var(--white);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  background: var(--cream);
+  min-width: 0;
+  padding-bottom: 18px;
+  overflow: hidden;
+}
+
+.product-image {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: #e5ded5;
+}
+
+.product-image img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.product-image:hover img {
+  transform: scale(1.04);
+}
+
+.product-tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--gold);
+  color: var(--black);
+  padding: 5px 10px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.product-arrow {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: white;
+  color: var(--black);
+}
+
+.product-info {
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  text-align: right;
+}
+
+.product-category {
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--gray);
+}
+
+.product-info h3 {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.product-price {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.products-bottom {
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 11px;
+}
+
+.products-bottom span {
+  font-family: "DM Sans", sans-serif;
+  letter-spacing: 1px;
+}
+
+/* MEN COLLECTION - PRESERVED */
+
+#men-products {
+  background: #e9e1d7;
+}
+
+#men-products .product-grid {
+  grid-template-columns: minmax(0, 380px);
+  justify-content: center;
+}
+
+#men-products .product-card {
+  width: 100%;
+}
+
+#men-products .product-card > div[id="sweater-details"] {
+  padding: 15px 20px !important;
+}
+
+#men-products .product-card button[onclick*="orderSweater"] {
+  background: var(--black) !important;
+  color: white !important;
+  border: 1px solid var(--black) !important;
+  border-radius: 0;
+  transition: 0.25s;
+}
+
+#men-products .product-card button[onclick*="orderSweater"]:hover {
+  background: var(--gold) !important;
+  color: var(--black) !important;
+}
+
+#men-products .product-info {
+  padding-bottom: 0;
+}
+
+/* EDITORIAL */
+
+.editorial {
+  min-height: 450px;
+  position: relative;
+  overflow: hidden;
+  background: #292522;
+  color: white;
+}
+
+.editorial > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+
+.editorial-content {
+  position: relative;
+  z-index: 2;
+  padding: 85px 8%;
+}
+
+.editorial-content > span,
+.editorial-index {
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.editorial-content h2 {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(55px, 8vw, 90px);
+  line-height: 1;
+  margin: 22px 0;
+  direction: ltr;
+}
+
+.editorial-content p {
+  margin-bottom: 20px;
+}
+
+.editorial-content a {
+  display: inline-block;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 7px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+}
+
+.editorial-index {
+  position: absolute;
+  bottom: 25px;
+  left: 8%;
+}
+
+/* ABOUT */
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  background: var(--cream);
+}
+
+.about-left h2 {
+  font-size: clamp(32px, 5vw, 55px);
+  line-height: 1.5;
+}
+
+.about-left h2 span {
+  color: var(--gold);
+}
+
+.about-right p {
+  color: var(--gray);
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* CONTACT */
+
+.contact {
+  background: var(--black);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact h2 {
+  font-size: clamp(35px, 5vw, 55px);
+  line-height: 1.5;
+  margin: 15px 0;
+}
+
+.contact h2 span {
+  color: var(--gold);
+}
+
+.contact > p {
+  color: #c7c0b7;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.contact-links a {
+  min-width: 145px;
+  border: 1px solid var(--gold);
+  padding: 10px 20px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: 0.25s;
+}
+
+.contact-links a:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.contact-watermark {
+  margin-top: 55px;
+  color: rgba(255,255,255,0.07);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(35px, 9vw, 90px);
+  font-weight: 800;
+  letter-spacing: 8px;
+  direction: ltr;
+}
+
+/* INSTAGRAM POPUP */
+
+#instagram-choice {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.75);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#instagram-choice > div {
+  background: var(--white) !important;
+  color: var(--black);
+  padding: 30px !important;
+  border-radius: 4px !important;
+  max-width: 350px;
+  width: 100%;
+}
+
+/* FOOTER */
+
+.footer {
+  background: #10100f;
+  color: white;
+  padding: 30px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 10px;
+}
+
+.footer-logo .logo-img {
+  max-height: 45px;
+  width: 110px;
+}
+
+.back-top {
+  font-family: "DM Sans", sans-serif;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+  .header {
+    padding: 12px 4%;
+    gap: 12px;
+  }
+
+  .logo-img {
+    width: 110px;
+  }
+
+  .navigation {
+    gap: 15px;
+    font-size: 11px;
+  }
+
+  .header-shop {
+    padding: 9px 12px;
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 560px;
+  }
+
+  .section {
+    padding: 65px 5%;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .announcement {
+    flex-direction: column;
+    gap: 0;
+    padding: 7px;
+    font-size: 9px;
+  }
+
+  .header {
+    min-height: 75px;
+    padding: 10px 5%;
+    flex-wrap: wrap;
+  }
+
+  .logo-img {
+    width: 100px;
+  }
+
+  .navigation {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  .header-right {
+    margin-right: auto;
+  }
+
+  .header-shop {
+    display: none;
+  }
+
+  .mobile-shop {
+    display: inline-block;
+    background: var(--black);
+    color: white;
+    padding: 7px 13px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 510px;
+    padding: 22px 6%;
+    background-position: center;
+  }
+
+  .hero-content {
+    padding: 45px 0;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+  }
+
+  .hero-stamp {
+    width: 70px;
+    height: 70px;
+    left: 6%;
+    bottom: 17%;
+  }
+
+  .hero-stamp span {
+    font-size: 32px;
+  }
+
+  .hero-stamp small {
+    font-size: 6px;
+  }
+
+  .section {
+    padding: 50px 5%;
+  }
+
+  .section-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 25px;
+  }
+
+  .section-title h2 {
+    font-size: 27px;
+  }
+
+  .section-counter {
+    font-size: 9px;
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 310px 190px;
+    gap: 10px;
+  }
+
+  .collection-large {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .collection-overlay {
+    padding: 13px;
+  }
+
+  .collection-overlay h3 {
+    font-size: 18px;
+  }
+
+  .collection-overlay span,
+  .collection-overlay b {
+    font-size: 8px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-info {
+    padding: 12px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .product-info h3 {
+    font-size: 14px;
+  }
+
+  .product-category {
+    font-size: 8px;
+  }
+
+  .product-price {
+    font-size: 11px;
+  }
+
+  #men-products .product-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .products-bottom {
+    flex-direction: column;
+  }
+
+  .editorial {
+    min-height: 380px;
+  }
+
+  .editorial-content {
+    padding: 65px 7%;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-left h2 {
+    font-size: 38px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .navigation {
+    gap: 12px;
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .collection-grid {
+    grid-template-rows: 260px 170px;
+  }
+}
+
+/* ROSEPINA MEN - MINIMAL LUXURY */
+
+.men-page-header {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+}
+
+.men-page-header a {
+  color: #333333 !important;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.men-page-header a:hover {
+  color: #888888 !important;
+}
+
+.men-page-header img {
+  filter: none;
+}
+
+body:has(.men-page-header) {
+  background: #ffffff;
+  color: #292929;
+}
+
+body:has(.men-page-header) .products {
+  background: #ffffff;
+}
+
+body:has(.men-page-header) .section-title h2 {
+  color: #292929;
+  letter-spacing: 1px;
+}
+
+body:has(.men-page-header) .eyebrow,
+body:has(.men-page-header) .product-category {
+  color: #888888;
+}
+
+body:has(.men-page-header) .product-card {
+  background: #f7f7f7;
+}
+
+body:has(.men-page-header) .product-image {
+  background: #eeeeee;
+}
+
+body:has(.men-page-header) .product-tag {
+  background: #333333;
+  color: #ffffff;
+}
+
+body:has(.men-page-header) .product-price {
+  color: #333333;
+}
+
+body:has(.men-page-header) #sweater-order button {
+  border-radius: 0 !important;
+}
+
+/* ROSEPINA LUXURY HEADER */
+
+.rp-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  min-height: 85px;
+  padding: 12px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: rtl;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 2px 12px rgba(0,0,0,.04);
+}
+
+.rp-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #111;
+  text-decoration: none;
+  font-family: Georgia, serif;
+  font-size: 29px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.rp-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.rp-navigation {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.rp-navigation a {
+  color: #292929;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s ease;
+}
+
+.rp-navigation a:hover {
+  color: #888;
+}
+
+.rp-header-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.rp-header-icons a {
+  color: #222;
+  font-size: 27px;
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .rp-header {
+    min-height: 70px;
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .rp-logo {
+    font-size: 23px;
+  }
+
+  .rp-logo img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .rp-navigation {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .rp-navigation a {
+    font-size: 12px;
+  }
+}
+
+/* ROSEPINA FULL HERO IMAGE */
+
+.hero-image-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* HOMEPAGE SPACING */
+
+body:not(:has(.men-page-header)) main > section {
+  margin-bottom: 30px;
+}
+
+body:not(:has(.men-page-header)) .section {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+/* INTRO WHITE BACKGROUND */
+
+body:not(:has(.men-page-header)) .intro {
+  background: #ffffff;
+}
+
+/* COLLECTIONS REFINED */
+
+body:not(:has(.men-page-header)) .collections {
+  background: #fff;
+}
+
+body:not(:has(.men-page-header)) .collections .section-title {
+  margin-bottom: 42px;
+}
+
+body:not(:has(.men-page-header)) .collections .eyebrow {
+  font-family: "Vazirmatn", sans-serif;
+  letter-spacing: 0;
+  font-size: 11px;
+  color: #817b73;
+}
+
 body:not(:has(.men-page-header)) .collections .collection-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  grid-template-rows: 580px !important;
-  grid-auto-rows: 580px !important;
-  align-items: stretch !important;
-  gap: 20px !important;
+  gap: 20px;
 }
 
 body:not(:has(.men-page-header)) .collections .collection-card {
-  display: block !important;
-  width: 100% !important;
-  height: 580px !important;
-  min-height: 0 !important;
-  max-height: 580px !important;
-  grid-column: auto !important;
-  grid-row: auto !important;
-  overflow: hidden !important;
-  background: #fff !important;
+  background: #eee;
 }
 
-/* تصاویر زنانه و مردانه */
-body:not(:has(.men-page-header)) .collections .collection-card img {
+body:not(:has(.men-page-header)) .collections .collection-overlay {
+  padding: 28px;
+  background: linear-gradient(
+    180deg,
+    transparent 25%,
+    rgba(0,0,0,.58) 100%
+  );
+}
+
+body:not(:has(.men-page-header)) .collections .collection-overlay span,
+body:not(:has(.men-page-header)) .collections .collection-overlay b {
+  font-family: "Vazirmatn", sans-serif;
+  letter-spacing: 0;
+  font-size: 11px;
+}
+
+/* HOMEPAGE PRODUCTS LUXURY */
+
+body:not(:has(.men-page-header)) .products {
+  background: #ffffff;
+}
+
+body:not(:has(.men-page-header)) .products .section-title {
+  margin-bottom: 45px;
+}
+
+body:not(:has(.men-page-header)) .products .eyebrow {
+  font-family: "Vazirmatn", sans-serif;
+  letter-spacing: 0;
+  font-size: 11px;
+  color: #817b73;
+}
+
+body:not(:has(.men-page-header)) .products .section-counter {
+  font-family: "Vazirmatn", sans-serif;
+  letter-spacing: 0;
+}
+
+body:not(:has(.men-page-header)) .products .product-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body:not(:has(.men-page-header)) .products .product-card {
+  background: #ffffff;
+  padding-bottom: 12px;
+}
+
+body:not(:has(.men-page-header)) .products .product-image {
+  background: #f5f5f3;
+}
+
+body:not(:has(.men-page-header)) .products .product-image img {
+  aspect-ratio: 3 / 4;
+  transition: transform .7s ease;
+}
+
+body:not(:has(.men-page-header)) .products .product-card:hover .product-image img {
+  transform: scale(1.045);
+}
+
+body:not(:has(.men-page-header)) .products .product-tag {
+  background: rgba(255,255,255,.92);
+  color: #333;
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0;
+}
+
+body:not(:has(.men-page-header)) .products .product-info {
+  padding: 15px 4px;
+}
+
+body:not(:has(.men-page-header)) .products .product-category {
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0;
+  color: #999;
+}
+
+body:not(:has(.men-page-header)) .products .product-info h3 {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+body:not(:has(.men-page-header)) .products .product-price {
+  color: #777;
+  font-size: 11px;
+}
+
+body:not(:has(.men-page-header)) .products .product-arrow {
+  background: #fff;
+  color: #222;
+  transition: .3s ease;
+}
+
+body:not(:has(.men-page-header)) .products .products-bottom {
+  margin-top: 45px;
+}
+
+/* FINAL MOBILE PRODUCTS FIX */
+
+@media screen and (max-width: 600px) {
+  body:not(:has(.men-page-header)) .products .product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  body:not(:has(.men-page-header)) .products .product-card {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* ==============================
+   ROSEPINA MINIMAL LUXURY FOOTER
+================================ */
+
+body:not(:has(.men-page-header)) .rp-footer {
+  display: block;
+  width: 100%;
+  padding: 65px 8% 22px;
+  background: #ffffff;
+  color: #222;
+  border-top: 1px solid #eaeaea;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 45px;
+  padding-bottom: 50px;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #171717;
+  font-family: Georgia, serif;
+  font-size: 27px;
+  letter-spacing: 2px;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-logo img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-brand p {
+  margin-top: 17px;
+  color: #888;
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-links,
+body:not(:has(.men-page-header)) .rp-footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-links h3,
+body:not(:has(.men-page-header)) .rp-footer-contact h3 {
+  margin-bottom: 8px;
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-links a,
+body:not(:has(.men-page-header)) .rp-footer-contact a {
+  color: #858585;
+  font-size: 12px;
+  transition: color .25s ease;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-links a:hover,
+body:not(:has(.men-page-header)) .rp-footer-contact a:hover {
+  color: #b69a73;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid #ededed;
+  color: #999;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: .7px;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-bottom a {
+  color: #777;
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+/* MOBILE FOOTER */
+
+@media (max-width: 600px) {
+  body:not(:has(.men-page-header)) .rp-footer {
+    padding: 45px 6% 20px;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 18px;
+    padding-bottom: 30px;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-logo {
+    font-size: 24px;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-links,
+  body:not(:has(.men-page-header)) .rp-footer-contact {
+    gap: 10px;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 9px;
+  }
+}
+
+/* FOOTER COLOR TEST */
+
+body:not(:has(.men-page-header)) footer.rp-footer {
+  background: #ffffff !important;
+  color: #222222 !important;
   display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  transform: none !important;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-contact h3 {
+  width: 100%;
+}
+
+body:not(:has(.men-page-header)) .rp-footer-contact a:last-child {
+  width: 100%;
+}
+
+/* ==========================================
+   ROSEPINA - TWO EQUAL COLLECTION CARDS
+   فقط اصلاح کارت‌های صفحه اصلی
+========================================== */
+
+/* دسکتاپ: دو کارت هم‌اندازه */
+body:not(:has(.men-page-header)) .collections .collection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 580px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+body:not(:has(.men-page-header)) .collections .collection-card {
+  width: 100%;
+  height: 580px;
+  min-width: 0;
+  min-height: 0;
+  grid-column: auto;
+  grid-row: auto;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* تصویر هر دو کارت کامل و بدون برش */
+body:not(:has(.men-page-header)) .collections .collection-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
 }
 
 body:not(:has(.men-page-header)) .collections .collection-card:hover img {
-  transform: none !important;
+  transform: none;
 }
 
 /* موبایل */
 @media (max-width: 600px) {
   body:not(:has(.men-page-header)) .collections .collection-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-template-rows: 310px !important;
-    grid-auto-rows: 310px !important;
-    gap: 10px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 310px;
+    gap: 10px;
   }
 
   body:not(:has(.men-page-header)) .collections .collection-card {
-    height: 310px !important;
-    min-height: 0 !important;
-    max-height: 310px !important;
+    height: 310px;
   }
 }
 
 /* گوشی‌های کوچک */
 @media (max-width: 360px) {
   body:not(:has(.men-page-header)) .collections .collection-grid {
-    grid-template-rows: 260px !important;
-    grid-auto-rows: 260px !important;
+    grid-template-rows: 260px;
   }
 
   body:not(:has(.men-page-header)) .collections .collection-card {
-    height: 260px !important;
-    max-height: 260px !important;
+    height: 260px;
   }
 }
