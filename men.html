@@ -12,498 +12,192 @@
 
 <style>
 *{box-sizing:border-box}
-
-html,body{
- margin:0;
- padding:0;
- font-family:"Vazirmatn",sans-serif;
- color:#292929;
-}
-
+html,body{margin:0;padding:0;font-family:"Vazirmatn",sans-serif;color:#292929}
 body{background:#f5f0e9}
 button,input,textarea{font-family:inherit}
 button{cursor:pointer}
 
 /* هدر */
 body > header{
- width:100%;
- min-height:110px;
- display:flex !important;
- flex-direction:row;
- justify-content:space-between !important;
- align-items:center !important;
- gap:15px;
- padding:12px 5% !important;
- background:#f5f0e9 !important;
- border-bottom:1px solid #eee;
- position:relative;
+ width:100%;min-height:110px;display:flex !important;
+ flex-direction:row;justify-content:space-between !important;
+ align-items:center !important;gap:15px;padding:12px 5% !important;
+ background:#f5f0e9 !important;border-bottom:1px solid #eee;position:relative;
 }
-
 body > header a{
- display:inline-flex !important;
- align-items:center;
- color:#333 !important;
- text-decoration:none !important;
- font-size:14px !important;
+ display:inline-flex !important;align-items:center;color:#333 !important;
+ text-decoration:none !important;font-size:14px !important;
 }
-
-body > header a:first-child{
- flex-shrink:0;
-}
-
+body > header a:first-child{flex-shrink:0}
 body > header a:first-child img{
- display:block !important;
- width:120px !important;
- height:120px !important;
- max-width:120px !important;
- object-fit:contain !important;
+ display:block !important;width:120px !important;height:120px !important;
+ max-width:120px !important;object-fit:contain !important;
 }
-
-body > header a:last-child{
- white-space:nowrap;
-}
+body > header a:last-child{white-space:nowrap}
 
 /* بنر */
-.hero img{
- width:100%;
- height:auto;
- display:block;
-}
-
-.intro{
- text-align:center;
- padding:40px 15px;
- color:#777;
- background:#fff;
-}
+.hero img{width:100%;height:auto;display:block}
+.intro{text-align:center;padding:40px 15px;color:#777;background:#fff}
 
 /* دسته بندی */
-.categories,.category-products{
- padding:30px 5% 60px;
-}
-
-.heading{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin-bottom:25px;
-}
-
-.heading h2{
- font-size:23px;
- font-weight:600;
-}
-
-.category-grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:15px;
-}
-
+.categories,.category-products{padding:30px 5% 60px}
+.heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.heading h2{font-size:23px;font-weight:600}
+.category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
 .category-card{
- border:1px solid #eee;
- background:#fff;
- padding:0;
- text-align:right;
- overflow:hidden;
- width:100%;
- color:#292929;
+ border:1px solid #eee;background:#fff;padding:0;text-align:right;
+ overflow:hidden;width:100%;color:#292929;
 }
-
 .category-card img{
- width:100%;
- aspect-ratio:1/1;
- object-fit:cover;
- display:block;
+ width:100%;aspect-ratio:1/1;object-fit:cover;display:block;
 }
-
-.category-card span{
- display:block;
- padding:13px;
- font-size:13px;
-}
+.category-card span{display:block;padding:13px;font-size:13px}
 
 /* صفحات دسته بندی */
 .category-products{display:none}
 .category-products.active{display:block}
-
 .category-top{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:10px;
- margin-bottom:25px;
+ display:flex;justify-content:space-between;align-items:center;
+ gap:10px;margin-bottom:25px;
 }
-
 .category-top h2{font-size:22px}
-
-.back-button{
- background:#fff;
- border:1px solid #ddd;
- padding:10px 15px;
- color:#292929;
-}
+.back-button{background:#fff;border:1px solid #ddd;padding:10px 15px;color:#292929}
 
 /* محصولات */
 .sneakers-grid{
- display:grid;
- grid-template-columns:repeat(3,minmax(0,1fr));
- gap:18px;
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;
 }
-
 .sneaker-card,.product-card{
- border:1px solid #eee;
- background:#fff;
- overflow:hidden;
- min-width:0;
+ border:1px solid #eee;background:#fff;overflow:hidden;min-width:0;
 }
-
 .sneaker-card img,.product-card img{
- width:100%;
- aspect-ratio:1/1.1;
- object-fit:cover;
- display:block;
- background:#f5f5f5;
+ width:100%;aspect-ratio:1/1.1;object-fit:cover;
+ display:block;background:#f5f5f5;
 }
-
-.sneaker-info,.product-info{
- padding:15px;
- text-align:center;
-}
-
-.sneaker-info h3,.product-info h3{
- font-size:14px;
- margin:5px 0 12px;
-}
-
-.sneaker-info p,.product-info p{
- font-size:13px;
- font-weight:700;
-}
-
+.sneaker-info,.product-info{padding:15px;text-align:center}
+.sneaker-info h3,.product-info h3{font-size:14px;margin:5px 0 12px}
+.sneaker-info p,.product-info p{font-size:13px;font-weight:700}
 .sneaker-info button,.action-button{
- background:#292929;
- color:white;
- border:0;
- padding:12px 18px;
- width:100%;
- font-size:13px;
+ background:#292929;color:white;border:0;padding:12px 18px;
+ width:100%;font-size:13px;
 }
-
 .empty-message{
- text-align:center;
- padding:55px 15px;
- background:#f7f7f7;
- color:#777;
- font-size:13px;
+ text-align:center;padding:55px 15px;background:#f7f7f7;
+ color:#777;font-size:13px;
 }
 
 /* فرم سفارش */
 #sneaker-order,#shirt-order,#sweater-order{
- display:none;
- position:fixed;
- inset:0;
- z-index:10001;
- background:#fff;
- overflow-y:auto;
- padding:25px 18px;
+ display:none;position:fixed;inset:0;z-index:10001;
+ background:#fff;overflow-y:auto;padding:25px 18px;
 }
-
-.order-inner{
- max-width:500px;
- margin:auto;
-}
-
+.order-inner{max-width:500px;margin:auto}
 .order-inner h2{font-size:22px}
-
 .order-inner img{
- width:100%;
- max-height:350px;
- object-fit:contain;
- background:#f5f5f5;
+ width:100%;max-height:350px;object-fit:contain;background:#f5f5f5;
 }
-
-.order-inner h3{
- font-size:15px;
- margin:22px 0 12px;
-}
-
-.size-options,.color-options{
- display:flex;
- flex-wrap:wrap;
- gap:9px;
-}
-
+.order-inner h3{font-size:15px;margin:22px 0 12px}
+.size-options,.color-options{display:flex;flex-wrap:wrap;gap:9px}
 .size-options button,.color-options button{
- min-width:48px;
- padding:11px;
- border:1px solid #ddd;
- background:#fff;
+ min-width:48px;padding:11px;border:1px solid #ddd;background:#fff;
 }
-
 .size-options button.active,.color-options button.active{
- background:#292929;
- color:#fff;
- border-color:#292929;
+ background:#292929;color:#fff;border-color:#292929;
 }
-
 .order-inner input,.order-inner textarea{
- width:100%;
- max-width:180px;
- padding:11px;
- border:1px solid #ddd;
+ width:100%;max-width:180px;padding:11px;border:1px solid #ddd;
 }
-
 .order-inner textarea{max-width:100%}
-
 .order-submit{
- width:100%;
- padding:15px;
- margin-top:20px;
- background:#292929;
- color:#fff;
- border:0;
- font-size:14px;
+ width:100%;padding:15px;margin-top:20px;background:#292929;
+ color:#fff;border:0;font-size:14px;
 }
-
 .order-price{font-weight:700}
 
 /* گالری پیراهن و بافت */
 #shirt-order .gallery,#sweater-order .gallery{
- position:relative;
- margin:15px auto;
- background:#f5f5f5;
+ position:relative;margin:15px auto;background:#f5f5f5;
 }
-
 #shirt-order .gallery img,#sweater-order .gallery img{
- width:100%;
- height:350px;
- object-fit:contain;
+ width:100%;height:350px;object-fit:contain;
 }
-
 .gallery button{
- position:absolute;
- top:50%;
- transform:translateY(-50%);
- border:0;
- border-radius:50%;
- background:#fff;
- width:38px;
- height:38px;
- font-size:20px;
+ position:absolute;top:50%;transform:translateY(-50%);
+ border:0;border-radius:50%;background:#fff;width:38px;height:38px;font-size:20px;
 }
-
 .gallery .prev{right:8px}
 .gallery .next{left:8px}
-
 .gallery-counter{
- position:absolute;
- bottom:10px;
- left:50%;
- transform:translateX(-50%);
- background:#333;
- color:#fff;
- padding:4px 12px;
- border-radius:20px;
- font-size:11px;
+ position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+ background:#333;color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;
 }
 
 /* سبد خرید */
 .cart-floating{
- position:fixed;
- left:15px;
- bottom:15px;
- z-index:9000;
- background:#292929;
- color:#fff;
- border:0;
- border-radius:30px;
- padding:13px 20px;
- box-shadow:0 4px 15px #0002;
+ position:fixed;left:15px;bottom:15px;z-index:9000;
+ background:#292929;color:#fff;border:0;border-radius:30px;
+ padding:13px 20px;box-shadow:0 4px 15px #0002;
 }
-
 .cart-floating span{
- background:#fff;
- color:#292929;
- border-radius:50%;
- padding:3px 7px;
- margin-right:5px;
+ background:#fff;color:#292929;border-radius:50%;padding:3px 7px;margin-right:5px;
 }
-
 #men-cart{
- display:none;
- position:fixed;
- inset:0;
- z-index:11000;
- background:#0008;
- padding:15px;
- overflow-y:auto;
+ display:none;position:fixed;inset:0;z-index:11000;
+ background:#0008;padding:15px;overflow-y:auto;
 }
-
-#men-cart.open{
- display:flex;
- align-items:flex-end;
- justify-content:center;
-}
-
+#men-cart.open{display:flex;align-items:flex-end;justify-content:center}
 .cart-panel{
- width:100%;
- max-width:550px;
- max-height:88vh;
- overflow:auto;
- background:#fff;
- padding:20px;
- border-radius:12px;
+ width:100%;max-width:550px;max-height:88vh;overflow:auto;
+ background:#fff;padding:20px;border-radius:12px;
 }
-
-.cart-header,.cart-total{
- display:flex;
- justify-content:space-between;
- align-items:center;
-}
-
-.cart-header{
- border-bottom:1px solid #eee;
- padding-bottom:12px;
-}
-
+.cart-header,.cart-total{display:flex;justify-content:space-between;align-items:center}
+.cart-header{border-bottom:1px solid #eee;padding-bottom:12px}
 .cart-header h2{font-size:19px}
-
-.cart-close{
- border:1px solid #ddd;
- background:#fff;
- padding:8px;
-}
-
-.cart-empty{
- text-align:center;
- padding:35px;
- color:#888;
-}
-
+.cart-close{border:1px solid #ddd;background:#fff;padding:8px}
+.cart-empty{text-align:center;padding:35px;color:#888}
 .cart-item{
- display:flex;
- justify-content:space-between;
- gap:10px;
- border-bottom:1px solid #eee;
- padding:15px 0;
+ display:flex;justify-content:space-between;gap:10px;
+ border-bottom:1px solid #eee;padding:15px 0;
 }
-
-.cart-item h3{
- font-size:14px;
- margin:0 0 8px;
-}
-
-.cart-item p{
- font-size:12px;
- color:#777;
- margin:4px 0;
-}
-
-.cart-item-price{
- font-size:12px;
- font-weight:700;
- white-space:nowrap;
-}
-
-.cart-item-actions{
- display:flex;
- align-items:center;
- gap:8px;
- margin-top:8px;
-}
-
-.cart-item-actions button{
- border:1px solid #ddd;
- background:#fff;
- padding:5px 10px;
-}
-
-.cart-total{
- padding:18px 0;
- font-weight:700;
-}
-
+.cart-item h3{font-size:14px;margin:0 0 8px}
+.cart-item p{font-size:12px;color:#777;margin:4px 0}
+.cart-item-price{font-size:12px;font-weight:700;white-space:nowrap}
+.cart-item-actions{display:flex;align-items:center;gap:8px;margin-top:8px}
+.cart-item-actions button{border:1px solid #ddd;background:#fff;padding:5px 10px}
+.cart-total{padding:18px 0;font-weight:700}
 .checkout,.clear-cart{
- width:100%;
- padding:14px;
- margin-top:8px;
- border:0;
- font-family:inherit;
+ width:100%;padding:14px;margin-top:8px;border:0;font-family:inherit;
 }
-
-.checkout{
- background:#292929;
- color:#fff;
-}
-
-.clear-cart{
- background:#fff;
- border:1px solid #ddd;
- color:#777;
-}
+.checkout{background:#292929;color:#fff}
+.clear-cart{background:#fff;border:1px solid #ddd;color:#777}
 
 /* موبایل */
 @media(max-width:700px){
-
- body > header{
-  min-height:100px;
-  padding:10px 4% !important;
- }
-
- body > header a:first-child img{
-  width:100px !important;
-  height:100px !important;
- }
-
- body > header a:last-child{
-  font-size:12px !important;
- }
-
- .category-grid{
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
- }
-
- .sneakers-grid{
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
- }
-
+ body > header{min-height:100px;padding:10px 4% !important}
+ body > header a:first-child img{width:100px !important;height:100px !important}
+ body > header a:last-child{font-size:12px !important}
+ .category-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+ .sneakers-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
  .sneaker-info{padding:12px 7px}
  .sneaker-info h3{font-size:12px}
  .sneaker-info p{font-size:12px}
-
- .category-products,.categories{
-  padding:25px 4% 50px;
- }
-
+ .category-products,.categories{padding:25px 4% 50px}
  .category-top h2{font-size:18px}
 }
-
 @media(max-width:360px){
- body > header a:first-child img{
-  width:80px !important;
-  height:80px !important;
- }
- body > header a:last-child{
-  font-size:11px !important;
- }
+ body > header a:first-child img{width:80px !important;height:80px !important}
+ body > header a:last-child{font-size:11px !important}
 }
 </style>
 </head>
 
 <body>
 
-<!-- هدر -->
 <header>
-<a href="index.html">
-<img src="logo.png" alt="ROSEPINA">
-</a>
+<a href="index.html"><img src="logo.png" alt="ROSEPINA"></a>
 <a href="index.html">بازگشت به صفحه اصلی ↗</a>
 </header>
 
-<!-- بنر -->
 <section class="hero">
 <img src="images/men-banner.png" alt="کالکشن مردانه">
 </section>
@@ -513,212 +207,83 @@ body > header a:last-child{
 <p>استایل متفاوت، انتخاب متفاوت</p>
 </section>
 
-<!-- دسته بندی محصولات -->
 <section class="categories" id="men-categories">
-<div class="heading">
-<h2>دسته‌بندی محصولات</h2>
-</div>
-
+<div class="heading"><h2>دسته‌بندی محصولات</h2></div>
 <div class="category-grid">
-
-<button class="category-card" onclick="showCategory('sneakers')">
-<img src="images/jordan-1-black-cream-red.png" alt="کتونی">
-<span>کتونی</span>
-</button>
-
-<button class="category-card" onclick="showCategory('shirts')">
-<img src="images/shirts-pink.png" alt="پیراهن">
-<span>پیراهن</span>
-</button>
-
-<button class="category-card" onclick="showCategory('pants')">
-<img src="images/pants-category.png" alt="شلوار">
-<span>شلوار</span>
-</button>
-
-<button class="category-card" onclick="showCategory('sunglasses')">
-<img src="images/sunglasses-black.png" alt="عینک">
-<span>عینک آفتابی</span>
-</button>
-
-<button class="category-card" onclick="showCategory('sets')">
-<img src="images/sets-hermes.png" alt="ست">
-<span>ست لباس</span>
-</button>
-
-<button class="category-card" onclick="showCategory('shorts')">
-<img src="images/shorts-category.png" alt="شلوارک">
-<span>شلوارک</span>
-</button>
-
-<button class="category-card" onclick="showCategory('tshirts')">
-<img src="images/Tshirt.png" alt="تیشرت">
-<span>رکابی و تیشرت</span>
-</button>
-
-<button class="category-card" onclick="showCategory('knitwear')">
-<img src="images/Baft.png" alt="بافت">
-<span>بافت و پلیور</span>
-</button>
-
+<button class="category-card" onclick="showCategory('sneakers')"><img src="images/jordan-1-black-cream-red.png" alt="کتونی"><span>کتونی</span></button>
+<button class="category-card" onclick="showCategory('shirts')"><img src="images/shirts-pink.png" alt="پیراهن"><span>پیراهن</span></button>
+<button class="category-card" onclick="showCategory('pants')"><img src="images/pants-category.png" alt="شلوار"><span>شلوار</span></button>
+<button class="category-card" onclick="showCategory('sunglasses')"><img src="images/sunglasses-black.png" alt="عینک"><span>عینک آفتابی</span></button>
+<button class="category-card" onclick="showCategory('sets')"><img src="images/sets-hermes.png" alt="ست"><span>ست لباس</span></button>
+<button class="category-card" onclick="showCategory('shorts')"><img src="images/shorts-category.png" alt="شلوارک"><span>شلوارک</span></button>
+<button class="category-card" onclick="showCategory('tshirts')"><img src="images/Tshirt.png" alt="تیشرت"><span>رکابی و تیشرت</span></button>
+<button class="category-card" onclick="showCategory('knitwear')"><img src="images/Baft.png" alt="بافت"><span>بافت و پلیور</span></button>
 </div>
 </section>
 
 <!-- کتونی‌ها -->
 <section class="category-products" id="category-sneakers">
-
 <div class="category-top">
 <h2>کتونی مردانه</h2>
 <button class="back-button" onclick="backToCategories()">بازگشت</button>
 </div>
-
 <div class="sneakers-grid">
-
 <article class="sneaker-card">
 <img src="images/jordan-1-black-cream-red.png" alt="جردن وان مشکی کرم قرمز">
-<div class="sneaker-info">
-<h3>جردن وان مشکی، کرم و قرمز</h3>
-<p>۳,۰۰۰,۰۰۰ تومان</p>
-<button onclick="openSneakerOrder('jordan-black')">انتخاب سایز</button>
-</div>
+<div class="sneaker-info"><h3>جردن وان مشکی، کرم و قرمز</h3><p>۳,۰۰۰,۰۰۰ تومان</p><button onclick="openSneakerOrder('jordan-black')">انتخاب سایز</button></div>
 </article>
-
 <article class="sneaker-card">
 <img src="images/louis-vuitton-black-cream.png" alt="لویی ویتون مشکی و کرم">
-<div class="sneaker-info">
-<h3>لویی ویتون مشکی و کرم</h3>
-<p>۳,۰۰۰,۰۰۰ تومان</p>
-<button onclick="openSneakerOrder('lv-black')">انتخاب سایز</button>
-</div>
+<div class="sneaker-info"><h3>لویی ویتون مشکی و کرم</h3><p>۳,۰۰۰,۰۰۰ تومان</p><button onclick="openSneakerOrder('lv-black')">انتخاب سایز</button></div>
 </article>
-
 <article class="sneaker-card">
 <img src="images/louis-vuitton-cream.png" alt="لویی ویتون کرم">
-<div class="sneaker-info">
-<h3>لویی ویتون کرم</h3>
-<p>۳,۰۰۰,۰۰۰ تومان</p>
-<button onclick="openSneakerOrder('lv-cream')">انتخاب سایز</button>
-</div>
+<div class="sneaker-info"><h3>لویی ویتون کرم</h3><p>۳,۰۰۰,۰۰۰ تومان</p><button onclick="openSneakerOrder('lv-cream')">انتخاب سایز</button></div>
 </article>
-
 <article class="sneaker-card">
-<img
-src="images/black-sneaker.jpg"
-alt="جوردن وان"
-onerror="this.onerror=null;this.src='images/jordan-1-black-cream-red.png';">
-
-<div class="sneaker-info">
-<h3>جوردن وان</h3>
-<p>۳,۰۰۰,۰۰۰ تومان</p>
-<button onclick="openSneakerOrder('jordan-one-black')">انتخاب سایز</button>
-</div>
+<img src="images/black-sneaker.png" alt="جوردن وان">
+<div class="sneaker-info"><h3>جوردن وان</h3><p>۳,۰۰۰,۰۰۰ تومان</p><button onclick="openSneakerOrder('jordan-one-black')">انتخاب سایز</button></div>
 </article>
-
 </div>
 </section>
 
 <!-- پیراهن -->
 <section class="category-products" id="category-shirts">
-
-<div class="category-top">
-<h2>پیراهن مردانه</h2>
-<button class="back-button" onclick="backToCategories()">بازگشت</button>
-</div>
-
+<div class="category-top"><h2>پیراهن مردانه</h2><button class="back-button" onclick="backToCategories()">بازگشت</button></div>
 <div class="sneakers-grid">
-
 <article class="product-card">
 <img src="images/shirt-cotton-colors.png" alt="پیراهن نخی">
-<div class="product-info">
-<h3>پیراهن نخی مردانه</h3>
-<p>۲,۰۰۰,۰۰۰ تومان</p>
-<button class="action-button" onclick="openShirtOrder()">انتخاب رنگ و سایز</button>
-</div>
+<div class="product-info"><h3>پیراهن نخی مردانه</h3><p>۲,۰۰۰,۰۰۰ تومان</p><button class="action-button" onclick="openShirtOrder()">انتخاب رنگ و سایز</button></div>
 </article>
-
 </div>
 </section>
 
 <!-- سایر دسته‌ها -->
-<section class="category-products" id="category-pants">
-<div class="category-top">
-<h2>شلوار</h2>
-<button class="back-button" onclick="backToCategories()">بازگشت</button>
-</div>
-<div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div>
-</section>
-
-<section class="category-products" id="category-sunglasses">
-<div class="category-top">
-<h2>عینک آفتابی</h2>
-<button class="back-button" onclick="backToCategories()">بازگشت</button>
-</div>
-<div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div>
-</section>
-
-<section class="category-products" id="category-sets">
-<div class="category-top">
-<h2>ست لباس</h2>
-<button class="back-button" onclick="backToCategories()">بازگشت</button>
-</div>
-<div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div>
-</section>
-
-<section class="category-products" id="category-shorts">
-<div class="category-top">
-<h2>شلوارک</h2>
-<button class="back-button" onclick="backToCategories()">بازگشت</button>
-</div>
-<div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div>
-</section>
-
-<section class="category-products" id="category-tshirts">
-<div class="category-top">
-<h2>رکابی و تیشرت</h2>
-<button class="back-button" onclick="backToCategories()">بازگشت</button>
-</div>
-<div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div>
-</section>
+<section class="category-products" id="category-pants"><div class="category-top"><h2>شلوار</h2><button class="back-button" onclick="backToCategories()">بازگشت</button></div><div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div></section>
+<section class="category-products" id="category-sunglasses"><div class="category-top"><h2>عینک آفتابی</h2><button class="back-button" onclick="backToCategories()">بازگشت</button></div><div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div></section>
+<section class="category-products" id="category-sets"><div class="category-top"><h2>ست لباس</h2><button class="back-button" onclick="backToCategories()">بازگشت</button></div><div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div></section>
+<section class="category-products" id="category-shorts"><div class="category-top"><h2>شلوارک</h2><button class="back-button" onclick="backToCategories()">بازگشت</button></div><div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div></section>
+<section class="category-products" id="category-tshirts"><div class="category-top"><h2>رکابی و تیشرت</h2><button class="back-button" onclick="backToCategories()">بازگشت</button></div><div class="empty-message">محصولات این دسته به‌زودی اضافه می‌شوند.</div></section>
 
 <!-- بافت -->
 <section class="category-products" id="category-knitwear">
-
-<div class="category-top">
-<h2>بافت و پلیور</h2>
-<button class="back-button" onclick="backToCategories()">بازگشت</button>
-</div>
-
+<div class="category-top"><h2>بافت و پلیور</h2><button class="back-button" onclick="backToCategories()">بازگشت</button></div>
 <div class="sneakers-grid">
 <article class="product-card">
 <img src="images/sweater-charcoal.jpg" alt="بافت یقه اسکی">
-<div class="product-info">
-<h3>بافت یقه‌اسکی</h3>
-<p>۳,۰۰۰,۰۰۰ تومان</p>
-<button class="action-button" onclick="openSweaterOrder()">انتخاب رنگ</button>
-</div>
+<div class="product-info"><h3>بافت یقه‌اسکی</h3><p>۳,۰۰۰,۰۰۰ تومان</p><button class="action-button" onclick="openSweaterOrder()">انتخاب رنگ</button></div>
 </article>
 </div>
-
 </section>
 
 <!-- فرم سفارش کتونی -->
 <section id="sneaker-order">
 <div class="order-inner">
-
 <button class="back-button" onclick="closeOrder('sneaker-order')">بازگشت</button>
-
 <h2 id="sneaker-name">انتخاب کتونی</h2>
-
-<img
-id="sneaker-image"
-src=""
-alt="کتونی انتخاب‌شده"
-onerror="this.onerror=null;this.src='images/jordan-1-black-cream-red.png';">
-
+<img id="sneaker-image" src="" alt="کتونی انتخاب‌شده">
 <p class="order-price">۳,۰۰۰,۰۰۰ تومان</p>
-
 <h3>انتخاب سایز</h3>
-
 <div class="size-options">
 <button onclick="selectSneakerSize(40)">۴۰</button>
 <button onclick="selectSneakerSize(41)">۴۱</button>
@@ -726,35 +291,26 @@ onerror="this.onerror=null;this.src='images/jordan-1-black-cream-red.png';">
 <button onclick="selectSneakerSize(43)">۴۳</button>
 <button onclick="selectSneakerSize(44)">۴۴</button>
 </div>
-
 <p id="sneaker-size-label">سایز انتخابی: انتخاب نشده</p>
-
 <h3>تعداد</h3>
 <input id="sneaker-quantity" type="number" min="1" max="20" value="1">
-
 <button class="order-submit" onclick="addSneakerToCart()">افزودن به سبد خرید</button>
-
 </div>
 </section>
 
 <!-- فرم سفارش پیراهن -->
 <section id="shirt-order">
 <div class="order-inner">
-
 <button class="back-button" onclick="closeOrder('shirt-order')">بازگشت</button>
-
 <h2>پیراهن نخی مردانه</h2>
 <p class="order-price">۲,۰۰۰,۰۰۰ تومان</p>
-
 <div class="gallery">
 <img id="shirt-image" src="images/shirt-cotton-colors.png" alt="پیراهن">
 <button class="prev" onclick="changeShirtSlide(-1)">›</button>
 <button class="next" onclick="changeShirtSlide(1)">‹</button>
 <span class="gallery-counter" id="shirt-counter">۱ از ۷</span>
 </div>
-
 <h3>انتخاب رنگ</h3>
-
 <div class="color-options">
 <button data-color="brown" onclick="selectShirtColor('brown')">قهوه‌ای</button>
 <button data-color="olive" onclick="selectShirtColor('olive')">زیتونی</button>
@@ -763,11 +319,8 @@ onerror="this.onerror=null;this.src='images/jordan-1-black-cream-red.png';">
 <button data-color="white" onclick="selectShirtColor('white')">سفید</button>
 <button data-color="cream" onclick="selectShirtColor('cream')">کرم</button>
 </div>
-
 <p id="shirt-color-label">رنگ انتخابی: انتخاب نشده</p>
-
 <h3>انتخاب سایز</h3>
-
 <div class="size-options">
 <button onclick="selectShirtSize('S')">S</button>
 <button onclick="selectShirtSize('M')">M</button>
@@ -775,109 +328,61 @@ onerror="this.onerror=null;this.src='images/jordan-1-black-cream-red.png';">
 <button onclick="selectShirtSize('XL')">XL</button>
 <button onclick="selectShirtSize('XXL')">XXL</button>
 </div>
-
 <p id="shirt-size-label">سایز انتخابی: انتخاب نشده</p>
-
 <h3>تعداد</h3>
 <input id="shirt-quantity" type="number" min="1" max="20" value="1">
-
 <button class="order-submit" onclick="addShirtToCart()">افزودن به سبد خرید</button>
-
 </div>
 </section>
 
 <!-- فرم سفارش بافت -->
 <section id="sweater-order">
 <div class="order-inner">
-
 <button class="back-button" onclick="closeOrder('sweater-order')">بازگشت</button>
-
 <h2>بافت یقه‌اسکی</h2>
-
 <div class="gallery">
 <img id="sweater-image" src="images/sweater-charcoal.jpg" alt="بافت">
 <button class="prev" onclick="changeSweaterSlide(-1)">›</button>
 <button class="next" onclick="changeSweaterSlide(1)">‹</button>
 <span class="gallery-counter" id="sweater-counter">۱ از ۴</span>
 </div>
-
 <p id="sweater-color-label">رنگ انتخابی: زغالی</p>
-
 <h3>انتخاب رنگ</h3>
-
 <div class="color-options">
 <button data-color="charcoal" onclick="selectSweaterColor('charcoal')">زغالی</button>
 <button data-color="brown" onclick="selectSweaterColor('brown')">قهوه‌ای</button>
 <button data-color="black" onclick="selectSweaterColor('black')">مشکی</button>
 <button data-color="olive" onclick="selectSweaterColor('olive')">زیتونی</button>
 </div>
-
-<h3>سایز</h3>
-<p>Free Size</p>
-
+<h3>سایز</h3><p>Free Size</p>
 <h3>تعداد</h3>
 <input id="sweater-quantity" type="number" min="1" max="20" value="1">
-
 <p>۳,۰۰۰,۰۰۰ تومان</p>
-
 <button class="order-submit" onclick="addSweaterToCart()">افزودن به سبد خرید</button>
-
 </div>
 </section>
 
 <!-- سبد خرید -->
-<button class="cart-floating" onclick="openCart()">
-سبد خرید <span id="cart-count">۰</span>
-</button>
-
+<button class="cart-floating" onclick="openCart()">سبد خرید <span id="cart-count">۰</span></button>
 <section id="men-cart" onclick="cartBackdrop(event)">
 <div class="cart-panel">
-
-<div class="cart-header">
-<h2>سبد خرید ROSEPINA</h2>
-<button class="cart-close" onclick="closeCart()">بستن ×</button>
-</div>
-
+<div class="cart-header"><h2>سبد خرید ROSEPINA</h2><button class="cart-close" onclick="closeCart()">بستن ×</button></div>
 <div id="cart-items"></div>
-
-<div class="cart-total">
-<span>مبلغ کل</span>
-<span id="cart-total">۰ تومان</span>
-</div>
-
+<div class="cart-total"><span>مبلغ کل</span><span id="cart-total">۰ تومان</span></div>
 <button class="checkout" onclick="checkoutCart()">ثبت سفارش در واتساپ</button>
 <button class="clear-cart" onclick="clearCart()">خالی کردن سبد خرید</button>
-
 </div>
 </section>
 
 <script>
 const WHATSAPP_NUMBER="989120193510";
-
-const prices={
- sneaker:3000000,
- shirt:2000000,
- sweater:3000000
-};
+const prices={sneaker:3000000,shirt:2000000,sweater:3000000};
 
 const sneakers={
- "jordan-black":{
-  name:"جردن وان مشکی، کرم و قرمز",
-  image:"images/jordan-1-black-cream-red.png"
- },
- "lv-black":{
-  name:"لویی ویتون مشکی و کرم",
-  image:"images/louis-vuitton-black-cream.png"
- },
- "lv-cream":{
-  name:"لویی ویتون کرم",
-  image:"images/louis-vuitton-cream.png"
- },
- "jordan-one-black":{
-  name:"جوردن وان",
-  image:"images/black-sneaker.jpg",
-  fallback:"images/jordan-1-black-cream-red.png"
- }
+ "jordan-black":{name:"جردن وان مشکی، کرم و قرمز",image:"images/jordan-1-black-cream-red.png"},
+ "lv-black":{name:"لویی ویتون مشکی و کرم",image:"images/louis-vuitton-black-cream.png"},
+ "lv-cream":{name:"لویی ویتون کرم",image:"images/louis-vuitton-cream.png"},
+ "jordan-one-black":{name:"جوردن وان",image:"images/black-sneaker.png"}
 };
 
 const shirtColors={
@@ -908,36 +413,21 @@ let sweaterSlide=0;
 try{
  cart=JSON.parse(localStorage.getItem("rosepina_cart")||"[]");
  if(!Array.isArray(cart))cart=[];
-}catch(e){
- cart=[];
-}
+}catch(e){cart=[]}
 
 /* دسته بندی */
 function showCategory(name){
  document.getElementById("men-categories").style.display="none";
-
- document.querySelectorAll(".category-products")
- .forEach(x=>x.classList.remove("active"));
-
+ document.querySelectorAll(".category-products").forEach(x=>x.classList.remove("active"));
  const section=document.getElementById("category-"+name);
-
- if(section){
-  section.classList.add("active");
- }
-
+ if(section)section.classList.add("active");
  window.scrollTo({top:0,behavior:"smooth"});
 }
 
 function backToCategories(){
- document.querySelectorAll(".category-products")
- .forEach(x=>x.classList.remove("active"));
-
+ document.querySelectorAll(".category-products").forEach(x=>x.classList.remove("active"));
  document.getElementById("men-categories").style.display="block";
-
- window.scrollTo({
-  top:document.getElementById("men-categories").offsetTop,
-  behavior:"smooth"
- });
+ window.scrollTo({top:document.getElementById("men-categories").offsetTop,behavior:"smooth"});
 }
 
 function closeOrder(id){
@@ -947,416 +437,225 @@ function closeOrder(id){
 
 /* کتونی */
 function openSneakerOrder(id){
-
  selectedSneaker=id;
  sneakerSize="";
-
  const p=sneakers[id];
-
  if(!p)return;
 
  const image=document.getElementById("sneaker-image");
-
- image.onerror=function(){
-  this.onerror=null;
-  this.src=p.fallback||p.image;
- };
-
  image.src=p.image;
 
  document.getElementById("sneaker-name").textContent=p.name;
-
- document.getElementById("sneaker-size-label").textContent=
- "سایز انتخابی: انتخاب نشده";
-
+ document.getElementById("sneaker-size-label").textContent="سایز انتخابی: انتخاب نشده";
  document.getElementById("sneaker-quantity").value=1;
 
- document.querySelectorAll("#sneaker-order .size-options button")
- .forEach(b=>b.classList.remove("active"));
-
+ document.querySelectorAll("#sneaker-order .size-options button").forEach(b=>b.classList.remove("active"));
  document.getElementById("sneaker-order").style.display="block";
  document.body.style.overflow="hidden";
 }
 
 function selectSneakerSize(size){
-
  sneakerSize=size;
-
- document.getElementById("sneaker-size-label").textContent=
- "سایز انتخابی: "+size;
-
- document.querySelectorAll("#sneaker-order .size-options button")
- .forEach(b=>{
-  b.classList.toggle(
-   "active",
-   Number(b.textContent.trim())===size
-  );
+ document.getElementById("sneaker-size-label").textContent="سایز انتخابی: "+size;
+ document.querySelectorAll("#sneaker-order .size-options button").forEach(b=>{
+  b.classList.toggle("active",Number(b.textContent.trim())===size);
  });
 }
 
 function addSneakerToCart(){
-
- if(!sneakerSize){
-  return alert("لطفاً سایز کتونی را انتخاب کنید.");
- }
-
+ if(!sneakerSize)return alert("لطفاً سایز کتونی را انتخاب کنید.");
  const qty=validQuantity("sneaker-quantity");
-
  if(!qty)return;
-
  addItem({
   product:"sneaker-"+selectedSneaker,
   name:sneakers[selectedSneaker].name,
-  size:sneakerSize,
-  color:"",
-  colorName:"—",
-  quantity:qty,
-  price:prices.sneaker
+  size:sneakerSize,color:"",colorName:"—",
+  quantity:qty,price:prices.sneaker
  });
-
  closeOrder("sneaker-order");
  openCart();
 }
 
 /* پیراهن */
-const shirtImages=[
- "images/shirt-cotton-colors.png",
- ...Object.values(shirtColors).map(x=>x.image)
-];
+const shirtImages=["images/shirt-cotton-colors.png",...Object.values(shirtColors).map(x=>x.image)];
 
 function openShirtOrder(){
-
- shirtColor="";
- shirtSize="";
- shirtSlide=0;
-
+ shirtColor="";shirtSize="";shirtSlide=0;
  document.getElementById("shirt-quantity").value=1;
-
- document.getElementById("shirt-color-label").textContent=
- "رنگ انتخابی: انتخاب نشده";
-
- document.getElementById("shirt-size-label").textContent=
- "سایز انتخابی: انتخاب نشده";
-
- document.querySelectorAll("#shirt-order button")
- .forEach(b=>b.classList.remove("active"));
-
+ document.getElementById("shirt-color-label").textContent="رنگ انتخابی: انتخاب نشده";
+ document.getElementById("shirt-size-label").textContent="سایز انتخابی: انتخاب نشده";
+ document.querySelectorAll("#shirt-order button").forEach(b=>b.classList.remove("active"));
  document.getElementById("shirt-order").style.display="block";
  document.body.style.overflow="hidden";
-
  updateShirtSlide();
 }
 
 function updateShirtSlide(){
-
  document.getElementById("shirt-image").src=shirtImages[shirtSlide];
-
- document.getElementById("shirt-counter").textContent=
- (shirtSlide+1).toLocaleString("fa-IR")+
- " از "+
- shirtImages.length.toLocaleString("fa-IR");
+ document.getElementById("shirt-counter").textContent=(shirtSlide+1).toLocaleString("fa-IR")+" از "+shirtImages.length.toLocaleString("fa-IR");
 }
 
 function changeShirtSlide(n){
-
  shirtSlide=(shirtSlide+n+shirtImages.length)%shirtImages.length;
-
  updateShirtSlide();
-
  const key=Object.keys(shirtColors)[shirtSlide-1];
-
- if(key){
-  selectShirtColor(key);
- }
+ if(key)selectShirtColor(key);
 }
 
 function selectShirtColor(color){
-
  shirtColor=color;
-
  const index=Object.keys(shirtColors).indexOf(color)+1;
-
  shirtSlide=index;
-
  updateShirtSlide();
-
- document.getElementById("shirt-color-label").textContent=
- "رنگ انتخابی: "+shirtColors[color].name;
-
- document.querySelectorAll("#shirt-order .color-options button")
- .forEach(b=>{
-  b.classList.toggle("active",b.dataset.color===color);
- });
+ document.getElementById("shirt-color-label").textContent="رنگ انتخابی: "+shirtColors[color].name;
+ document.querySelectorAll("#shirt-order .color-options button").forEach(b=>b.classList.toggle("active",b.dataset.color===color));
 }
 
 function selectShirtSize(size){
-
  shirtSize=size;
-
- document.getElementById("shirt-size-label").textContent=
- "سایز انتخابی: "+size;
-
- document.querySelectorAll("#shirt-order .size-options button")
- .forEach(b=>{
-  b.classList.toggle("active",b.textContent.trim()===size);
- });
+ document.getElementById("shirt-size-label").textContent="سایز انتخابی: "+size;
+ document.querySelectorAll("#shirt-order .size-options button").forEach(b=>b.classList.toggle("active",b.textContent.trim()===size));
 }
 
 function addShirtToCart(){
-
  if(!shirtColor)return alert("لطفاً رنگ پیراهن را انتخاب کنید.");
-
  if(!shirtSize)return alert("لطفاً سایز پیراهن را انتخاب کنید.");
-
  const qty=validQuantity("shirt-quantity");
-
  if(!qty)return;
-
  addItem({
-  product:"shirt",
-  name:"پیراهن نخی مردانه",
-  size:shirtSize,
-  color:shirtColor,
-  colorName:shirtColors[shirtColor].name,
-  quantity:qty,
-  price:prices.shirt
+  product:"shirt",name:"پیراهن نخی مردانه",size:shirtSize,
+  color:shirtColor,colorName:shirtColors[shirtColor].name,
+  quantity:qty,price:prices.shirt
  });
-
- closeOrder("shirt-order");
- openCart();
+ closeOrder("shirt-order");openCart();
 }
 
 /* بافت */
 const sweaterKeys=Object.keys(sweaterColors);
 
 function openSweaterOrder(){
-
  sweaterSlide=sweaterKeys.indexOf(sweaterColor);
-
  if(sweaterSlide<0)sweaterSlide=0;
-
  document.getElementById("sweater-quantity").value=1;
-
  document.getElementById("sweater-order").style.display="block";
  document.body.style.overflow="hidden";
-
  updateSweaterSlide();
 }
 
 function updateSweaterSlide(){
-
  const key=sweaterKeys[sweaterSlide];
-
  sweaterColor=key;
-
- document.getElementById("sweater-image").src=
- sweaterColors[key].image;
-
- document.getElementById("sweater-counter").textContent=
- (sweaterSlide+1).toLocaleString("fa-IR")+" از ۴";
-
- document.getElementById("sweater-color-label").textContent=
- "رنگ انتخابی: "+sweaterColors[key].name;
-
- document.querySelectorAll("#sweater-order .color-options button")
- .forEach(b=>{
-  b.classList.toggle("active",b.dataset.color===key);
- });
+ document.getElementById("sweater-image").src=sweaterColors[key].image;
+ document.getElementById("sweater-counter").textContent=(sweaterSlide+1).toLocaleString("fa-IR")+" از ۴";
+ document.getElementById("sweater-color-label").textContent="رنگ انتخابی: "+sweaterColors[key].name;
+ document.querySelectorAll("#sweater-order .color-options button").forEach(b=>b.classList.toggle("active",b.dataset.color===key));
 }
 
 function changeSweaterSlide(n){
-
  sweaterSlide=(sweaterSlide+n+sweaterKeys.length)%sweaterKeys.length;
-
  updateSweaterSlide();
 }
 
 function selectSweaterColor(color){
-
  sweaterSlide=sweaterKeys.indexOf(color);
-
- if(sweaterSlide>=0){
-  updateSweaterSlide();
- }
+ if(sweaterSlide>=0)updateSweaterSlide();
 }
 
 function addSweaterToCart(){
-
  const qty=validQuantity("sweater-quantity");
-
  if(!qty)return;
-
  addItem({
-  product:"sweater",
-  name:"بافت یقه‌اسکی",
-  size:"Free Size",
-  color:sweaterColor,
-  colorName:sweaterColors[sweaterColor].name,
-  quantity:qty,
-  price:prices.sweater
+  product:"sweater",name:"بافت یقه‌اسکی",size:"Free Size",
+  color:sweaterColor,colorName:sweaterColors[sweaterColor].name,
+  quantity:qty,price:prices.sweater
  });
-
- closeOrder("sweater-order");
- openCart();
+ closeOrder("sweater-order");openCart();
 }
 
 /* سبد خرید */
 function validQuantity(id){
-
  const n=Number(document.getElementById(id).value);
-
  if(!Number.isInteger(n)||n<1||n>20){
   alert("تعداد باید عددی بین ۱ تا ۲۰ باشد.");
   return 0;
  }
-
  return n;
 }
 
 function addItem(item){
-
- const old=cart.find(x=>
-  x.product===item.product&&
-  x.size===item.size&&
-  x.color===item.color
- );
-
- if(old){
-  old.quantity=Math.min(20,old.quantity+item.quantity);
- }else{
-  cart.push(item);
- }
-
+ const old=cart.find(x=>x.product===item.product&&x.size===item.size&&x.color===item.color);
+ if(old)old.quantity=Math.min(20,old.quantity+item.quantity);
+ else cart.push(item);
  saveCart();
-
  alert("محصول به سبد خرید اضافه شد.");
 }
 
 function saveCart(){
-
- try{
-  localStorage.setItem("rosepina_cart",JSON.stringify(cart));
- }catch(e){}
-
+ try{localStorage.setItem("rosepina_cart",JSON.stringify(cart));}catch(e){}
  renderCart();
 }
 
-function money(n){
-
- return Number(n).toLocaleString("fa-IR")+" تومان";
-}
+function money(n){return Number(n).toLocaleString("fa-IR")+" تومان"}
 
 function renderCart(){
-
- document.getElementById("cart-count").textContent=
- cart.reduce((s,x)=>s+x.quantity,0).toLocaleString("fa-IR");
-
+ document.getElementById("cart-count").textContent=cart.reduce((s,x)=>s+x.quantity,0).toLocaleString("fa-IR");
  const area=document.getElementById("cart-items");
-
  if(!cart.length){
-
   area.innerHTML='<div class="cart-empty">سبد خرید شما خالی است.</div>';
-
   document.getElementById("cart-total").textContent="۰ تومان";
-
   return;
  }
-
  area.innerHTML=cart.map((x,i)=>`
  <div class="cart-item">
  <div>
  <h3>${safe(x.name)}</h3>
  <p>رنگ: ${safe(x.colorName||"—")} | سایز: ${safe(x.size)}</p>
  <p>${money(x.price)} × ${x.quantity}</p>
-
  <div class="cart-item-actions">
  <button onclick="changeQty(${i},1)">+</button>
  <span>${x.quantity}</span>
  <button onclick="changeQty(${i},-1)">−</button>
  <button onclick="removeItem(${i})">حذف</button>
  </div>
-
  </div>
  <div class="cart-item-price">${money(x.price*x.quantity)}</div>
- </div>
- `).join("");
-
- document.getElementById("cart-total").textContent=
- money(cart.reduce((s,x)=>s+x.price*x.quantity,0));
+ </div>`).join("");
+ document.getElementById("cart-total").textContent=money(cart.reduce((s,x)=>s+x.price*x.quantity,0));
 }
 
 function safe(s){
-
- return String(s??"").replace(/[&<>"']/g,c=>({
-  "&":"&amp;",
-  "<":"&lt;",
-  ">":"&gt;",
-  '"':"&quot;",
-  "'":"&#39;"
- }[c]));
+ return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
 
 function changeQty(i,n){
-
  if(!cart[i])return;
-
  cart[i].quantity+=n;
-
- if(cart[i].quantity<1){
-  cart.splice(i,1);
- }
-
- if(cart[i]&&cart[i].quantity>20){
-  cart[i].quantity=20;
- }
-
+ if(cart[i].quantity<1)cart.splice(i,1);
+ if(cart[i]&&cart[i].quantity>20)cart[i].quantity=20;
  saveCart();
 }
 
-function removeItem(i){
-
- cart.splice(i,1);
-
- saveCart();
-}
+function removeItem(i){cart.splice(i,1);saveCart()}
 
 function clearCart(){
-
  if(!cart.length)return;
-
- if(confirm("سبد خرید خالی شود؟")){
-  cart=[];
-  saveCart();
- }
+ if(confirm("سبد خرید خالی شود؟")){cart=[];saveCart()}
 }
 
 function openCart(){
-
  document.getElementById("men-cart").classList.add("open");
-
  document.body.style.overflow="hidden";
 }
 
 function closeCart(){
-
  document.getElementById("men-cart").classList.remove("open");
-
  document.body.style.overflow="";
 }
 
-function cartBackdrop(e){
-
- if(e.target.id==="men-cart"){
-  closeCart();
- }
-}
+function cartBackdrop(e){if(e.target.id==="men-cart")closeCart()}
 
 function checkoutCart(){
-
- if(!cart.length){
-  return alert("سبد خرید خالی است.");
- }
-
+ if(!cart.length)return alert("سبد خرید خالی است.");
  const lines=cart.map((x,i)=>
   (i+1)+". "+x.name+
   "\nرنگ: "+(x.colorName||"—")+
@@ -1364,24 +663,15 @@ function checkoutCart(){
   "\nتعداد: "+x.quantity+
   "\nقیمت: "+money(x.price*x.quantity)
  );
-
  const total=cart.reduce((s,x)=>s+x.price*x.quantity,0);
-
- const message=
- "سلام، برای ثبت سفارش از ROSEPINA پیام می‌دهم.\n\n"+
- lines.join("\n\n")+
- "\n\nمبلغ کل: "+money(total)+
+ const message="سلام، برای ثبت سفارش از ROSEPINA پیام می‌دهم.\n\n"+
+ lines.join("\n\n")+"\n\nمبلغ کل: "+money(total)+
  "\nلطفاً موجودی و نحوه ارسال را تأیید کنید.";
-
- window.open(
-  "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),
-  "_blank"
- );
+ window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank");
 }
 
 /* نمایش اولیه سبد خرید */
 renderCart();
-
 </script>
 
 </body>
