@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=44">
+<link rel="stylesheet" href="style.css?v=47">
 
 <style>
 :root {
@@ -118,21 +118,19 @@ a {color:inherit}
   place-items:center;
 }
 
-/* HERO SLIDER - FULL IMAGE */
-
+/* HERO SLIDER */
 .hero-image-section {
   position:relative;
   width:100%;
   height:590px;
-  min-height:0;
   overflow:hidden;
-  background:#28231f;
+  background:var(--cream);
+  padding:0 28px;
 }
-
 .hero-slide {
   position:absolute;
-  inset:0;
-  width:100%;
+  inset:0 28px;
+  width:auto;
   height:100%;
   display:flex;
   align-items:center;
@@ -140,13 +138,12 @@ a {color:inherit}
   opacity:0;
   visibility:hidden;
   transition:opacity .8s ease;
+  background:var(--cream);
 }
-
 .hero-slide.active {
   opacity:1;
   visibility:visible;
 }
-
 .hero-image {
   position:absolute;
   inset:0;
@@ -154,52 +151,13 @@ a {color:inherit}
   width:100%;
   height:100%;
   object-fit:contain !important;
-  object-position:center center;
+  object-position:center;
 }
-
-.hero-image-section::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,rgba(10,9,8,.55),transparent 75%);
-  pointer-events:none;
-}
-
 .hero-luxury-content {
-  position:absolute;
-  z-index:2;
-  left:8%;
-  top:50%;
-  transform:translateY(-50%);
-  color:white;
-  direction:ltr;
-  text-align:left;
+  display:none !important;
 }
-.hero-luxury-kicker {
-  color:#e4c89e;
-  letter-spacing:4px;
-  font:12px "DM Sans",sans-serif;
-}
-.hero-luxury-content h1 {
-  font:400 clamp(42px,7vw,88px) "DM Sans",sans-serif;
-  margin:15px 0 5px;
-  letter-spacing:3px;
-}
-.hero-luxury-content p {
-  font:25px "DM Sans",sans-serif;
-  margin:0 0 25px;
-}
-.hero-luxury-button {
-  display:inline-block;
-  padding:12px 24px;
-  color:white;
-  text-decoration:none;
-  border:1px solid var(--gold);
-  transition:.3s;
-}
-.hero-luxury-button:hover {
-  background:var(--gold);
-  color:#111;
+.hero-image-section::after {
+  display:none !important;
 }
 .hero-slider-controls {
   position:absolute;
@@ -214,10 +172,10 @@ a {color:inherit}
 .hero-slider-arrow {
   width:34px;
   height:34px;
-  border:1px solid white;
+  border:1px solid #92734b;
   border-radius:50%;
-  color:white;
-  background:transparent;
+  color:#171715;
+  background:rgba(245,240,233,.8);
   cursor:pointer;
 }
 .hero-slider-dot {
@@ -422,32 +380,30 @@ a {color:inherit}
 }
 .products-bottom a {color:#92734b}
 
-/* EDITORIAL SLIDER - FULL IMAGE */
-
+/* EDITORIAL SLIDER */
 .editorial-slider {
   position:relative;
   width:100%;
   height:450px;
   overflow:hidden;
-  background:#201b18;
+  background:var(--cream);
   color:white;
+  padding:0 28px;
 }
-
 .editorial-slide {
   position:absolute;
-  inset:0;
-  width:100%;
+  inset:0 28px;
+  width:auto;
   height:100%;
   opacity:0;
   visibility:hidden;
   transition:opacity .7s ease;
+  background:var(--cream);
 }
-
 .editorial-slide.active {
   opacity:1;
   visibility:visible;
 }
-
 .editorial-slide > img {
   display:block;
   position:absolute;
@@ -455,30 +411,13 @@ a {color:inherit}
   width:100%;
   height:100%;
   object-fit:contain !important;
-  object-position:center center;
-  opacity:.85;
-  background:#201b18;
+  object-position:center;
+  opacity:1;
+  background:var(--cream);
 }
-
 .editorial-content {
-  position:absolute;
-  top:50%;
-  left:10%;
-  transform:translateY(-50%);
-  direction:ltr;
-  z-index:2;
+  display:none !important;
 }
-.editorial-content span {
-  color:#e4c89e;
-  letter-spacing:3px;
-  font-size:11px;
-}
-.editorial-content h2 {
-  font:55px "DM Sans",sans-serif;
-  margin:15px 0;
-}
-.editorial-content p {direction:rtl;text-align:left}
-.editorial-content a {color:white}
 .editorial-controls {
   position:absolute;
   z-index:5;
@@ -488,16 +427,16 @@ a {color:inherit}
   align-items:center;
   gap:14px;
   direction:ltr;
-  color:white;
+  color:#171715;
   font:12px "DM Sans",sans-serif;
 }
 .editorial-controls button {
   width:34px;
   height:34px;
-  border:1px solid white;
+  border:1px solid #92734b;
   border-radius:50%;
-  background:transparent;
-  color:white;
+  background:rgba(245,240,233,.8);
+  color:#171715;
   cursor:pointer;
   font-size:20px;
 }
@@ -562,7 +501,6 @@ a {color:inherit}
 }
 
 /* CART */
-
 .cart-overlay {
   position:fixed;
   inset:0;
@@ -657,7 +595,6 @@ a {color:inherit}
 }
 
 /* PHONE POPUP */
-
 .phone-popup {
   position:fixed;
   inset:0;
@@ -716,7 +653,6 @@ a {color:inherit}
 }
 
 /* MOBILE */
-
 @media(max-width:900px) {
   .product-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -733,20 +669,9 @@ a {color:inherit}
 
   .hero-image-section {
     height:440px;
-    min-height:0;
+    padding:0 12px;
   }
-  .hero-image {
-    object-fit:contain !important;
-  }
-  .hero-luxury-content {
-    left:5%;
-    right:5%;
-    top:auto;
-    bottom:55px;
-    transform:none;
-  }
-  .hero-luxury-content h1 {font-size:44px}
-  .hero-luxury-content p {font-size:18px}
+  .hero-slide {inset:0 12px}
 
   .section {padding:42px 4%}
   .intro,.about {display:block}
@@ -776,15 +701,9 @@ a {color:inherit}
     height:auto;
     aspect-ratio:4 / 3;
     min-height:240px;
+    padding:0 12px;
   }
-  .editorial-slide > img {
-    object-fit:contain !important;
-  }
-  .editorial-content {
-    left:5%;
-  }
-  .editorial-content h2 {font-size:32px}
-  .editorial-content p {font-size:12px}
+  .editorial-slide {inset:0 12px}
 
   .rp-footer-main {grid-template-columns:1fr 1fr}
   .rp-footer-brand {grid-column:1/-1}
@@ -796,85 +715,6 @@ a {color:inherit}
   .rp-logo {width:100px}
   .rp-header-icons {gap:7px}
 }
-  
-/* FINAL SLIDER DESIGN */
-
-.hero-image-section {
-  width: 100%;
-  height: 590px;
-  padding: 0 28px;
-  background: #f5f0e9;
-  overflow: hidden;
-}
-
-.hero-slide {
-  inset: 0 28px;
-  width: auto;
-  background: #f5f0e9;
-}
-
-.hero-image-section::after {
-  display: none;
-}
-
-.hero-image {
-  object-fit: contain !important;
-  object-position: center;
-}
-
-/* حذف کامل نوشته‌های روی اسلایدر اول */
-.hero-luxury-content {
-  display: none !important;
-}
-
-/* اسلایدر دوم */
-.editorial-slider {
-  height: 450px;
-  padding: 0 28px;
-  background: #f5f0e9;
-}
-
-.editorial-slide {
-  inset: 0 28px;
-  width: auto;
-  background: #f5f0e9;
-}
-
-.editorial-slide > img {
-  object-fit: contain !important;
-  object-position: center;
-  opacity: 1;
-  background: #f5f0e9;
-}
-
-/* حذف نوشته‌های روی اسلایدر دوم */
-.editorial-content {
-  display: none !important;
-}
-
-/* تنظیم موبایل */
-@media(max-width:700px) {
-  .hero-image-section {
-    height: 440px;
-    padding: 0 12px;
-  }
-
-  .hero-slide {
-    inset: 0 12px;
-  }
-
-  .editorial-slider {
-    height: auto;
-    aspect-ratio: 4 / 3;
-    min-height: 240px;
-    padding: 0 12px;
-  }
-
-  .editorial-slide {
-    inset: 0 12px;
-  }
-}
-
 </style>
 </head>
 
@@ -898,49 +738,24 @@ a {color:inherit}
 
   <div class="rp-header-icons">
     <a href="#products" aria-label="محصولات">⌕</a>
-
     <button class="cart-header-button" onclick="openCart()" aria-label="سبد خرید">
-      🛒
-      <span id="cart-count">۰</span>
+      🛒 <span id="cart-count">۰</span>
     </button>
-
-    <button type="button" class="phone-header-button"
-      onclick="showPhoneNumber()" aria-label="نمایش شماره تلفن">☏</button>
+    <button type="button" class="phone-header-button" onclick="showPhoneNumber()" aria-label="نمایش شماره تلفن">☏</button>
   </div>
 </header>
 
 <main>
 
 <section class="hero-image-section" id="home">
-
   <div class="hero-slide active">
     <img src="hero.png" alt="کمپین ROSEPINA" class="hero-image">
-    <div class="hero-luxury-content">
-      <span class="hero-luxury-kicker">NEW SEASON · NEW ATTITUDE</span>
-      <h1>ROSEPINA</h1>
-      <p>Define Your Style</p>
-      <a href="#collections" class="hero-luxury-button">مشاهده کالکشن ↗</a>
-    </div>
   </div>
-
   <div class="hero-slide">
     <img src="images/women-collection-new.png" alt="کالکشن زنانه" class="hero-image" loading="lazy">
-    <div class="hero-luxury-content">
-      <span class="hero-luxury-kicker">WOMEN COLLECTION</span>
-      <h1>HER STYLE</h1>
-      <p>Elegance in Every Detail</p>
-      <a href="women.html" class="hero-luxury-button">مشاهده کالکشن زنانه ↗</a>
-    </div>
   </div>
-
   <div class="hero-slide">
     <img src="images/file_00000000ff7c81f4a18dac2c6d16c151.png" alt="کالکشن مردانه" class="hero-image" loading="lazy">
-    <div class="hero-luxury-content">
-      <span class="hero-luxury-kicker">MEN COLLECTION</span>
-      <h1>BE ICONIC</h1>
-      <p>Confidence Is Your Style</p>
-      <a href="men.html" class="hero-luxury-button">مشاهده کالکشن مردانه ↗</a>
-    </div>
   </div>
 
   <div class="hero-slider-controls">
@@ -950,18 +765,13 @@ a {color:inherit}
     <button class="hero-slider-dot" data-slide="2" aria-label="اسلاید سوم"></button>
     <button class="hero-slider-arrow" id="hero-next" aria-label="بعدی">›</button>
   </div>
-
 </section>
 
 <section class="intro section">
   <div class="intro-number">01 / ROSEPINA</div>
   <div class="intro-content">
     <h2>زیبایی در<br><span>انتخاب‌های تو.</span></h2>
-    <p>
-      در ROSEPINA باور داریم زیبایی در جزئیات و انتخاب‌های آگاهانه شکل می‌گیرد.
-      مجموعه‌ای از ظرافت، کیفیت و طراحی را کنار هم قرار داده‌ایم
-      تا هر انتخاب بازتابی از سلیقه و شخصیت تو باشد.
-    </p>
+    <p>در ROSEPINA باور داریم زیبایی در جزئیات و انتخاب‌های آگاهانه شکل می‌گیرد. مجموعه‌ای از ظرافت، کیفیت و طراحی را کنار هم قرار داده‌ایم تا هر انتخاب بازتابی از سلیقه و شخصیت تو باشد.</p>
     <a href="#about" class="text-link">داستان رزپینا ↗</a>
   </div>
 </section>
@@ -984,7 +794,6 @@ a {color:inherit}
         <b>مشاهده مجموعه ↗</b>
       </div>
     </a>
-
     <a href="men.html" class="collection-card">
       <img src="images/file_00000000ff7c81f4a18dac2c6d16c151.png" alt="کالکشن مردانه" loading="lazy">
       <div class="collection-overlay">
@@ -1029,9 +838,7 @@ a {color:inherit}
           <option value="44">۴۴</option>
         </select>
       </div>
-      <button class="product-order-button" onclick="addToCart('cream')">
-        افزودن به سبد خرید
-      </button>
+      <button class="product-order-button" onclick="addToCart('cream')">افزودن به سبد خرید</button>
     </article>
 
     <article class="product-card">
@@ -1056,9 +863,7 @@ a {color:inherit}
           <option value="44">۴۴</option>
         </select>
       </div>
-      <button class="product-order-button" onclick="addToCart('black')">
-        افزودن به سبد خرید
-      </button>
+      <button class="product-order-button" onclick="addToCart('black')">افزودن به سبد خرید</button>
     </article>
 
     <article class="product-card">
@@ -1073,9 +878,7 @@ a {color:inherit}
         </div>
         <span class="product-price">۱۲,۸۰۰,۰۰۰ تومان</span>
       </div>
-      <button class="product-order-button" onclick="addToCart('set')">
-        افزودن به سبد خرید
-      </button>
+      <button class="product-order-button" onclick="addToCart('set')">افزودن به سبد خرید</button>
     </article>
 
     <article class="product-card">
@@ -1090,51 +893,26 @@ a {color:inherit}
         </div>
         <span class="product-price">۵,۸۰۰,۰۰۰ تومان</span>
       </div>
-      <button class="product-order-button" onclick="addToCart('bag')">
-        افزودن به سبد خرید
-      </button>
+      <button class="product-order-button" onclick="addToCart('bag')">افزودن به سبد خرید</button>
     </article>
 
   </div>
 
   <div class="products-bottom">
     <span>LESS BUT BETTER.</span>
-    <a href="https://wa.me/989120193510" target="_blank" rel="noopener">
-      برای سفارش با ما تماس بگیر ↗
-    </a>
+    <a href="https://wa.me/989120193510" target="_blank" rel="noopener">برای سفارش با ما تماس بگیر ↗</a>
   </div>
 </section>
 
 <section class="editorial-slider" id="editorial-slider">
-
   <div class="editorial-slide active">
     <img src="images/editorial-brand.png" alt="استایل ROSEPINA" loading="lazy">
-    <div class="editorial-content">
-      <span>THE NEW ERA OF STYLE</span>
-      <h2>BE<br>ICONIC.</h2>
-      <p>متفاوت باش. خاص انتخاب کن.</p>
-      <a href="#products">DISCOVER MORE ↗</a>
-    </div>
   </div>
-
   <div class="editorial-slide">
     <img src="images/editorial-women.png" alt="کالکشن زنانه" loading="lazy">
-    <div class="editorial-content">
-      <span>WOMEN COLLECTION</span>
-      <h2>HER<br>STYLE.</h2>
-      <p>ظرافت در انتخاب توست.</p>
-      <a href="women.html">DISCOVER WOMEN ↗</a>
-    </div>
   </div>
-
   <div class="editorial-slide">
     <img src="images/editorial-men.png" alt="کالکشن مردانه" loading="lazy">
-    <div class="editorial-content">
-      <span>MEN COLLECTION</span>
-      <h2>BE<br>ICONIC.</h2>
-      <p>استایل خودت را تعریف کن.</p>
-      <a href="men.html">DISCOVER MEN ↗</a>
-    </div>
   </div>
 
   <div class="editorial-controls">
@@ -1142,7 +920,6 @@ a {color:inherit}
     <span id="editorial-counter">01 / 03</span>
     <button type="button" id="editorial-next" aria-label="اسلاید بعدی">›</button>
   </div>
-
 </section>
 
 <section class="about section" id="about">
@@ -1151,11 +928,7 @@ a {color:inherit}
     <h2>ما برای<br><span>تفاوت</span> ساخته شدیم.</h2>
   </div>
   <div class="about-right">
-    <p>
-      ROSEPINA یک نگاه متفاوت به دنیای پوشاک است.
-      ترکیبی از طراحی مدرن، سادگی و انتخاب‌های خاص
-      برای افرادی که دوست دارند خودشان باشند.
-    </p>
+    <p>ROSEPINA یک نگاه متفاوت به دنیای پوشاک است. ترکیبی از طراحی مدرن، سادگی و انتخاب‌های خاص برای افرادی که دوست دارند خودشان باشند.</p>
     <a href="#contact" class="text-link">با ما در ارتباط باش ↗</a>
   </div>
 </section>
@@ -1173,9 +946,7 @@ a {color:inherit}
       <span>مبلغ کل:</span>
       <strong id="cart-total">۰ تومان</strong>
     </div>
-    <button class="cart-checkout" onclick="checkoutCart()">
-      ثبت سفارش در واتساپ
-    </button>
+    <button class="cart-checkout" onclick="checkoutCart()">ثبت سفارش در واتساپ</button>
   </section>
 </div>
 
@@ -1184,15 +955,12 @@ a {color:inherit}
     <button type="button" class="phone-popup-close" onclick="hidePhoneNumber()">×</button>
     <span>ارتباط با ROSEPINA</span>
     <h2>09120193510</h2>
-    <button type="button" class="phone-copy-button" onclick="copyPhoneNumber()">
-      کپی شماره تلفن
-    </button>
+    <button type="button" class="phone-copy-button" onclick="copyPhoneNumber()">کپی شماره تلفن</button>
   </div>
 </div>
 
 <footer class="rp-footer" id="contact">
   <div class="rp-footer-main">
-
     <div class="rp-footer-brand">
       <a href="#home" class="rp-footer-logo">
         <img src="logo.svg" alt="ROSEPINA">
@@ -1214,7 +982,6 @@ a {color:inherit}
       <a href="https://instagram.com/Rose_pina_men" target="_blank" rel="noopener">اینستاگرام مردانه ↗</a>
       <a href="https://wa.me/989120193510" target="_blank" rel="noopener">واتساپ و ثبت سفارش ↗</a>
     </div>
-
   </div>
 
   <div class="rp-footer-bottom">
@@ -1225,7 +992,6 @@ a {color:inherit}
 
 <script>
 /* HERO SLIDER */
-
 document.addEventListener("DOMContentLoaded", function () {
   const slides = [...document.querySelectorAll(".hero-slide")];
   const dots = [...document.querySelectorAll(".hero-slider-dot")];
@@ -1239,14 +1005,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showSlide(index) {
     current = (index + slides.length) % slides.length;
-
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === current);
-    });
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === current);
-    });
+    slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
   }
 
   function startTimer() {
@@ -1260,25 +1020,20 @@ document.addEventListener("DOMContentLoaded", function () {
     showSlide(current + 1);
     startTimer();
   });
-
   prev.addEventListener("click", () => {
     showSlide(current - 1);
     startTimer();
   });
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      showSlide(i);
-      startTimer();
-    });
-  });
+  dots.forEach((dot, i) => dot.addEventListener("click", () => {
+    showSlide(i);
+    startTimer();
+  }));
 
   showSlide(0);
   startTimer();
 });
 
 /* EDITORIAL SLIDER */
-
 document.addEventListener("DOMContentLoaded", function () {
   const slides = [...document.querySelectorAll(".editorial-slide")];
   const counter = document.getElementById("editorial-counter");
@@ -1292,15 +1047,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function showEditorialSlide(index) {
     current = (index + slides.length) % slides.length;
-
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === current);
-    });
-
-    counter.textContent =
-      String(current + 1).padStart(2, "0") +
-      " / " +
-      String(slides.length).padStart(2, "0");
+    slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+    counter.textContent = String(current + 1).padStart(2, "0") +
+      " / " + String(slides.length).padStart(2, "0");
   }
 
   function startEditorialTimer() {
@@ -1310,12 +1059,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  next.addEventListener("click", function () {
+  next.addEventListener("click", () => {
     showEditorialSlide(current + 1);
     startEditorialTimer();
   });
-
-  prev.addEventListener("click", function () {
+  prev.addEventListener("click", () => {
     showEditorialSlide(current - 1);
     startEditorialTimer();
   });
@@ -1325,7 +1073,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* PRODUCTS AND SHOPPING CART */
-
 const cartProducts = {
   cream: {
     name: "جردن وان کرم سفید",
@@ -1356,7 +1103,6 @@ const cartProducts = {
 };
 
 let cart = [];
-
 try {
   cart = JSON.parse(localStorage.getItem("rosepina-cart")) || [];
   if (!Array.isArray(cart)) cart = [];
@@ -1374,7 +1120,6 @@ function addToCart(id) {
   if (!product) return;
 
   let size = "";
-
   if (product.hasSize) {
     const select = document.getElementById(product.sizeId);
     if (!select) return;
@@ -1382,12 +1127,8 @@ function addToCart(id) {
   }
 
   const existing = cart.find(item => item.id === id && item.size === size);
-
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({id, size, quantity:1});
-  }
+  if (existing) existing.quantity += 1;
+  else cart.push({id, size, quantity:1});
 
   saveCart();
   openCart();
@@ -1397,7 +1138,6 @@ function renderCart() {
   const container = document.getElementById("cart-items");
   const countElement = document.getElementById("cart-count");
   const totalElement = document.getElementById("cart-total");
-
   if (!container || !countElement || !totalElement) return;
 
   cart = cart.filter(item =>
@@ -1414,7 +1154,6 @@ function renderCart() {
   } else {
     container.innerHTML = cart.map((item, index) => {
       const product = cartProducts[item.id];
-
       return `
         <div class="cart-item">
           <img src="${product.image}" alt="${product.name}">
@@ -1434,21 +1173,16 @@ function renderCart() {
     }).join("");
   }
 
-  const total = cart.reduce((sum, item) => {
-    return sum + cartProducts[item.id].price * item.quantity;
-  }, 0);
-
+  const total = cart.reduce((sum, item) =>
+    sum + cartProducts[item.id].price * item.quantity, 0
+  );
   totalElement.textContent = total.toLocaleString("fa-IR") + " تومان";
 }
 
 function changeQuantity(index, amount) {
   if (!cart[index]) return;
   cart[index].quantity += amount;
-
-  if (cart[index].quantity <= 0) {
-    cart.splice(index, 1);
-  }
-
+  if (cart[index].quantity <= 0) cart.splice(index, 1);
   saveCart();
 }
 
@@ -1478,7 +1212,6 @@ function checkoutCart() {
 
   cart.forEach((item, index) => {
     const product = cartProducts[item.id];
-
     message +=
       (index + 1) + ". " + product.name + "\n" +
       (item.size ? "سایز: " + item.size + "\n" : "") +
@@ -1487,9 +1220,9 @@ function checkoutCart() {
       " تومان\n\n";
   });
 
-  const total = cart.reduce((sum, item) => {
-    return sum + cartProducts[item.id].price * item.quantity;
-  }, 0);
+  const total = cart.reduce((sum, item) =>
+    sum + cartProducts[item.id].price * item.quantity, 0
+  );
 
   message += "مبلغ کل: " + total.toLocaleString("fa-IR") + " تومان";
 
@@ -1498,7 +1231,6 @@ function checkoutCart() {
 }
 
 /* PHONE NUMBER POPUP */
-
 function showPhoneNumber() {
   document.getElementById("phone-popup").classList.add("open");
   document.body.style.overflow = "hidden";
@@ -1512,7 +1244,6 @@ function hidePhoneNumber(event) {
 
 function copyPhoneNumber() {
   const phone = "09120193510";
-
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(phone)
       .then(() => alert("شماره تلفن کپی شد."))
@@ -1523,7 +1254,6 @@ function copyPhoneNumber() {
 }
 
 /* INITIALIZE */
-
 document.addEventListener("DOMContentLoaded", renderCart);
 
 document.addEventListener("keydown", function(event) {
