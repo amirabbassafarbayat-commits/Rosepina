@@ -26,7 +26,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=36">
+  <link rel="stylesheet" href="style.css?v=37">
 
   <style>
     /* =========================
@@ -57,7 +57,6 @@
 
     /* =========================
        ROSEPINA FOOTER LOGO
-       اندازه بزرگ‌تر و با اولویت بالا
     ========================= */
 
     body:not(:has(.men-page-header)) footer.rp-footer .rp-footer-brand a.rp-footer-logo {
@@ -132,16 +131,6 @@
       isolation: isolate;
     }
 
-    .hero-image-section .hero-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 38%;
-      z-index: -2;
-    }
-
     .hero-image-section::after {
       content: "";
       position: absolute;
@@ -152,8 +141,42 @@
         rgba(20, 17, 14, .35) 38%,
         rgba(20, 17, 14, .02) 75%
       );
-      z-index: -1;
+      z-index: 1;
       pointer-events: none;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease, visibility 1s ease;
+      z-index: 0;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 0;
+    }
+
+    .hero-image-section .hero-slide .hero-image {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+      z-index: 0;
+      transform: scale(1.02);
+      transition: transform 6s ease;
+    }
+
+    .hero-slide.active .hero-image {
+      transform: scale(1.08);
     }
 
     .hero-luxury-content {
@@ -166,7 +189,7 @@
       color: #fffaf3;
       max-width: 510px;
       padding: 20px;
-      z-index: 1;
+      z-index: 2;
     }
 
     .hero-luxury-kicker {
@@ -216,39 +239,87 @@
       border-color: #f3e8d8;
     }
 
+    /* HERO SLIDER CONTROLS */
+
+    .hero-slider-controls {
+      position: absolute;
+      left: 9%;
+      bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      direction: ltr;
+      z-index: 4;
+    }
+
+    .hero-slider-arrow {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,.65);
+      border-radius: 50%;
+      background: rgba(20,17,14,.18);
+      color: #fffaf3;
+      font-size: 20px;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    .hero-slider-arrow:hover {
+      background: #e4c89e;
+      color: #171715;
+      border-color: #e4c89e;
+    }
+
+    .hero-slider-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-slider-dot {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border: 0;
+      border-radius: 20px;
+      background: rgba(255,255,255,.55);
+      cursor: pointer;
+      transition: width .3s ease, background .3s ease;
+    }
+
+    .hero-slider-dot.active {
+      width: 25px;
+      background: #e4c89e;
+    }
+
     @media (max-width: 600px) {
       .hero-image-section {
-        height: auto;
+        height: 440px;
         min-height: 0;
         overflow: hidden;
       }
 
-      .hero-image-section .hero-image {
-        position: relative;
-        inset: auto;
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        object-position: center;
-        z-index: 0;
-      }
-
       .hero-image-section::after {
-        z-index: 1;
         background: linear-gradient(
           0deg,
-          rgba(15, 13, 12, .76) 0%,
-          rgba(15, 13, 12, .28) 48%,
-          rgba(15, 13, 12, .04) 100%
+          rgba(15, 13, 12, .78) 0%,
+          rgba(15, 13, 12, .30) 55%,
+          rgba(15, 13, 12, .08) 100%
         );
+      }
+
+      .hero-image-section .hero-slide .hero-image {
+        object-position: center;
       }
 
       .hero-luxury-content {
         left: 0;
         right: 0;
         top: auto;
-        bottom: 10px;
+        bottom: 55px;
         transform: none;
         padding: 16px 22px;
         max-width: 100%;
@@ -275,6 +346,36 @@
         min-width: 160px;
         padding: 11px 18px;
         font-size: 12px;
+      }
+
+      .hero-slider-controls {
+        left: 22px;
+        bottom: 13px;
+        gap: 9px;
+      }
+
+      .hero-slider-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 17px;
+      }
+
+      .hero-slider-dot {
+        width: 6px;
+        height: 6px;
+      }
+
+      .hero-slider-dot.active {
+        width: 21px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide,
+      .hero-image,
+      .hero-slider-arrow,
+      .hero-slider-dot {
+        transition: none !important;
       }
     }
 
@@ -403,29 +504,108 @@
 
 <main>
 
-  <!-- HERO -->
+  <!-- HERO SLIDER -->
 
   <section class="hero-image-section" id="home">
 
-    <img
-      src="hero.png?v=10001"
-      alt="کمپین جدید ROSEPINA"
-      class="hero-image"
-    >
+    <!-- اسلاید اول: بنر اصلی -->
 
-    <div class="hero-luxury-content">
+    <div class="hero-slide active">
+      <img
+        src="hero.png?v=10001"
+        alt="کمپین جدید ROSEPINA"
+        class="hero-image"
+        fetchpriority="high"
+      >
 
-      <span class="hero-luxury-kicker">
-        NEW SEASON · NEW ATTITUDE
-      </span>
+      <div class="hero-luxury-content">
+        <span class="hero-luxury-kicker">
+          NEW SEASON · NEW ATTITUDE
+        </span>
 
-      <h1>ROSEPINA</h1>
+        <h1>ROSEPINA</h1>
 
-      <p>Define Your Style</p>
+        <p>Define Your Style</p>
 
-      <a href="#collections" class="hero-luxury-button">
-        مشاهده کالکشن ↗
-      </a>
+        <a href="#collections" class="hero-luxury-button">
+          مشاهده کالکشن ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- اسلاید دوم: کالکشن زنانه -->
+
+    <div class="hero-slide">
+      <img
+        src="images/women-collection-new.png?v=20261122-114"
+        alt="کالکشن زنانه ROSEPINA"
+        class="hero-image"
+        loading="lazy"
+      >
+
+      <div class="hero-luxury-content">
+        <span class="hero-luxury-kicker">
+          WOMEN COLLECTION
+        </span>
+
+        <h1>HER STYLE</h1>
+
+        <p>Elegance in Every Detail</p>
+
+        <a href="women.html" class="hero-luxury-button">
+          مشاهده کالکشن زنانه ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- اسلاید سوم: کالکشن مردانه -->
+
+    <div class="hero-slide">
+      <img
+        src="images/file_00000000ff7c81f4a18dac2c6d16c151.png"
+        alt="کالکشن مردانه ROSEPINA"
+        class="hero-image"
+        loading="lazy"
+      >
+
+      <div class="hero-luxury-content">
+        <span class="hero-luxury-kicker">
+          MEN COLLECTION
+        </span>
+
+        <h1>BE ICONIC</h1>
+
+        <p>Confidence Is Your Style</p>
+
+        <a href="men.html" class="hero-luxury-button">
+          مشاهده کالکشن مردانه ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- کنترل‌های اسلایدر -->
+
+    <div class="hero-slider-controls">
+
+      <button
+        type="button"
+        class="hero-slider-arrow"
+        id="hero-prev"
+        aria-label="اسلاید قبلی"
+      >‹</button>
+
+      <div class="hero-slider-dots">
+        <button type="button" class="hero-slider-dot active" data-slide="0" aria-label="اسلاید اول"></button>
+        <button type="button" class="hero-slider-dot" data-slide="1" aria-label="اسلاید دوم"></button>
+        <button type="button" class="hero-slider-dot" data-slide="2" aria-label="اسلاید سوم"></button>
+      </div>
+
+      <button
+        type="button"
+        class="hero-slider-arrow"
+        id="hero-next"
+        aria-label="اسلاید بعدی"
+      >›</button>
 
     </div>
 
@@ -841,6 +1021,118 @@
 </footer>
 
 <script>
+
+/* =========================
+   HERO AUTO SLIDER
+========================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const hero = document.querySelector(".hero-image-section");
+
+  if (hero) {
+
+    const slides = Array.from(hero.querySelectorAll(".hero-slide"));
+    const dots = Array.from(hero.querySelectorAll(".hero-slider-dot"));
+    const prevButton = document.getElementById("hero-prev");
+    const nextButton = document.getElementById("hero-next");
+
+    let currentSlide = 0;
+    let sliderTimer = null;
+
+    const slideInterval = 5000;
+
+    function showHeroSlide(index) {
+
+      if (!slides.length) return;
+
+      currentSlide = (index + slides.length) % slides.length;
+
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle("active", i === currentSlide);
+      });
+
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("active", i === currentSlide);
+      });
+
+    }
+
+    function stopHeroTimer() {
+      if (sliderTimer) {
+        clearInterval(sliderTimer);
+        sliderTimer = null;
+      }
+    }
+
+    function startHeroTimer() {
+
+      stopHeroTimer();
+
+      if (
+        slides.length < 2 ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        return;
+      }
+
+      sliderTimer = setInterval(function () {
+        showHeroSlide(currentSlide + 1);
+      }, slideInterval);
+
+    }
+
+    function goToNextSlide() {
+      showHeroSlide(currentSlide + 1);
+      startHeroTimer();
+    }
+
+    function goToPreviousSlide() {
+      showHeroSlide(currentSlide - 1);
+      startHeroTimer();
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener("click", goToNextSlide);
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener("click", goToPreviousSlide);
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener("click", function () {
+        const index = Number(dot.dataset.slide);
+
+        if (Number.isInteger(index)) {
+          showHeroSlide(index);
+          startHeroTimer();
+        }
+      });
+    });
+
+    hero.addEventListener("mouseenter", stopHeroTimer);
+    hero.addEventListener("mouseleave", startHeroTimer);
+
+    hero.addEventListener("focusin", stopHeroTimer);
+    hero.addEventListener("focusout", function () {
+      startHeroTimer();
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        stopHeroTimer();
+      } else {
+        startHeroTimer();
+      }
+    });
+
+    showHeroSlide(0);
+    startHeroTimer();
+
+  }
+
+});
 
 /* =========================
    SWEATER ORDER FUNCTIONS
