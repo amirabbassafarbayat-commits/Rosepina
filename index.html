@@ -374,11 +374,201 @@
       }
     }
 
+    /* =========================
+       EDITORIAL THREE-SLIDE SHOWCASE
+    ========================= */
+
+    .editorial.editorial-slider {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: clamp(390px, 48vw, 650px);
+      min-height: 390px;
+      overflow: hidden;
+      isolation: isolate;
+      background: #100e0c;
+      color: #f6ead8;
+    }
+
+    .editorial-slider .editorial-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 0;
+      transition: opacity 1s ease, visibility 1s ease;
+      text-decoration: none;
+      color: inherit;
+      background: #100e0c;
+    }
+
+    .editorial-slider .editorial-slide.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+
+    /* محتوای محو در پس‌زمینه برای پرکردن عرض بنر */
+
+    .editorial-slider .editorial-backdrop {
+      position: absolute;
+      inset: -25px;
+      width: calc(100% + 50px);
+      height: calc(100% + 50px);
+      object-fit: cover;
+      object-position: center;
+      filter: blur(22px) brightness(.34);
+      transform: scale(1.05);
+      opacity: .8;
+      pointer-events: none;
+    }
+
+    /* نمایش کامل پوستر اصلی بدون برش */
+
+    .editorial-slider .editorial-poster {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      z-index: 1;
+      transition: transform 1.2s ease;
+      pointer-events: none;
+    }
+
+    .editorial-slider .editorial-slide:hover .editorial-poster {
+      transform: scale(1.015);
+    }
+
+    .editorial-slider .editorial-slide:focus-visible {
+      outline: 2px solid #d5b477;
+      outline-offset: -5px;
+    }
+
+    /* کنترل‌های اسلایدر Editorial */
+
+    .editorial-slider-controls {
+      position: absolute;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      direction: ltr;
+      padding: 8px 13px;
+      border: 1px solid rgba(220, 184, 125, .28);
+      border-radius: 40px;
+      background: rgba(15, 13, 11, .65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .editorial-slider-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: 1px solid rgba(220, 184, 125, .65);
+      border-radius: 50%;
+      background: transparent;
+      color: #e7c994;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background .25s ease, color .25s ease, border-color .25s ease;
+    }
+
+    .editorial-slider-arrow:hover {
+      background: #d8b77e;
+      color: #17130e;
+      border-color: #d8b77e;
+    }
+
+    .editorial-slider-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .editorial-slider-dot {
+      display: block;
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border: 0;
+      border-radius: 20px;
+      background: rgba(246, 234, 216, .48);
+      cursor: pointer;
+      transition: width .3s ease, background .3s ease;
+    }
+
+    .editorial-slider-dot.active {
+      width: 24px;
+      background: #d8b77e;
+    }
+
+    .editorial-slider-controls button:focus-visible {
+      outline: 2px solid #f0d7a9;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 600px) {
+      .editorial.editorial-slider {
+        height: 510px;
+        min-height: 510px;
+      }
+
+      .editorial-slider .editorial-backdrop {
+        filter: blur(17px) brightness(.30);
+      }
+
+      .editorial-slider .editorial-poster {
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .editorial-slider-controls {
+        bottom: 13px;
+        gap: 10px;
+        padding: 6px 10px;
+      }
+
+      .editorial-slider-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 19px;
+      }
+
+      .editorial-slider-dot {
+        width: 6px;
+        height: 6px;
+      }
+
+      .editorial-slider-dot.active {
+        width: 19px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .hero-slide,
       .hero-image,
       .hero-slider-arrow,
-      .hero-slider-dot {
+      .hero-slider-dot,
+      .editorial-slide,
+      .editorial-poster,
+      .editorial-slider-arrow,
+      .editorial-slider-dot {
         transition: none !important;
       }
     }
@@ -512,8 +702,6 @@
 
   <section class="hero-image-section" id="home">
 
-    <!-- اسلاید اول: بنر اصلی -->
-
     <div class="hero-slide active">
       <img
         src="hero.png?v=10001"
@@ -536,8 +724,6 @@
         </a>
       </div>
     </div>
-
-    <!-- اسلاید دوم: کالکشن زنانه -->
 
     <div class="hero-slide">
       <img
@@ -562,8 +748,6 @@
       </div>
     </div>
 
-    <!-- اسلاید سوم: کالکشن مردانه -->
-
     <div class="hero-slide">
       <img
         src="images/file_00000000ff7c81f4a18dac2c6d16c151.png"
@@ -586,8 +770,6 @@
         </a>
       </div>
     </div>
-
-    <!-- کنترل‌های اسلایدر -->
 
     <div class="hero-slider-controls">
 
@@ -911,29 +1093,128 @@
 
   </section>
 
-  <!-- EDITORIAL -->
+  <!-- EDITORIAL THREE-SLIDE SLIDER -->
 
-  <section class="editorial">
+  <section class="editorial editorial-slider" id="editorial-slider" aria-label="کمپین‌های ROSEPINA">
 
-    <img
-      src="images/editorial.jpg"
-      alt="استایل خاص و کالکشن جدید ROSEPINA"
-      loading="lazy"
+    <!-- اسلاید اول: معرفی برند -->
+
+    <a
+      href="#collections"
+      class="editorial-slide active"
+      aria-label="مشاهده کالکشن‌های ROSEPINA"
+      aria-hidden="false"
     >
+      <img
+        src="images/editorial-brand.png"
+        class="editorial-backdrop"
+        alt=""
+        aria-hidden="true"
+      >
 
-    <div class="editorial-content">
+      <img
+        src="images/editorial-brand.png"
+        class="editorial-poster"
+        alt="معرفی برند ROSEPINA، BE ICONIC"
+        loading="lazy"
+      >
+    </a>
 
-      <span>THE NEW ERA OF STYLE</span>
+    <!-- اسلاید دوم: کالکشن زنانه -->
 
-      <h2>BE<br>ICONIC.</h2>
+    <a
+      href="women.html"
+      class="editorial-slide"
+      aria-label="ورود به کالکشن زنانه ROSEPINA"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <img
+        src="images/editorial-women.png"
+        class="editorial-backdrop"
+        alt=""
+        aria-hidden="true"
+      >
 
-      <p>متفاوت باش. خاص انتخاب کن.</p>
+      <img
+        src="images/editorial-women.png"
+        class="editorial-poster"
+        alt="کالکشن زنانه ROSEPINA"
+        loading="lazy"
+      >
+    </a>
 
-      <a href="#products">DISCOVER MORE ↗</a>
+    <!-- اسلاید سوم: کالکشن مردانه -->
+
+    <a
+      href="men.html"
+      class="editorial-slide"
+      aria-label="ورود به کالکشن مردانه ROSEPINA"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <img
+        src="images/editorial-men.png"
+        class="editorial-backdrop"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <img
+        src="images/editorial-men.png"
+        class="editorial-poster"
+        alt="کالکشن مردانه ROSEPINA"
+        loading="lazy"
+      >
+    </a>
+
+    <!-- کنترل‌های اسلایدر -->
+
+    <div class="editorial-slider-controls">
+
+      <button
+        type="button"
+        class="editorial-slider-arrow"
+        id="editorial-prev"
+        aria-label="اسلاید قبلی"
+      >‹</button>
+
+      <div class="editorial-slider-dots">
+
+        <button
+          type="button"
+          class="editorial-slider-dot active"
+          data-editorial-slide="0"
+          aria-label="اسلاید اول"
+          aria-current="true"
+        ></button>
+
+        <button
+          type="button"
+          class="editorial-slider-dot"
+          data-editorial-slide="1"
+          aria-label="اسلاید دوم"
+          aria-current="false"
+        ></button>
+
+        <button
+          type="button"
+          class="editorial-slider-dot"
+          data-editorial-slide="2"
+          aria-label="اسلاید سوم"
+          aria-current="false"
+        ></button>
+
+      </div>
+
+      <button
+        type="button"
+        class="editorial-slider-arrow"
+        id="editorial-next"
+        aria-label="اسلاید بعدی"
+      >›</button>
 
     </div>
-
-    <div class="editorial-index">ROSEPINA / 2026</div>
 
   </section>
 
@@ -1135,6 +1416,150 @@ document.addEventListener("DOMContentLoaded", function () {
     startHeroTimer();
 
   }
+
+});
+
+/* =========================
+   EDITORIAL AUTO SLIDER
+========================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const editorial = document.getElementById("editorial-slider");
+
+  if (!editorial) return;
+
+  const slides = Array.from(
+    editorial.querySelectorAll(".editorial-slide")
+  );
+
+  const dots = Array.from(
+    editorial.querySelectorAll(".editorial-slider-dot")
+  );
+
+  const previousButton = document.getElementById("editorial-prev");
+  const nextButton = document.getElementById("editorial-next");
+
+  if (slides.length === 0) return;
+
+  let currentSlide = 0;
+  let editorialTimer = null;
+
+  const interval = 5000;
+
+  function showEditorialSlide(index) {
+
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides.forEach(function (slide, i) {
+
+      const isActive = i === currentSlide;
+
+      slide.classList.toggle("active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+      slide.tabIndex = isActive ? 0 : -1;
+
+    });
+
+    dots.forEach(function (dot, i) {
+
+      const isActive = i === currentSlide;
+
+      dot.classList.toggle("active", isActive);
+      dot.setAttribute("aria-current", String(isActive));
+
+    });
+
+  }
+
+  function stopEditorialTimer() {
+
+    if (editorialTimer) {
+      clearInterval(editorialTimer);
+      editorialTimer = null;
+    }
+
+  }
+
+  function startEditorialTimer() {
+
+    stopEditorialTimer();
+
+    if (
+      slides.length < 2 ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      document.hidden
+    ) {
+      return;
+    }
+
+    editorialTimer = setInterval(function () {
+      showEditorialSlide(currentSlide + 1);
+    }, interval);
+
+  }
+
+  function nextEditorialSlide() {
+
+    showEditorialSlide(currentSlide + 1);
+    startEditorialTimer();
+
+  }
+
+  function previousEditorialSlide() {
+
+    showEditorialSlide(currentSlide - 1);
+    startEditorialTimer();
+
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", nextEditorialSlide);
+  }
+
+  if (previousButton) {
+    previousButton.addEventListener("click", previousEditorialSlide);
+  }
+
+  dots.forEach(function (dot) {
+
+    dot.addEventListener("click", function () {
+
+      const index = Number(dot.dataset.editorialSlide);
+
+      if (Number.isInteger(index)) {
+        showEditorialSlide(index);
+        startEditorialTimer();
+      }
+
+    });
+
+  });
+
+  editorial.addEventListener("mouseenter", stopEditorialTimer);
+  editorial.addEventListener("mouseleave", startEditorialTimer);
+
+  editorial.addEventListener("focusin", stopEditorialTimer);
+  editorial.addEventListener("focusout", function () {
+
+    if (!editorial.contains(document.activeElement)) {
+      startEditorialTimer();
+    }
+
+  });
+
+  document.addEventListener("visibilitychange", function () {
+
+    if (document.hidden) {
+      stopEditorialTimer();
+    } else {
+      startEditorialTimer();
+    }
+
+  });
+
+  showEditorialSlide(0);
+  startEditorialTimer();
 
 });
 
