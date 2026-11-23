@@ -21,7 +21,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=36">
 
-  <!-- ROSEPINA Luxury Hero Styles -->
   <style>
     .hero-image-section {
       position: relative;
@@ -116,7 +115,6 @@
       border-color: #f3e8d8;
     }
 
-    /* Mobile Hero Fix */
     @media (max-width: 600px) {
       .hero-image-section {
         height: auto;
@@ -179,7 +177,6 @@
       }
     }
 
-    /* ROSEPINA Product Order Buttons */
     body:has(.hero-image-section) .product-card {
       display: flex;
       flex-direction: column;
@@ -217,6 +214,36 @@
       font-size: 17px;
     }
 
+    /* Product image links and size selectors */
+    body:has(.hero-image-section) .product-image {
+      display: block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    body:has(.hero-image-section) .product-size {
+      padding: 0 12px 12px;
+    }
+
+    body:has(.hero-image-section) .product-size label {
+      display: block;
+      margin-bottom: 5px;
+      font-family: "Vazirmatn", sans-serif;
+      font-size: 12px;
+    }
+
+    body:has(.hero-image-section) .product-size select {
+      width: 100%;
+      min-height: 38px;
+      padding: 7px 10px;
+      border: 1px solid #d8d1c7;
+      border-radius: 4px;
+      background: #fff;
+      color: #222;
+      font-family: "Vazirmatn", sans-serif;
+      font-size: 13px;
+    }
+
     @media (max-width: 600px) {
       body:has(.hero-image-section) .product-order-button {
         min-height: 39px;
@@ -224,6 +251,10 @@
         width: calc(100% - 16px);
         padding: 8px;
         font-size: 10px;
+      }
+
+      body:has(.hero-image-section) .product-size {
+        padding: 0 8px 8px;
       }
     }
   </style>
@@ -267,9 +298,7 @@
 
 <main>
 
-<!-- Luxury Main Hero -->
 <section class="hero-image-section" id="home">
-
   <img
     src="hero.png?v=10001"
     alt="کمپین جدید ROSEPINA"
@@ -277,38 +306,29 @@
   >
 
   <div class="hero-luxury-content">
-
     <span class="hero-luxury-kicker">
       NEW SEASON · NEW ATTITUDE
     </span>
-
     <h1>ROSEPINA</h1>
-
     <p>Define Your Style</p>
-
     <a href="#collections" class="hero-luxury-button">
       مشاهده کالکشن ↗
     </a>
-
   </div>
-
 </section>
 
 <section class="intro section">
   <div class="intro-number">01 / ROSEPINA</div>
-
   <div class="intro-content">
     <h2>
       زیبایی در<br>
       <span>انتخاب‌های تو.</span>
     </h2>
-
     <p>
       در ROSEPINA باور داریم زیبایی در جزئیات و انتخاب‌های آگاهانه شکل می‌گیرد.
       ما مجموعه‌ای از ظرافت، کیفیت و طراحی را کنار هم قرار می‌دهیم
       تا هر انتخاب، بازتابی از سلیقه و شخصیت منحصربه‌فرد تو باشد.
     </p>
-
     <a href="#about" class="text-link">داستان رزپینا <span>↗</span></a>
   </div>
 </section>
@@ -363,9 +383,9 @@
 
   <div class="product-grid">
 
-    <!-- محصول مردانه اول -->
+    <!-- کتونی کرم -->
     <article class="product-card">
-      <a href="men.html" class="product-image">
+      <a href="men.html" class="product-image" aria-label="مشاهده کالکشن مردانه">
         <img
           src="images/cream-sneaker.png"
           alt="کتونی کرم مردانه ROSEPINA"
@@ -380,22 +400,33 @@
           <span class="product-category">MEN / SHOES</span>
           <h3>کتونی کرم</h3>
         </div>
-        <span class="product-price">استعلام قیمت</span>
+        <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
+      </div>
+
+      <div class="product-size">
+        <label for="size-cream">انتخاب سایز:</label>
+        <select id="size-cream" name="size-cream">
+          <option value="40">۴۰</option>
+          <option value="41">۴۱</option>
+          <option value="42" selected>۴۲</option>
+          <option value="43">۴۳</option>
+          <option value="44">۴۴</option>
+        </select>
       </div>
 
       <button
         type="button"
         class="product-order-button"
-        onclick="orderHomepageProduct('کتونی کرم')"
+        onclick="orderHomepageProduct('کتونی کرم','۳,۰۰۰,۰۰۰','size-cream')"
       >
         <span>سفارش از واتساپ</span>
         <span>↗</span>
       </button>
     </article>
 
-    <!-- محصول مردانه دوم -->
+    <!-- کتونی مشکی -->
     <article class="product-card">
-      <a href="men.html" class="product-image">
+      <a href="men.html" class="product-image" aria-label="مشاهده کالکشن مردانه">
         <img
           src="images/black-sneaker.png"
           alt="کتونی مشکی مردانه ROSEPINA"
@@ -410,22 +441,33 @@
           <span class="product-category">MEN / SHOES</span>
           <h3>کتونی مشکی</h3>
         </div>
-        <span class="product-price">استعلام قیمت</span>
+        <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
+      </div>
+
+      <div class="product-size">
+        <label for="size-black">انتخاب سایز:</label>
+        <select id="size-black" name="size-black">
+          <option value="40">۴۰</option>
+          <option value="41">۴۱</option>
+          <option value="42" selected>۴۲</option>
+          <option value="43">۴۳</option>
+          <option value="44">۴۴</option>
+        </select>
       </div>
 
       <button
         type="button"
         class="product-order-button"
-        onclick="orderHomepageProduct('کتونی مشکی')"
+        onclick="orderHomepageProduct('کتونی مشکی','۳,۰۰۰,۰۰۰','size-black')"
       >
         <span>سفارش از واتساپ</span>
         <span>↗</span>
       </button>
     </article>
 
-    <!-- محصول زنانه اول -->
+    <!-- کیف دستی مشکی -->
     <article class="product-card">
-      <a href="women.html" class="product-image">
+      <a href="women.html" class="product-image" aria-label="مشاهده کالکشن زنانه">
         <img
           src="images/women-bag.jpg"
           alt="کیف دستی مشکی زنانه ROSEPINA"
@@ -440,22 +482,22 @@
           <span class="product-category">WOMEN / ACCESSORIES</span>
           <h3>کیف دستی مشکی</h3>
         </div>
-        <span class="product-price">استعلام قیمت</span>
+        <span class="product-price">۵,۸۰۰,۰۰۰ تومان</span>
       </div>
 
       <button
         type="button"
         class="product-order-button"
-        onclick="orderHomepageProduct('کیف دستی مشکی')"
+        onclick="orderHomepageProduct('کیف دستی مشکی','۵,۸۰۰,۰۰۰')"
       >
         <span>سفارش از واتساپ</span>
         <span>↗</span>
       </button>
     </article>
 
-    <!-- محصول زنانه دوم -->
+    <!-- ست اسپرت مشکی -->
     <article class="product-card">
-      <a href="women.html" class="product-image">
+      <a href="women.html" class="product-image" aria-label="مشاهده کالکشن زنانه">
         <img
           src="images/women-set.jpg"
           alt="ست اسپرت مشکی زنانه ROSEPINA"
@@ -470,13 +512,13 @@
           <span class="product-category">WOMEN / CLOTHING</span>
           <h3>ست اسپرت مشکی</h3>
         </div>
-        <span class="product-price">استعلام قیمت</span>
+        <span class="product-price">۱۲,۸۰۰,۰۰۰ تومان</span>
       </div>
 
       <button
         type="button"
         class="product-order-button"
-        onclick="orderHomepageProduct('ست اسپرت مشکی زنانه')"
+        onclick="orderHomepageProduct('ست اسپرت مشکی','۱۲,۸۰۰,۰۰۰')"
       >
         <span>سفارش از واتساپ</span>
         <span>↗</span>
@@ -637,11 +679,24 @@ function orderSweater() {
 }
 
 /* ROSEPINA Homepage Product Ordering */
-function orderHomepageProduct(productName) {
-  const message =
+function orderHomepageProduct(productName, price, sizeId) {
+  let message =
     "سلام، از فروشگاه ROSEPINA می‌خواهم سفارش ثبت کنم 🌸\n\n" +
     "محصول: " + productName + "\n" +
-    "لطفاً قیمت، رنگ‌ها و سایزبندی موجود را اعلام کنید.";
+    "قیمت: " + price + " تومان\n";
+
+  if (sizeId) {
+    const sizeElement = document.getElementById(sizeId);
+
+    if (!sizeElement) {
+      alert("لطفاً دوباره سایز محصول را انتخاب کنید.");
+      return;
+    }
+
+    message += "سایز انتخابی: " + sizeElement.value + "\n";
+  }
+
+  message += "\nلطفاً برای ثبت سفارش راهنمایی‌ام کنید.";
 
   const phone = "989120193510";
 
@@ -665,3 +720,4 @@ function closeInstagram(event) {
 
 </body>
 </html>
+.
