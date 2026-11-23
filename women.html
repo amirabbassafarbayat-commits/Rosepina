@@ -52,15 +52,32 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 .men-empty-message strong{display:block;margin-bottom:8px;color:#444;font-size:16px;font-weight:500}
 .men-empty-mark{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0 auto 18px;border:1px solid #dfd3ce;border-radius:50%;color:#a58c83;font-family:"DM Sans",sans-serif;font-size:19px}
 
-/* کارت محصول زنانه */
+/* کارت محصول */
 .women-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.women-product-card{border:1px solid #eee;background:#fff;overflow:hidden;min-width:0}
-.women-product-card img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+.women-product-card{border:1px solid #eee;background:#fff;overflow:hidden}
+.women-product-image-button{display:block;width:100%;padding:0;border:0;background:#f7f7f7;cursor:zoom-in}
+.women-product-image-button img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
 .women-product-info{padding:15px}
 .women-product-info h3{margin:0 0 10px;font-size:14px;font-weight:500}
 .women-product-price{font-weight:700;margin-bottom:14px;font-size:14px}
-.women-add-button{width:100%;padding:12px;border:0;background:#292929;color:white;font-family:inherit;cursor:pointer;font-size:13px}
-.women-add-button:hover{background:#555}
+.women-product-details-button{width:100%;padding:12px;border:0;background:#292929;color:#fff;font-family:inherit;cursor:pointer}
+
+/* پنجره انتخاب سایز و نمایش عکس */
+.product-modal{display:none;position:fixed;inset:0;z-index:12000;background:rgba(0,0,0,.72);padding:15px;overflow-y:auto}
+.product-modal.open{display:flex;align-items:center;justify-content:center}
+.product-modal-panel{position:relative;width:100%;max-width:780px;max-height:94vh;overflow-y:auto;background:#fff;border-radius:8px;padding:22px}
+.product-modal-close{position:absolute;top:12px;left:12px;z-index:2;width:36px;height:36px;border:1px solid #ddd;border-radius:50%;background:#fff;font-size:20px;cursor:pointer}
+.product-modal-content{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
+.product-modal-image{width:100%;max-height:70vh;object-fit:contain;background:#f7f7f7}
+.product-modal-info h2{font-size:20px;font-weight:500;margin:0 0 12px}
+.product-modal-info .modal-price{font-size:17px;font-weight:700;margin:0 0 25px}
+.product-size-title{font-size:13px;margin-bottom:12px}
+.product-size-options{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
+.product-size-button{min-width:47px;height:43px;padding:0 10px;border:1px solid #ddd;background:#fff;color:#333;font-family:"DM Sans",sans-serif;font-size:13px;cursor:pointer}
+.product-size-button.selected{background:#292929;color:#fff;border-color:#292929}
+.product-add-button{width:100%;padding:14px;border:0;background:#292929;color:#fff;font-family:inherit;font-size:14px;cursor:pointer}
+.product-add-button:disabled{opacity:.4;cursor:not-allowed}
+.product-size-hint{font-size:11px;color:#999;margin-top:12px;line-height:2}
 
 .cart-floating-button{position:fixed;left:18px;bottom:18px;z-index:9000;border:0;border-radius:40px;background:#292929;color:#fff;padding:13px 19px;font-family:"Vazirmatn",sans-serif;font-size:13px;box-shadow:0 5px 20px rgba(0,0,0,.2);cursor:pointer}
 .cart-floating-button span{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;margin-right:7px;padding:0 5px;border-radius:20px;background:#fff;color:#292929;font-size:11px}
@@ -85,7 +102,6 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 
 @media(max-width:900px){
 .men-category-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.women-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
 }
 @media(max-width:600px){
 .men-page-header{padding:15px 5%}
@@ -107,8 +123,11 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 .women-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .women-product-info{padding:10px}
 .women-product-info h3{font-size:12px}
-.women-product-price{font-size:12px}
-.women-add-button{font-size:11px;padding:11px 5px}
+.product-modal-panel{padding:15px}
+.product-modal-content{grid-template-columns:1fr;gap:15px}
+.product-modal-image{max-height:42vh}
+.product-modal-info h2{font-size:17px}
+.product-modal-info .modal-price{margin-bottom:15px}
 }
 @media(prefers-reduced-motion:reduce){
 *{scroll-behavior:auto!important;transition:none!important}
@@ -152,58 +171,42 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 <div class="men-category-grid">
 
 <button class="men-category-card" type="button" onclick="showWomenCategory('pants')">
-<div class="men-category-image">
-<img src="images/women-pants.jpg" alt="شلوار زنانه" loading="lazy">
-</div>
+<div class="men-category-image"><img src="images/women-pants.jpg" alt="شلوار زنانه" loading="lazy"></div>
 <div class="men-category-info"><h3>شلوار</h3><span>↗</span></div>
 </button>
 
 <button class="men-category-card" type="button" onclick="showWomenCategory('sets')">
-<div class="men-category-image">
-<img src="images/women-set.jpg" alt="ست سویشرت و شلوار زنانه" loading="lazy">
-</div>
+<div class="men-category-image"><img src="images/women-set.jpg" alt="ست سویشرت و شلوار زنانه" loading="lazy"></div>
 <div class="men-category-info"><h3>ست سویشرت و شلوار</h3><span>↗</span></div>
 </button>
 
 <button class="men-category-card" type="button" onclick="showWomenCategory('bags')">
-<div class="men-category-image">
-<img src="images/women-bag.jpg" alt="کیف زنانه" loading="lazy">
-</div>
+<div class="men-category-image"><img src="images/women-bag.jpg" alt="کیف زنانه" loading="lazy"></div>
 <div class="men-category-info"><h3>کیف</h3><span>↗</span></div>
 </button>
 
 <button class="men-category-card" type="button" onclick="showWomenCategory('belts-wallets')">
-<div class="men-category-image">
-<img src="images/women-wallet.jpg" alt="کیف پول زنانه" loading="lazy">
-</div>
+<div class="men-category-image"><img src="images/women-wallet.jpg" alt="کیف پول زنانه" loading="lazy"></div>
 <div class="men-category-info"><h3>کمربند و کیف پول</h3><span>↗</span></div>
 </button>
 
 <button class="men-category-card" type="button" onclick="showWomenCategory('tops')">
-<div class="men-category-image">
-<img src="images/women-tops.jpg" alt="کراپ و تاپ زنانه" loading="lazy">
-</div>
+<div class="men-category-image"><img src="images/women-tops.jpg" alt="کراپ و تاپ زنانه" loading="lazy"></div>
 <div class="men-category-info"><h3>کراپ و تاپ</h3><span>↗</span></div>
 </button>
 
 <button class="men-category-card" type="button" onclick="showWomenCategory('short-dresses')">
-<div class="men-category-image">
-<img src="images/women-short-dress.jpg" alt="پیراهن کوتاه زنانه" loading="lazy">
-</div>
+<div class="men-category-image"><img src="images/women-short-dress.jpg" alt="پیراهن کوتاه زنانه" loading="lazy"></div>
 <div class="men-category-info"><h3>پیراهن کوتاه</h3><span>↗</span></div>
 </button>
 
 <button class="men-category-card" type="button" onclick="showWomenCategory('long-dresses')">
-<div class="men-category-image">
-<img src="images/women-long-dress.jpg" alt="پیراهن بلند زنانه" loading="lazy">
-</div>
+<div class="men-category-image"><img src="images/women-long-dress.jpg" alt="پیراهن بلند زنانه" loading="lazy"></div>
 <div class="men-category-info"><h3>پیراهن بلند</h3><span>↗</span></div>
 </button>
 
 <button class="men-category-card" type="button" onclick="showWomenCategory('jumpsuits')">
-<div class="men-category-image">
-<img src="images/women-jumpsuit.jpg" alt="اورال زنانه" loading="lazy">
-</div>
+<div class="men-category-image"><img src="images/women-jumpsuit.jpg" alt="اورال زنانه" loading="lazy"></div>
 <div class="men-category-info"><h3>اورال</h3><span>↗</span></div>
 </button>
 
@@ -218,7 +221,7 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 <div class="men-empty-message"><span class="men-empty-mark">01</span><strong>شلوارهای ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
 </section>
 
-<!-- محصولات ست سویشرت و شلوار -->
+<!-- دسته ست سویشرت و شلوار -->
 <section class="men-category-products" id="category-sets">
 <div class="men-category-top">
 <div><span class="eyebrow">ROSEPINA / WOMEN</span><h2>ست سویشرت و شلوار</h2></div>
@@ -227,32 +230,13 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 
 <div class="women-product-grid">
 <article class="women-product-card">
-<img
-src="images/black-sweatshirt-pants-set.jpg"
-alt="ست سویشرت و شلوار مشکی زنانه"
-loading="lazy"
->
-
+<button class="women-product-image-button" type="button" onclick="openWomenProduct()" aria-label="مشاهده تصویر و انتخاب سایز ست مشکی">
+<img src="images/black-sweatshirt-pants-set.jpg" alt="ست سویشرت و شلوار مشکی زنانه">
+</button>
 <div class="women-product-info">
 <h3>ست سویشرت و شلوار مشکی زنانه</h3>
-
 <div class="women-product-price">۱۲,۸۰۰,۰۰۰ تومان</div>
-
-<button
-class="women-add-button"
-type="button"
-onclick="addWomenCartItem({
-product:'black-sweatshirt-pants-set',
-name:'ست سویشرت و شلوار مشکی زنانه',
-price:12800000,
-color:'مشکی',
-colorName:'مشکی',
-size:'Free Size',
-quantity:1
-})"
->
-افزودن به سبد خرید
-</button>
+<button class="women-product-details-button" type="button" onclick="openWomenProduct()">مشاهده محصول و انتخاب سایز</button>
 </div>
 </article>
 </div>
@@ -307,6 +291,34 @@ quantity:1
 </section>
 </main>
 
+<!-- پنجره باز شدن عکس و انتخاب سایز -->
+<section class="product-modal" id="women-product-modal" onclick="closeProductOnBackdrop(event)" aria-hidden="true">
+<div class="product-modal-panel" role="dialog" aria-modal="true" aria-label="مشخصات محصول">
+<button class="product-modal-close" type="button" onclick="closeWomenProduct()" aria-label="بستن">×</button>
+
+<div class="product-modal-content">
+<img class="product-modal-image" src="images/black-sweatshirt-pants-set.jpg" alt="ست سویشرت و شلوار مشکی زنانه">
+
+<div class="product-modal-info">
+<h2>ست سویشرت و شلوار مشکی زنانه</h2>
+<p class="modal-price">۱۲,۸۰۰,۰۰۰ تومان</p>
+
+<div class="product-size-title">سایز موردنظر را انتخاب کنید:</div>
+<div class="product-size-options">
+<button class="product-size-button" type="button" onclick="selectWomenSize('S',this)">S</button>
+<button class="product-size-button" type="button" onclick="selectWomenSize('M',this)">M</button>
+<button class="product-size-button" type="button" onclick="selectWomenSize('L',this)">L</button>
+<button class="product-size-button" type="button" onclick="selectWomenSize('XL',this)">XL</button>
+<button class="product-size-button" type="button" onclick="selectWomenSize('XXL',this)">XXL</button>
+</div>
+
+<button class="product-add-button" id="women-product-add-button" type="button" onclick="addSelectedWomenProduct()" disabled>ابتدا سایز را انتخاب کنید</button>
+<p class="product-size-hint">لطفاً قبل از افزودن محصول به سبد خرید، سایز دلخواه خود را انتخاب کنید.</p>
+</div>
+</div>
+</div>
+</section>
+
 <button type="button" class="cart-floating-button" onclick="openWomenCart()">سبد خرید <span id="cart-count">۰</span></button>
 
 <section id="men-cart" aria-hidden="true" onclick="closeCartOnBackdrop(event)">
@@ -338,11 +350,65 @@ if(categories){categories.style.display="block";categories.scrollIntoView({behav
 const WHATSAPP_NUMBER="989120193510";
 const CART_STORAGE_KEY="rosepina_women_cart_v1";
 let womenCart=[];
+let selectedWomenSize="";
 
 try{
 const saved=JSON.parse(localStorage.getItem(CART_STORAGE_KEY)||"[]");
 if(Array.isArray(saved))womenCart=saved;
 }catch(error){womenCart=[];}
+
+function openWomenProduct(){
+selectedWomenSize="";
+document.querySelectorAll(".product-size-button").forEach(button=>button.classList.remove("selected"));
+const addButton=document.getElementById("women-product-add-button");
+addButton.disabled=true;
+addButton.textContent="ابتدا سایز را انتخاب کنید";
+
+const modal=document.getElementById("women-product-modal");
+modal.classList.add("open");
+modal.setAttribute("aria-hidden","false");
+document.body.style.overflow="hidden";
+}
+
+function closeWomenProduct(){
+const modal=document.getElementById("women-product-modal");
+modal.classList.remove("open");
+modal.setAttribute("aria-hidden","true");
+document.body.style.overflow="auto";
+}
+
+function closeProductOnBackdrop(event){
+if(event.target.id==="women-product-modal")closeWomenProduct();
+}
+
+function selectWomenSize(size,button){
+selectedWomenSize=size;
+document.querySelectorAll(".product-size-button").forEach(item=>item.classList.remove("selected"));
+button.classList.add("selected");
+
+const addButton=document.getElementById("women-product-add-button");
+addButton.disabled=false;
+addButton.textContent="افزودن به سبد خرید";
+}
+
+function addSelectedWomenProduct(){
+if(!selectedWomenSize){
+alert("لطفاً ابتدا سایز محصول را انتخاب کنید.");
+return;
+}
+
+addWomenCartItem({
+product:"black-sweatshirt-pants-set",
+name:"ست سویشرت و شلوار مشکی زنانه",
+price:12800000,
+color:"black",
+colorName:"مشکی",
+size:selectedWomenSize,
+quantity:1
+});
+
+closeWomenProduct();
+}
 
 function saveWomenCart(){
 try{localStorage.setItem(CART_STORAGE_KEY,JSON.stringify(womenCart));}catch(error){}
@@ -363,7 +429,7 @@ const existing=womenCart.find(product=>cartItemKey(product)===key);
 if(existing)existing.quantity=Math.min(20,existing.quantity+item.quantity);
 else womenCart.push(item);
 saveWomenCart();
-alert("محصول به سبد خرید اضافه شد.");
+alert("محصول با سایز "+item.size+" به سبد خرید اضافه شد.");
 }
 
 function escapeCartText(value){
