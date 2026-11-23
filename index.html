@@ -218,6 +218,30 @@
       font-size: 17px;
     }
 
+    /* Product Size Selector */
+    body:has(.hero-image-section) .product-size-picker {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 0 18px 14px;
+      font-family: "Vazirmatn", sans-serif;
+      font-size: 12px;
+      color: #333;
+    }
+
+    body:has(.hero-image-section) .product-size-picker select {
+      min-width: 105px;
+      padding: 8px 12px;
+      border: 1px solid #bd9b69;
+      border-radius: 3px;
+      background: #fffdf9;
+      color: #171715;
+      font-family: "Vazirmatn", sans-serif;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
     @media (max-width: 600px) {
       body:has(.hero-image-section) .product-order-button {
         min-height: 39px;
@@ -225,6 +249,16 @@
         width: calc(100% - 16px);
         padding: 8px;
         font-size: 10px;
+      }
+
+      body:has(.hero-image-section) .product-size-picker {
+        padding: 0 10px 10px;
+        font-size: 11px;
+      }
+
+      body:has(.hero-image-section) .product-size-picker select {
+        min-width: 90px;
+        padding: 7px 8px;
       }
     }
   </style>
@@ -369,7 +403,7 @@
       <a
         href="https://wa.me/989120193510"
         class="product-image"
-        onclick="orderHomepageProduct('کتونی کرم'); return false;"
+        onclick="orderHomepageProduct('کتونی کرم', '۳,۰۰۰,۰۰۰ تومان', document.getElementById('size-cream').value); return false;"
       >
         <img
           src="images/cream-sneaker.png"
@@ -385,13 +419,24 @@
           <span class="product-category">MEN / SHOES</span>
           <h3>کتونی کرم</h3>
         </div>
-        <span class="product-price">استعلام قیمت</span>
+        <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
+      </div>
+
+      <div class="product-size-picker">
+        <label for="size-cream">انتخاب سایز:</label>
+        <select id="size-cream">
+          <option value="40">۴۰</option>
+          <option value="41">۴۱</option>
+          <option value="42" selected>۴۲</option>
+          <option value="43">۴۳</option>
+          <option value="44">۴۴</option>
+        </select>
       </div>
 
       <button
         type="button"
         class="product-order-button"
-        onclick="orderHomepageProduct('کتونی کرم')"
+        onclick="orderHomepageProduct('کتونی کرم', '۳,۰۰۰,۰۰۰ تومان', document.getElementById('size-cream').value)"
       >
         <span>سفارش از واتساپ</span>
         <span>↗</span>
@@ -403,7 +448,7 @@
       <a
         href="https://wa.me/989120193510"
         class="product-image"
-        onclick="orderHomepageProduct('کتونی مشکی'); return false;"
+        onclick="orderHomepageProduct('کتونی مشکی', '۳,۰۰۰,۰۰۰ تومان', document.getElementById('size-black').value); return false;"
       >
         <img
           src="images/black-sneaker.png"
@@ -419,13 +464,24 @@
           <span class="product-category">MEN / SHOES</span>
           <h3>کتونی مشکی</h3>
         </div>
-        <span class="product-price">استعلام قیمت</span>
+        <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
+      </div>
+
+      <div class="product-size-picker">
+        <label for="size-black">انتخاب سایز:</label>
+        <select id="size-black">
+          <option value="40">۴۰</option>
+          <option value="41">۴۱</option>
+          <option value="42" selected>۴۲</option>
+          <option value="43">۴۳</option>
+          <option value="44">۴۴</option>
+        </select>
       </div>
 
       <button
         type="button"
         class="product-order-button"
-        onclick="orderHomepageProduct('کتونی مشکی')"
+        onclick="orderHomepageProduct('کتونی مشکی', '۳,۰۰۰,۰۰۰ تومان', document.getElementById('size-black').value)"
       >
         <span>سفارش از واتساپ</span>
         <span>↗</span>
@@ -437,7 +493,7 @@
       <a
         href="https://wa.me/989120193510"
         class="product-image"
-        onclick="orderHomepageProduct('کیف دستی مشکی'); return false;"
+        onclick="orderHomepageProduct('کیف دستی مشکی', '۵,۸۰۰,۰۰۰ تومان'); return false;"
       >
         <img
           src="images/women-bag.jpg"
@@ -453,13 +509,13 @@
           <span class="product-category">WOMEN / ACCESSORIES</span>
           <h3>کیف دستی مشکی</h3>
         </div>
-        <span class="product-price">استعلام قیمت</span>
+        <span class="product-price">۵,۸۰۰,۰۰۰ تومان</span>
       </div>
 
       <button
         type="button"
         class="product-order-button"
-        onclick="orderHomepageProduct('کیف دستی مشکی')"
+        onclick="orderHomepageProduct('کیف دستی مشکی', '۵,۸۰۰,۰۰۰ تومان')"
       >
         <span>سفارش از واتساپ</span>
         <span>↗</span>
@@ -471,7 +527,7 @@
       <a
         href="https://wa.me/989120193510"
         class="product-image"
-        onclick="orderHomepageProduct('ست اسپرت مشکی زنانه'); return false;"
+        onclick="orderHomepageProduct('ست اسپرت مشکی زنانه', '۱۲,۸۰۰,۰۰۰ تومان'); return false;"
       >
         <img
           src="images/women-set.jpg"
@@ -487,13 +543,13 @@
           <span class="product-category">WOMEN / CLOTHING</span>
           <h3>ست اسپرت مشکی</h3>
         </div>
-        <span class="product-price">استعلام قیمت</span>
+        <span class="product-price">۱۲,۸۰۰,۰۰۰ تومان</span>
       </div>
 
       <button
         type="button"
         class="product-order-button"
-        onclick="orderHomepageProduct('ست اسپرت مشکی زنانه')"
+        onclick="orderHomepageProduct('ست اسپرت مشکی زنانه', '۱۲,۸۰۰,۰۰۰ تومان')"
       >
         <span>سفارش از واتساپ</span>
         <span>↗</span>
@@ -655,11 +711,15 @@ function orderSweater() {
 }
 
 /* ROSEPINA Homepage Product Ordering */
-function orderHomepageProduct(productName) {
+function orderHomepageProduct(productName, price, selectedSize) {
   const message =
     "سلام، از فروشگاه ROSEPINA می‌خواهم سفارش ثبت کنم 🌸\n\n" +
     "محصول: " + productName + "\n" +
-    "لطفاً قیمت، رنگ‌ها و سایزبندی موجود را اعلام کنید.";
+    "قیمت: " + price + "\n" +
+    (selectedSize
+      ? "سایز انتخابی: " + selectedSize + "\n"
+      : "") +
+    "لطفاً برای ثبت سفارش راهنمایی‌ام کنید.";
 
   const phone = "989120193510";
 
