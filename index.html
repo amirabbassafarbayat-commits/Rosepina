@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=41">
+<link rel="stylesheet" href="style.css?v=44">
 
 <style>
 :root {
@@ -118,38 +118,53 @@ a {color:inherit}
   place-items:center;
 }
 
+/* HERO SLIDER - FULL IMAGE */
+
 .hero-image-section {
   position:relative;
-  height:min(590px,48vw);
-  min-height:390px;
+  width:100%;
+  height:590px;
+  min-height:0;
   overflow:hidden;
   background:#28231f;
 }
+
 .hero-slide {
   position:absolute;
   inset:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   opacity:0;
   visibility:hidden;
-  transition:opacity .8s;
+  transition:opacity .8s ease;
 }
+
 .hero-slide.active {
   opacity:1;
   visibility:visible;
 }
+
 .hero-image {
-  width:100%;
-  height:100%;
-  object-fit:cover;
   position:absolute;
   inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain !important;
+  object-position:center center;
 }
+
 .hero-image-section::after {
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg,rgba(10,9,8,.68),transparent 75%);
+  background:linear-gradient(90deg,rgba(10,9,8,.55),transparent 75%);
   pointer-events:none;
 }
+
 .hero-luxury-content {
   position:absolute;
   z-index:2;
@@ -407,35 +422,44 @@ a {color:inherit}
 }
 .products-bottom a {color:#92734b}
 
-/* BOTTOM EDITORIAL SLIDER - FIXED */
+/* EDITORIAL SLIDER - FULL IMAGE */
 
 .editorial-slider {
-  height:400px;
   position:relative;
+  width:100%;
+  height:450px;
   overflow:hidden;
   background:#201b18;
   color:white;
 }
+
 .editorial-slide {
   position:absolute;
   inset:0;
+  width:100%;
+  height:100%;
   opacity:0;
   visibility:hidden;
   transition:opacity .7s ease;
 }
+
 .editorial-slide.active {
   opacity:1;
   visibility:visible;
 }
+
 .editorial-slide > img {
+  display:block;
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
-  object-fit:contain;
-  object-position:center;
-  display:block;
-  opacity:.7;
+  object-fit:contain !important;
+  object-position:center center;
+  opacity:.85;
   background:#201b18;
 }
+
 .editorial-content {
   position:absolute;
   top:50%;
@@ -691,6 +715,8 @@ a {color:inherit}
   color:#111;
 }
 
+/* MOBILE */
+
 @media(max-width:900px) {
   .product-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -705,7 +731,13 @@ a {color:inherit}
   .cart-header-button,
   .phone-header-button {font-size:19px}
 
-  .hero-image-section {height:440px}
+  .hero-image-section {
+    height:440px;
+    min-height:0;
+  }
+  .hero-image {
+    object-fit:contain !important;
+  }
   .hero-luxury-content {
     left:5%;
     right:5%;
@@ -740,8 +772,19 @@ a {color:inherit}
     font-size:11px;
   }
 
-  .editorial-slider {height:300px}
-  .editorial-content h2 {font-size:40px}
+  .editorial-slider {
+    height:auto;
+    aspect-ratio:4 / 3;
+    min-height:240px;
+  }
+  .editorial-slide > img {
+    object-fit:contain !important;
+  }
+  .editorial-content {
+    left:5%;
+  }
+  .editorial-content h2 {font-size:32px}
+  .editorial-content p {font-size:12px}
 
   .rp-footer-main {grid-template-columns:1fr 1fr}
   .rp-footer-brand {grid-column:1/-1}
@@ -1102,7 +1145,6 @@ a {color:inherit}
 </footer>
 
 <script>
-
 /* HERO SLIDER */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1130,7 +1172,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function startTimer() {
     clearInterval(timer);
-
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       timer = setInterval(() => showSlide(current + 1), 5000);
     }
@@ -1157,8 +1198,7 @@ document.addEventListener("DOMContentLoaded", function () {
   startTimer();
 });
 
-
-/* BOTTOM EDITORIAL SLIDER */
+/* EDITORIAL SLIDER */
 
 document.addEventListener("DOMContentLoaded", function () {
   const slides = [...document.querySelectorAll(".editorial-slide")];
@@ -1186,11 +1226,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function startEditorialTimer() {
     clearInterval(timer);
-
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      timer = setInterval(() => {
-        showEditorialSlide(current + 1);
-      }, 5000);
+      timer = setInterval(() => showEditorialSlide(current + 1), 5000);
     }
   }
 
@@ -1208,7 +1245,6 @@ document.addEventListener("DOMContentLoaded", function () {
   startEditorialTimer();
 });
 
-
 /* PRODUCTS AND SHOPPING CART */
 
 const cartProducts = {
@@ -1219,7 +1255,6 @@ const cartProducts = {
     sizeId: "size-cream",
     hasSize: true
   },
-
   black: {
     name: "جردن وان مشکی",
     price: 3000000,
@@ -1227,14 +1262,12 @@ const cartProducts = {
     sizeId: "size-black",
     hasSize: true
   },
-
   set: {
     name: "ست هرمس",
     price: 12800000,
     image: "images/women-set.jpg",
     hasSize: false
   },
-
   bag: {
     name: "کیف پرادا",
     price: 5800000,
@@ -1331,7 +1364,6 @@ function renderCart() {
 
 function changeQuantity(index, amount) {
   if (!cart[index]) return;
-
   cart[index].quantity += amount;
 
   if (cart[index].quantity <= 0) {
@@ -1353,7 +1385,6 @@ function openCart() {
 
 function closeCart(event) {
   if (event && event.target.id !== "cart-overlay") return;
-
   document.getElementById("cart-overlay").classList.remove("open");
   document.body.style.overflow = "";
 }
@@ -1387,7 +1418,6 @@ function checkoutCart() {
   window.open(url, "_blank");
 }
 
-
 /* PHONE NUMBER POPUP */
 
 function showPhoneNumber() {
@@ -1397,7 +1427,6 @@ function showPhoneNumber() {
 
 function hidePhoneNumber(event) {
   if (event && event.target.id !== "phone-popup") return;
-
   document.getElementById("phone-popup").classList.remove("open");
   document.body.style.overflow = "";
 }
@@ -1414,8 +1443,7 @@ function copyPhoneNumber() {
   }
 }
 
-
-/* INITIALIZE CART AND KEYBOARD */
+/* INITIALIZE */
 
 document.addEventListener("DOMContentLoaded", renderCart);
 
@@ -1425,7 +1453,6 @@ document.addEventListener("keydown", function(event) {
     hidePhoneNumber();
   }
 });
-
 </script>
 
 </body>
