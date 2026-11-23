@@ -1719,3 +1719,30 @@ body.rp-motion-ready .rp-reveal.rp-visible {
     box-shadow: none;
   }
 }
+/* ROSEPINA — HERO MOBILE ANIMATION FIX */
+
+@media (max-width: 600px) {
+  .hero-luxury-content {
+    animation-name: rpHeroMobileEnter;
+  }
+}
+
+@keyframes rpHeroMobileEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ROSEPINA — COLLECTION ZOOM FIX */
+
+@media (hover: hover) and (pointer: fine) {
+  body:has(.hero-image-section)
+  .collections .collection-card.collection-large:hover img {
+    transform: scale(1.045) !important;
+  }
+}
+
