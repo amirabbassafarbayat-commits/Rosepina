@@ -1586,3 +1586,136 @@ body:has(.hero-image-section) .collections .collection-card.collection-large img
   object-position: center;
   transform: none !important;
 }
+/* =====================================
+   ROSEPINA — LUXURY MOTION EFFECTS
+===================================== */
+
+/* ورود آرام بنر */
+.hero-luxury-content {
+  animation: rpHeroEnter 1.1s ease both;
+}
+
+.hero-image-section .hero-image {
+  animation: rpHeroImage 1.8s ease both;
+}
+
+@keyframes rpHeroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-50% + 22px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes rpHeroImage {
+  from { transform: scale(1.045); }
+  to { transform: scale(1); }
+}
+
+/* خط طلایی متحرک منو */
+.rp-navigation a {
+  position: relative;
+  transition: color .3s ease;
+}
+
+.rp-navigation a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width .35s ease;
+}
+
+.rp-navigation a:hover {
+  color: var(--gold);
+}
+
+.rp-navigation a:hover::after {
+  width: 100%;
+}
+
+/* زوم ظریف تصاویر کالکشن */
+.collection-card img {
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.collection-card:hover img {
+  transform: scale(1.045);
+}
+
+/* زوم تصاویر محصولات */
+.product-image img {
+  transition: transform .65s cubic-bezier(.2,.7,.2,1);
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.045);
+}
+
+/* حرکت ظریف کارت‌ها */
+.product-card,
+.collection-card {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(23,23,21,.09);
+}
+
+/* دکمه سفارش */
+.product-order-button {
+  transition: transform .25s ease, box-shadow .25s ease,
+              background .25s ease !important;
+}
+
+.product-order-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(22,139,85,.18);
+}
+
+.product-order-button:active {
+  transform: scale(.98);
+}
+
+/* ظاهرشدن بخش‌ها هنگام اسکرول */
+body.rp-motion-ready .rp-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .75s ease, transform .75s ease;
+}
+
+body.rp-motion-ready .rp-reveal.rp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* احترام به تنظیم کاهش حرکت دستگاه */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  body.rp-motion-ready .rp-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (hover: none) {
+  .product-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
