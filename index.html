@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=38">
+  <link rel="stylesheet" href="style.css?v=39">
 
   <style>
     :root {
@@ -23,7 +23,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -102,7 +101,8 @@
     }
 
     .rp-header-icons a,
-    .cart-header-button {
+    .cart-header-button,
+    .phone-header-button {
       color: white;
       text-decoration: none;
       font-size: 23px;
@@ -110,7 +110,12 @@
       border: 0;
       cursor: pointer;
       position: relative;
+      font-family: inherit;
+      padding: 0;
     }
+
+    .rp-header-icons a:hover,
+    .phone-header-button:hover { color: var(--gold); }
 
     #cart-count {
       position: absolute;
@@ -237,9 +242,7 @@
 
     .hero-slider-dot.active { background: var(--gold); }
 
-    .section {
-      padding: 65px 5%;
-    }
+    .section { padding: 65px 5%; }
 
     .intro {
       display: flex;
@@ -512,7 +515,6 @@
     }
 
     .about h2 { font-size: 35px; }
-
     .about h2 span { color: #ad8755; }
 
     .about-right {
@@ -681,16 +683,85 @@
       color: #817b73;
     }
 
+    /* PHONE NUMBER POPUP */
+
+    .phone-popup {
+      position: fixed;
+      inset: 0;
+      z-index: 10001;
+      background: rgba(0,0,0,.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .phone-popup.open { display: flex; }
+
+    .phone-popup-content {
+      position: relative;
+      width: min(340px,100%);
+      background: #f7f2eb;
+      color: #171715;
+      padding: 38px 22px 25px;
+      text-align: center;
+      border: 1px solid #bd9865;
+      box-shadow: 0 15px 50px rgba(0,0,0,.25);
+    }
+
+    .phone-popup-content > span {
+      color: #92734b;
+      font-size: 13px;
+    }
+
+    .phone-popup-content h2 {
+      font-family: "DM Sans",sans-serif;
+      font-size: 27px;
+      margin: 20px 0;
+      direction: ltr;
+      letter-spacing: 1px;
+    }
+
+    .phone-popup-close {
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      border: 0;
+      background: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #171715;
+    }
+
+    .phone-copy-button {
+      width: 100%;
+      padding: 12px;
+      background: #171715;
+      color: white;
+      border: 0;
+      font-family: inherit;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .phone-copy-button:hover {
+      background: #bd9865;
+      color: #111;
+    }
+
     @media(max-width:700px) {
       .rp-header { height: 65px; padding: 0 14px; }
       .rp-logo { width: 120px; height: 48px; }
       .rp-navigation { gap: 12px; }
       .rp-navigation a { font-size: 11px; }
       .rp-header-icons { gap: 11px; }
+
       .rp-header-icons a,
-      .cart-header-button { font-size: 19px; }
+      .cart-header-button,
+      .phone-header-button { font-size: 19px; }
 
       .hero-image-section { height: 440px; }
+
       .hero-luxury-content {
         left: 5%;
         right: 5%;
@@ -698,13 +769,12 @@
         bottom: 55px;
         transform: none;
       }
+
       .hero-luxury-content h1 { font-size: 44px; }
       .hero-luxury-content p { font-size: 18px; }
 
       .section { padding: 42px 4%; }
-      .intro, .about {
-        display: block;
-      }
+      .intro, .about { display: block; }
       .intro-number { margin-bottom: 20px; }
 
       .collection-grid { grid-template-columns: 1fr; }
@@ -716,13 +786,16 @@
       }
 
       .product-image { height: 180px; }
+
       .product-info {
         display: block;
         padding: 10px 9px 5px;
       }
+
       .product-info h3 { font-size: 13px; }
       .product-price { font-size: 11px; }
       .product-size { padding: 5px 9px 10px; }
+
       .product-order-button {
         margin: auto 7px 7px;
         padding: 9px 5px;
@@ -735,6 +808,7 @@
       .rp-footer-main {
         grid-template-columns: 1fr 1fr;
       }
+
       .rp-footer-brand { grid-column: 1/-1; }
     }
 
@@ -773,7 +847,8 @@
       <span id="cart-count">۰</span>
     </button>
 
-    <a href="https://wa.me/989120193510" target="_blank" rel="noopener" aria-label="واتساپ">☏</a>
+    <button type="button" class="phone-header-button"
+      onclick="showPhoneNumber()" aria-label="نمایش شماره تلفن">☏</button>
   </div>
 </header>
 
@@ -885,8 +960,6 @@
 
     <div class="product-grid">
 
-      <!-- کتونی کرم -->
-
       <article class="product-card">
         <a href="men.html" class="product-image">
           <img src="images/cream-sneaker.png" alt="کتونی کرم" loading="lazy">
@@ -917,8 +990,6 @@
         </button>
       </article>
 
-      <!-- کتونی مشکی -->
-
       <article class="product-card">
         <a href="men.html" class="product-image">
           <img src="images/black-sneaker.png" alt="کتونی مشکی" loading="lazy">
@@ -948,8 +1019,6 @@
           افزودن به سبد خرید
         </button>
       </article>
-
-      <!-- ست اسپرت مشکی -->
 
       <article class="product-card">
         <a href="women.html" class="product-image">
@@ -1032,6 +1101,19 @@
       ثبت سفارش در واتساپ
     </button>
   </section>
+</div>
+
+<!-- PHONE NUMBER POPUP -->
+
+<div id="phone-popup" class="phone-popup" onclick="hidePhoneNumber(event)">
+  <div class="phone-popup-content" onclick="event.stopPropagation()">
+    <button type="button" class="phone-popup-close" onclick="hidePhoneNumber()">×</button>
+    <span>ارتباط با ROSEPINA</span>
+    <h2>09120193510</h2>
+    <button type="button" class="phone-copy-button" onclick="copyPhoneNumber()">
+      کپی شماره تلفن
+    </button>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -1284,10 +1366,37 @@ function checkoutCart() {
   window.open(url, "_blank");
 }
 
+/* PHONE NUMBER POPUP */
+
+function showPhoneNumber() {
+  document.getElementById("phone-popup").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function hidePhoneNumber(event) {
+  if (event && event.target.id !== "phone-popup") return;
+
+  document.getElementById("phone-popup").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function copyPhoneNumber() {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText("09120193510")
+      .then(() => alert("شماره تلفن کپی شد."))
+      .catch(() => alert("شماره تلفن: 09120193510"));
+  } else {
+    alert("شماره تلفن: 09120193510");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", renderCart);
 
 document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape") closeCart();
+  if (event.key === "Escape") {
+    closeCart();
+    hidePhoneNumber();
+  }
 });
 </script>
 
