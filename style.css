@@ -1303,9 +1303,15 @@ body:not(:has(.men-page-header)) .rp-footer-brand {
   align-items: flex-start;
 }
 
+/* FOOTER LOGO - DESKTOP SIZE FIX */
+
 body:not(:has(.men-page-header)) .rp-footer-logo {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  width: 300px !important;
+  height: 120px !important;
+  max-width: 100%;
   gap: 12px;
   color: #171717;
   font-family: Georgia, serif;
@@ -1314,9 +1320,13 @@ body:not(:has(.men-page-header)) .rp-footer-logo {
 }
 
 body:not(:has(.men-page-header)) .rp-footer-logo img {
-  width: 45px;
-  height: 45px;
+  display: block;
+  width: 300px !important;
+  height: 120px !important;
+  max-width: 100% !important;
+  max-height: none !important;
   object-fit: contain;
+  object-position: right center;
 }
 
 body:not(:has(.men-page-header)) .rp-footer-brand p {
@@ -1392,7 +1402,16 @@ body:not(:has(.men-page-header)) .rp-footer-bottom a {
   }
 
   body:not(:has(.men-page-header)) .rp-footer-logo {
+    width: 240px !important;
+    height: 95px !important;
     font-size: 24px;
+  }
+
+  body:not(:has(.men-page-header)) .rp-footer-logo img {
+    width: 240px !important;
+    height: 95px !important;
+    max-width: 100% !important;
+    max-height: none !important;
   }
 
   body:not(:has(.men-page-header)) .rp-footer-links,
@@ -1429,7 +1448,9 @@ body:not(:has(.men-page-header)) .rp-footer-contact h3 {
 }
 
 body:not(:has(.men-page-header)) .rp-footer-contact a:last-child {
-  width: 100%;}
+  width: 100%;
+}
+
 /* ROSEPINA - COLLECTION IMAGE FIX */
 
 .collections .collection-grid {
@@ -1456,6 +1477,7 @@ body:not(:has(.men-page-header)) .rp-footer-contact a:last-child {
 .collections .collection-card:not(.collection-large) img {
   object-fit: cover;
 }
+
 /* ==========================================
    ROSEPINA - FINAL COLLECTION SIZE FIX
    فقط مخصوص کالکشن صفحه اصلی
@@ -1518,6 +1540,7 @@ body:has(.hero-image-section) .collections .collection-card:not(.collection-larg
     height: 260px;
   }
 }
+
 /* ROSEPINA - FIX TWO COLLECTION CARDS */
 
 body:has(.hero-image-section) .collections .collection-grid {
@@ -1577,6 +1600,7 @@ body:has(.hero-image-section) .collections .collection-card:not(.collection-larg
     height: 260px !important;
   }
 }
+
 /* ROSEPINA - NEW WOMEN COLLECTION IMAGE */
 
 body:has(.hero-image-section) .collections .collection-card.collection-large img {
@@ -1586,6 +1610,7 @@ body:has(.hero-image-section) .collections .collection-card.collection-large img
   object-position: center;
   transform: none !important;
 }
+
 /* =====================================
    ROSEPINA — LUXURY MOTION EFFECTS
 ===================================== */
@@ -1719,6 +1744,7 @@ body.rp-motion-ready .rp-reveal.rp-visible {
     box-shadow: none;
   }
 }
+
 /* ROSEPINA — HERO MOBILE ANIMATION FIX */
 
 @media (max-width: 600px) {
@@ -1737,6 +1763,7 @@ body.rp-motion-ready .rp-reveal.rp-visible {
     transform: translateY(0);
   }
 }
+
 /* ROSEPINA — COLLECTION ZOOM FIX */
 
 @media (hover: hover) and (pointer: fine) {
@@ -1745,4 +1772,3 @@ body.rp-motion-ready .rp-reveal.rp-visible {
     transform: scale(1.045) !important;
   }
 }
-
