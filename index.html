@@ -716,6 +716,44 @@ function closeInstagram(event) {
 
   document.getElementById("instagram-choice").style.display = "none";
 }
+  
+/* ROSEPINA Scroll Reveal */
+document.addEventListener("DOMContentLoaded", function () {
+  const targets = document.querySelectorAll(
+    ".intro, .section-title, .collection-card, " +
+    ".product-card, .editorial, .about, .rp-footer"
+  );
+
+  if (
+    !("IntersectionObserver" in window) ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    return;
+  }
+
+  targets.forEach(function (element) {
+    element.classList.add("rp-reveal");
+  });
+
+  document.body.classList.add("rp-motion-ready");
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("rp-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -35px 0px"
+  });
+
+  targets.forEach(function (element) {
+    observer.observe(element);
+  });
+});
+
 </script>
 
 </body>
