@@ -4,68 +4,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>ROSEPINA | فروشگاه تخصصی مد و لباس</title>
+
   <meta name="description" content="به دنیای مد و استایل ROSEPINA خوش آمدید. جدیدترین لباس‌های خاص را کشف کنید.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#11110f">
   <meta name="author" content="ROSEPINA">
+
   <meta property="og:type" content="website">
   <meta property="og:title" content="ROSEPINA | Define Your Style">
   <meta property="og:description" content="استایل متفاوت، انتخاب متفاوت. مجموعه جدید ROSEPINA را ببینید.">
-  <meta property="og:image" content="https://amirabbassafarbayat-commits.github.io/Rosepina/hero.jpg">
+  <meta property="og:image" content="https://amirabbassafarbayat-commits.github.io/Rosepina/hero.png">
   <meta property="og:locale" content="fa_IR">
+
   <link rel="canonical" href="https://amirabbassafarbayat-commits.github.io/Rosepina/">
   <link rel="icon" type="image/svg+xml" href="logo.svg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css?v=36">
 
   <style>
-    /* ROSEPINA LUXURY LOGO */
+    /* =========================
+       ROSEPINA LOGO
+    ========================= */
+
     .rp-logo {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex: 0 0 auto;
+      width: 190px;
+      height: 70px;
+      overflow: visible;
       text-decoration: none;
       line-height: 0;
     }
 
     .rp-logo img {
       display: block;
-      width: 190px;
-      height: auto;
-      max-height: 65px;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
+      object-position: center;
     }
 
     .rp-footer-logo {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      width: 175px;
+      height: 65px;
+      overflow: visible;
       text-decoration: none;
       line-height: 0;
     }
 
     .rp-footer-logo img {
       display: block;
-      width: 170px;
-      height: auto;
-      max-height: 65px;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
+      object-position: center;
     }
 
     @media (max-width: 700px) {
-      .rp-logo img {
-        width: 145px;
-        max-height: 50px;
+      .rp-logo {
+        width: 150px;
+        height: 55px;
       }
 
-      .rp-footer-logo img {
-        width: 145px;
-        max-height: 55px;
+      .rp-footer-logo {
+        width: 150px;
+        height: 55px;
       }
     }
+
+    @media (max-width: 360px) {
+      .rp-logo {
+        width: 125px;
+        height: 46px;
+      }
+
+      .rp-footer-logo {
+        width: 130px;
+        height: 48px;
+      }
+    }
+
+    /* =========================
+       HERO SECTION
+    ========================= */
 
     .hero-image-section {
       position: relative;
@@ -222,6 +259,10 @@
       }
     }
 
+    /* =========================
+       PRODUCT CARDS
+    ========================= */
+
     body:has(.hero-image-section) .product-card {
       display: flex;
       flex-direction: column;
@@ -259,7 +300,6 @@
       font-size: 17px;
     }
 
-    /* Product image links and size selectors */
     body:has(.hero-image-section) .product-image {
       display: block;
       position: relative;
@@ -311,7 +351,7 @@
     "name": "ROSEPINA",
     "description": "فروشگاه آنلاین لباس",
     "url": "https://amirabbassafarbayat-commits.github.io/Rosepina/",
-    "image": "https://amirabbassafarbayat-commits.github.io/Rosepina/hero.jpg"
+    "image": "https://amirabbassafarbayat-commits.github.io/Rosepina/hero.png"
   }
   </script>
 </head>
@@ -324,8 +364,9 @@
 </div>
 
 <header class="rp-header">
+
   <a href="#home" class="rp-logo" aria-label="ROSEPINA">
-    <img src="logo.svg" alt="ROSEPINA">
+    <img src="logo.svg?v=2" alt="ROSEPINA">
   </a>
 
   <nav class="rp-navigation">
@@ -338,316 +379,454 @@
     <a href="#products" aria-label="جستجو">⌕</a>
     <a href="#products" aria-label="سبد خرید">♧</a>
   </div>
+
 </header>
 
 <main>
 
-<section class="hero-image-section" id="home">
-  <img
-    src="hero.png?v=10001"
-    alt="کمپین جدید ROSEPINA"
-    class="hero-image"
-  >
+  <!-- HERO -->
 
-  <div class="hero-luxury-content">
-    <span class="hero-luxury-kicker">
-      NEW SEASON · NEW ATTITUDE
-    </span>
-    <h1>ROSEPINA</h1>
-    <p>Define Your Style</p>
-    <a href="#collections" class="hero-luxury-button">
-      مشاهده کالکشن ↗
-    </a>
-  </div>
-</section>
+  <section class="hero-image-section" id="home">
 
-<section class="intro section">
-  <div class="intro-number">01 / ROSEPINA</div>
-  <div class="intro-content">
-    <h2>
-      زیبایی در<br>
-      <span>انتخاب‌های تو.</span>
-    </h2>
-    <p>
-      در ROSEPINA باور داریم زیبایی در جزئیات و انتخاب‌های آگاهانه شکل می‌گیرد.
-      ما مجموعه‌ای از ظرافت، کیفیت و طراحی را کنار هم قرار می‌دهیم
-      تا هر انتخاب، بازتابی از سلیقه و شخصیت منحصربه‌فرد تو باشد.
-    </p>
-    <a href="#about" class="text-link">داستان رزپینا <span>↗</span></a>
-  </div>
-</section>
+    <img
+      src="hero.png?v=10001"
+      alt="کمپین جدید ROSEPINA"
+      class="hero-image"
+    >
 
-<section class="collections section" id="collections">
-  <div class="section-title">
-    <div>
-      <span class="eyebrow">دنیای ROSEPINA</span>
-      <h2>انتخابی برای <span>سلیقه تو</span></h2>
+    <div class="hero-luxury-content">
+
+      <span class="hero-luxury-kicker">
+        NEW SEASON · NEW ATTITUDE
+      </span>
+
+      <h1>ROSEPINA</h1>
+
+      <p>Define Your Style</p>
+
+      <a href="#collections" class="hero-luxury-button">
+        مشاهده کالکشن ↗
+      </a>
+
     </div>
-    <span class="section-counter">۰۲ — کالکشن‌ها</span>
-  </div>
 
-  <div class="collection-grid">
-    <a href="women.html" class="collection-card collection-large">
-      <img
-        src="images/women-collection-new.png?v=20261122-114"
-        alt="کالکشن لباس زنانه ROSEPINA"
-        loading="lazy"
-        style="width:100%; height:100%; object-fit:cover; object-position:center;"
-      >
-      <div class="collection-overlay">
-        <span>مجموعه اول</span>
-        <h3>لباس زنانه</h3>
-        <b>مشاهده مجموعه ↗</b>
-      </div>
-    </a>
+  </section>
 
-    <a href="men.html" class="collection-card">
-      <img
-        src="images/file_00000000ff7c81f4a18dac2c6d16c151.png"
-        alt="کالکشن لباس مردانه ROSEPINA"
-        loading="lazy"
-      >
-      <div class="collection-overlay">
-        <span>مجموعه دوم</span>
-        <h3>لباس مردانه</h3>
-        <b>مشاهده مجموعه ↗</b>
-      </div>
-    </a>
-  </div>
-</section>
+  <!-- INTRO -->
 
-<section class="products section" id="products">
-  <div class="section-title">
-    <div>
-      <span class="eyebrow">CURATED FOR YOU</span>
-      <h2>منتخب <span>ما</span></h2>
+  <section class="intro section">
+
+    <div class="intro-number">01 / ROSEPINA</div>
+
+    <div class="intro-content">
+
+      <h2>
+        زیبایی در<br>
+        <span>انتخاب‌های تو.</span>
+      </h2>
+
+      <p>
+        در ROSEPINA باور داریم زیبایی در جزئیات و انتخاب‌های آگاهانه شکل می‌گیرد.
+        ما مجموعه‌ای از ظرافت، کیفیت و طراحی را کنار هم قرار می‌دهیم
+        تا هر انتخاب، بازتابی از سلیقه و شخصیت منحصربه‌فرد تو باشد.
+      </p>
+
+      <a href="#about" class="text-link">
+        داستان رزپینا <span>↗</span>
+      </a>
+
     </div>
-    <span class="section-counter">03 — PRODUCTS</span>
-  </div>
 
-  <div class="product-grid">
+  </section>
 
-    <!-- کتونی کرم -->
-    <article class="product-card">
-      <a href="men.html" class="product-image" aria-label="مشاهده کالکشن مردانه">
+  <!-- COLLECTIONS -->
+
+  <section class="collections section" id="collections">
+
+    <div class="section-title">
+
+      <div>
+        <span class="eyebrow">دنیای ROSEPINA</span>
+        <h2>انتخابی برای <span>سلیقه تو</span></h2>
+      </div>
+
+      <span class="section-counter">۰۲ — کالکشن‌ها</span>
+
+    </div>
+
+    <div class="collection-grid">
+
+      <a href="women.html" class="collection-card collection-large">
+
         <img
-          src="images/cream-sneaker.png"
-          alt="کتونی کرم مردانه ROSEPINA"
+          src="images/women-collection-new.png?v=20261122-114"
+          alt="کالکشن لباس زنانه ROSEPINA"
           loading="lazy"
+          style="width:100%; height:100%; object-fit:cover; object-position:center;"
         >
-        <span class="product-tag">MEN</span>
-        <span class="product-arrow">↗</span>
+
+        <div class="collection-overlay">
+          <span>مجموعه اول</span>
+          <h3>لباس زنانه</h3>
+          <b>مشاهده مجموعه ↗</b>
+        </div>
+
       </a>
 
-      <div class="product-info">
-        <div>
-          <span class="product-category">MEN / SHOES</span>
-          <h3>کتونی کرم</h3>
-        </div>
-        <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
-      </div>
+      <a href="men.html" class="collection-card">
 
-      <div class="product-size">
-        <label for="size-cream">انتخاب سایز:</label>
-        <select id="size-cream" name="size-cream">
-          <option value="40">۴۰</option>
-          <option value="41">۴۱</option>
-          <option value="42" selected>۴۲</option>
-          <option value="43">۴۳</option>
-          <option value="44">۴۴</option>
-        </select>
-      </div>
-
-      <button
-        type="button"
-        class="product-order-button"
-        onclick="orderHomepageProduct('کتونی کرم','۳,۰۰۰,۰۰۰','size-cream')"
-      >
-        <span>سفارش از واتساپ</span>
-        <span>↗</span>
-      </button>
-    </article>
-
-    <!-- کتونی مشکی -->
-    <article class="product-card">
-      <a href="men.html" class="product-image" aria-label="مشاهده کالکشن مردانه">
         <img
-          src="images/black-sneaker.png"
-          alt="کتونی مشکی مردانه ROSEPINA"
+          src="images/file_00000000ff7c81f4a18dac2c6d16c151.png"
+          alt="کالکشن لباس مردانه ROSEPINA"
           loading="lazy"
         >
-        <span class="product-tag">MEN</span>
-        <span class="product-arrow">↗</span>
+
+        <div class="collection-overlay">
+          <span>مجموعه دوم</span>
+          <h3>لباس مردانه</h3>
+          <b>مشاهده مجموعه ↗</b>
+        </div>
+
       </a>
 
-      <div class="product-info">
-        <div>
-          <span class="product-category">MEN / SHOES</span>
-          <h3>کتونی مشکی</h3>
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section class="products section" id="products">
+
+    <div class="section-title">
+
+      <div>
+        <span class="eyebrow">CURATED FOR YOU</span>
+        <h2>منتخب <span>ما</span></h2>
+      </div>
+
+      <span class="section-counter">03 — PRODUCTS</span>
+
+    </div>
+
+    <div class="product-grid">
+
+      <!-- کتونی کرم -->
+
+      <article class="product-card">
+
+        <a href="men.html" class="product-image" aria-label="مشاهده کالکشن مردانه">
+
+          <img
+            src="images/cream-sneaker.png"
+            alt="کتونی کرم مردانه ROSEPINA"
+            loading="lazy"
+          >
+
+          <span class="product-tag">MEN</span>
+          <span class="product-arrow">↗</span>
+
+        </a>
+
+        <div class="product-info">
+
+          <div>
+            <span class="product-category">MEN / SHOES</span>
+            <h3>کتونی کرم</h3>
+          </div>
+
+          <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
+
         </div>
-        <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
-      </div>
 
-      <div class="product-size">
-        <label for="size-black">انتخاب سایز:</label>
-        <select id="size-black" name="size-black">
-          <option value="40">۴۰</option>
-          <option value="41">۴۱</option>
-          <option value="42" selected>۴۲</option>
-          <option value="43">۴۳</option>
-          <option value="44">۴۴</option>
-        </select>
-      </div>
+        <div class="product-size">
 
-      <button
-        type="button"
-        class="product-order-button"
-        onclick="orderHomepageProduct('کتونی مشکی','۳,۰۰۰,۰۰۰','size-black')"
-      >
-        <span>سفارش از واتساپ</span>
-        <span>↗</span>
-      </button>
-    </article>
+          <label for="size-cream">انتخاب سایز:</label>
 
-    <!-- کیف دستی مشکی -->
-    <article class="product-card">
-      <a href="women.html" class="product-image" aria-label="مشاهده کالکشن زنانه">
-        <img
-          src="images/women-bag.jpg"
-          alt="کیف دستی مشکی زنانه ROSEPINA"
-          loading="lazy"
+          <select id="size-cream" name="size-cream">
+            <option value="40">۴۰</option>
+            <option value="41">۴۱</option>
+            <option value="42" selected>۴۲</option>
+            <option value="43">۴۳</option>
+            <option value="44">۴۴</option>
+          </select>
+
+        </div>
+
+        <button
+          type="button"
+          class="product-order-button"
+          onclick="orderHomepageProduct('کتونی کرم','۳,۰۰۰,۰۰۰','size-cream')"
         >
-        <span class="product-tag">WOMEN</span>
-        <span class="product-arrow">↗</span>
-      </a>
+          <span>سفارش از واتساپ</span>
+          <span>↗</span>
+        </button>
 
-      <div class="product-info">
-        <div>
-          <span class="product-category">WOMEN / ACCESSORIES</span>
-          <h3>کیف دستی مشکی</h3>
+      </article>
+
+      <!-- کتونی مشکی -->
+
+      <article class="product-card">
+
+        <a href="men.html" class="product-image" aria-label="مشاهده کالکشن مردانه">
+
+          <img
+            src="images/black-sneaker.png"
+            alt="کتونی مشکی مردانه ROSEPINA"
+            loading="lazy"
+          >
+
+          <span class="product-tag">MEN</span>
+          <span class="product-arrow">↗</span>
+
+        </a>
+
+        <div class="product-info">
+
+          <div>
+            <span class="product-category">MEN / SHOES</span>
+            <h3>کتونی مشکی</h3>
+          </div>
+
+          <span class="product-price">۳,۰۰۰,۰۰۰ تومان</span>
+
         </div>
-        <span class="product-price">۵,۸۰۰,۰۰۰ تومان</span>
-      </div>
 
-      <button
-        type="button"
-        class="product-order-button"
-        onclick="orderHomepageProduct('کیف دستی مشکی','۵,۸۰۰,۰۰۰')"
-      >
-        <span>سفارش از واتساپ</span>
-        <span>↗</span>
-      </button>
-    </article>
+        <div class="product-size">
 
-    <!-- ست اسپرت مشکی -->
-    <article class="product-card">
-      <a href="women.html" class="product-image" aria-label="مشاهده کالکشن زنانه">
-        <img
-          src="images/women-set.jpg"
-          alt="ست اسپرت مشکی زنانه ROSEPINA"
-          loading="lazy"
+          <label for="size-black">انتخاب سایز:</label>
+
+          <select id="size-black" name="size-black">
+            <option value="40">۴۰</option>
+            <option value="41">۴۱</option>
+            <option value="42" selected>۴۲</option>
+            <option value="43">۴۳</option>
+            <option value="44">۴۴</option>
+          </select>
+
+        </div>
+
+        <button
+          type="button"
+          class="product-order-button"
+          onclick="orderHomepageProduct('کتونی مشکی','۳,۰۰۰,۰۰۰','size-black')"
         >
-        <span class="product-tag">WOMEN</span>
-        <span class="product-arrow">↗</span>
+          <span>سفارش از واتساپ</span>
+          <span>↗</span>
+        </button>
+
+      </article>
+
+      <!-- کیف دستی مشکی -->
+
+      <article class="product-card">
+
+        <a href="women.html" class="product-image" aria-label="مشاهده کالکشن زنانه">
+
+          <img
+            src="images/women-bag.jpg"
+            alt="کیف دستی مشکی زنانه ROSEPINA"
+            loading="lazy"
+          >
+
+          <span class="product-tag">WOMEN</span>
+          <span class="product-arrow">↗</span>
+
+        </a>
+
+        <div class="product-info">
+
+          <div>
+            <span class="product-category">WOMEN / ACCESSORIES</span>
+            <h3>کیف دستی مشکی</h3>
+          </div>
+
+          <span class="product-price">۵,۸۰۰,۰۰۰ تومان</span>
+
+        </div>
+
+        <button
+          type="button"
+          class="product-order-button"
+          onclick="orderHomepageProduct('کیف دستی مشکی','۵,۸۰۰,۰۰۰')"
+        >
+          <span>سفارش از واتساپ</span>
+          <span>↗</span>
+        </button>
+
+      </article>
+
+      <!-- ست اسپرت مشکی -->
+
+      <article class="product-card">
+
+        <a href="women.html" class="product-image" aria-label="مشاهده کالکشن زنانه">
+
+          <img
+            src="images/women-set.jpg"
+            alt="ست اسپرت مشکی زنانه ROSEPINA"
+            loading="lazy"
+          >
+
+          <span class="product-tag">WOMEN</span>
+          <span class="product-arrow">↗</span>
+
+        </a>
+
+        <div class="product-info">
+
+          <div>
+            <span class="product-category">WOMEN / CLOTHING</span>
+            <h3>ست اسپرت مشکی</h3>
+          </div>
+
+          <span class="product-price">۱۲,۸۰۰,۰۰۰ تومان</span>
+
+        </div>
+
+        <button
+          type="button"
+          class="product-order-button"
+          onclick="orderHomepageProduct('ست اسپرت مشکی','۱۲,۸۰۰,۰۰۰')"
+        >
+          <span>سفارش از واتساپ</span>
+          <span>↗</span>
+        </button>
+
+      </article>
+
+    </div>
+
+    <div class="products-bottom">
+
+      <span>LESS BUT BETTER.</span>
+
+      <a href="https://wa.me/989120193510" target="_blank" rel="noopener">
+        برای سفارش با ما تماس بگیر <span>↗</span>
       </a>
 
-      <div class="product-info">
-        <div>
-          <span class="product-category">WOMEN / CLOTHING</span>
-          <h3>ست اسپرت مشکی</h3>
-        </div>
-        <span class="product-price">۱۲,۸۰۰,۰۰۰ تومان</span>
-      </div>
+    </div>
 
-      <button
-        type="button"
-        class="product-order-button"
-        onclick="orderHomepageProduct('ست اسپرت مشکی','۱۲,۸۰۰,۰۰۰')"
-      >
-        <span>سفارش از واتساپ</span>
-        <span>↗</span>
-      </button>
-    </article>
+  </section>
 
-  </div>
+  <!-- EDITORIAL -->
 
-  <div class="products-bottom">
-    <span>LESS BUT BETTER.</span>
-    <a href="https://wa.me/989120193510" target="_blank" rel="noopener">
-      برای سفارش با ما تماس بگیر <span>↗</span>
-    </a>
-  </div>
-</section>
+  <section class="editorial">
 
-<section class="editorial">
-  <img
-    src="images/editorial.jpg"
-    alt="استایل خاص و کالکشن جدید ROSEPINA"
-    loading="lazy"
-  >
+    <img
+      src="images/editorial.jpg"
+      alt="استایل خاص و کالکشن جدید ROSEPINA"
+      loading="lazy"
+    >
 
-  <div class="editorial-content">
-    <span>THE NEW ERA OF STYLE</span>
-    <h2>BE<br>ICONIC.</h2>
-    <p>متفاوت باش. خاص انتخاب کن.</p>
-    <a href="#products">DISCOVER MORE ↗</a>
-  </div>
+    <div class="editorial-content">
 
-  <div class="editorial-index">ROSEPINA / 2026</div>
-</section>
+      <span>THE NEW ERA OF STYLE</span>
 
-<section class="about section" id="about">
-  <div class="about-left">
-    <span class="eyebrow">THE ROSEPINA STORY</span>
-    <h2>ما برای<br><span>تفاوت</span> ساخته شدیم.</h2>
-  </div>
+      <h2>BE<br>ICONIC.</h2>
 
-  <div class="about-right">
-    <p>
-      ROSEPINA یک نگاه متفاوت به دنیای پوشاک است.
-      ترکیبی از طراحی مدرن، سادگی و انتخاب‌های خاص
-      برای افرادی که دوست دارند خودشان باشند.
-    </p>
-    <a href="#contact" class="text-link">با ما در ارتباط باش ↗</a>
-  </div>
-</section>
+      <p>متفاوت باش. خاص انتخاب کن.</p>
+
+      <a href="#products">DISCOVER MORE ↗</a>
+
+    </div>
+
+    <div class="editorial-index">ROSEPINA / 2026</div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about section" id="about">
+
+    <div class="about-left">
+
+      <span class="eyebrow">THE ROSEPINA STORY</span>
+
+      <h2>ما برای<br><span>تفاوت</span> ساخته شدیم.</h2>
+
+    </div>
+
+    <div class="about-right">
+
+      <p>
+        ROSEPINA یک نگاه متفاوت به دنیای پوشاک است.
+        ترکیبی از طراحی مدرن، سادگی و انتخاب‌های خاص
+        برای افرادی که دوست دارند خودشان باشند.
+      </p>
+
+      <a href="#contact" class="text-link">
+        با ما در ارتباط باش ↗
+      </a>
+
+    </div>
+
+  </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer class="footer rp-footer" id="contact">
+
   <div class="rp-footer-main">
 
     <div class="rp-footer-brand">
+
       <a href="#home" class="rp-footer-logo">
-        <img src="logo.svg" alt="ROSEPINA">
+        <img src="logo.svg?v=2" alt="ROSEPINA">
       </a>
+
       <p>زیبایی در جزئیات است؛ خاص انتخاب کن.</p>
+
     </div>
 
     <div class="rp-footer-links">
+
       <h3>دسترسی سریع</h3>
+
       <a href="#home">صفحه اصلی</a>
       <a href="#collections">کالکشن‌ها</a>
       <a href="#products">محصولات</a>
       <a href="#about">داستان رزپینا</a>
+
     </div>
 
     <div class="rp-footer-contact">
+
       <h3>ارتباط با ما</h3>
-      <a href="https://instagram.com/Rose_pina_old" target="_blank" rel="noopener">اینستاگرام زنانه ↗</a>
-      <a href="https://instagram.com/Rose_pina_men" target="_blank" rel="noopener">اینستاگرام مردانه ↗</a>
-      <a href="https://wa.me/989120193510" target="_blank" rel="noopener">واتساپ و ثبت سفارش ↗</a>
+
+      <a href="https://instagram.com/Rose_pina_old" target="_blank" rel="noopener">
+        اینستاگرام زنانه ↗
+      </a>
+
+      <a href="https://instagram.com/Rose_pina_men" target="_blank" rel="noopener">
+        اینستاگرام مردانه ↗
+      </a>
+
+      <a href="https://wa.me/989120193510" target="_blank" rel="noopener">
+        واتساپ و ثبت سفارش ↗
+      </a>
+
     </div>
 
   </div>
 
   <div class="rp-footer-bottom">
+
     <span>© 2026 ROSEPINA. ALL RIGHTS RESERVED.</span>
+
     <a href="#home">بازگشت به بالا ↑</a>
+
   </div>
+
 </footer>
 
 <script>
+
+/* =========================
+   SWEATER ORDER FUNCTIONS
+========================= */
+
 let selectedSweaterColor = "charcoal";
 
 const sweaterImages = {
@@ -668,6 +847,7 @@ function openSweaterOrder(event) {
   event.preventDefault();
 
   document.getElementById("sweater-order").style.display = "block";
+
   document.getElementById("order-sweater-image").src =
     sweaterImages[selectedSweaterColor];
 
@@ -681,6 +861,7 @@ function closeSweaterOrder() {
 
 function changeSweaterColor(color) {
   if (!sweaterImages[color]) return;
+
   selectedSweaterColor = color;
 
   document.getElementById("sweater-main-image").src =
@@ -697,6 +878,7 @@ function orderSweater() {
   const quantity = Number(
     document.getElementById("order-sweater-quantity").value
   );
+
   const note = document.getElementById("order-sweater-note").value.trim();
 
   if (!Number.isInteger(quantity) || quantity < 1 || quantity > 20) {
@@ -721,14 +903,19 @@ function orderSweater() {
   window.open(url, "_blank");
 }
 
-/* ROSEPINA Homepage Product Ordering */
+/* =========================
+   HOMEPAGE PRODUCT ORDERING
+========================= */
+
 function orderHomepageProduct(productName, price, sizeId) {
+
   let message =
     "سلام، از فروشگاه ROSEPINA می‌خواهم سفارش ثبت کنم 🌸\n\n" +
     "محصول: " + productName + "\n" +
     "قیمت: " + price + " تومان\n";
 
   if (sizeId) {
+
     const sizeElement = document.getElementById(sizeId);
 
     if (!sizeElement) {
@@ -750,6 +937,10 @@ function orderHomepageProduct(productName, price, sizeId) {
   window.open(whatsappUrl, "_blank");
 }
 
+/* =========================
+   INSTAGRAM FUNCTIONS
+========================= */
+
 function openInstagram() {
   document.getElementById("instagram-choice").style.display = "flex";
 }
@@ -760,8 +951,12 @@ function closeInstagram(event) {
   document.getElementById("instagram-choice").style.display = "none";
 }
 
-/* ROSEPINA Scroll Reveal */
+/* =========================
+   ROSEPINA SCROLL REVEAL
+========================= */
+
 document.addEventListener("DOMContentLoaded", function () {
+
   const targets = document.querySelectorAll(
     ".intro, .section-title, .collection-card, " +
     ".product-card, .editorial, .about, .rp-footer"
@@ -781,12 +976,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.classList.add("rp-motion-ready");
 
   const observer = new IntersectionObserver(function (entries) {
+
     entries.forEach(function (entry) {
+
       if (entry.isIntersecting) {
+
         entry.target.classList.add("rp-visible");
+
         observer.unobserve(entry.target);
       }
+
     });
+
   }, {
     threshold: 0.12,
     rootMargin: "0px 0px -35px 0px"
@@ -795,6 +996,7 @@ document.addEventListener("DOMContentLoaded", function () {
   targets.forEach(function (element) {
     observer.observe(element);
   });
+
 });
 
 </script>
