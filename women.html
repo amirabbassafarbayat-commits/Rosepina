@@ -51,6 +51,17 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 .men-empty-message{padding:75px 15px;text-align:center;background:#f8f6f5;color:#888;font-size:13px;line-height:2.2;border:1px solid #f0eae7}
 .men-empty-message strong{display:block;margin-bottom:8px;color:#444;font-size:16px;font-weight:500}
 .men-empty-mark{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0 auto 18px;border:1px solid #dfd3ce;border-radius:50%;color:#a58c83;font-family:"DM Sans",sans-serif;font-size:19px}
+
+/* کارت محصول زنانه */
+.women-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.women-product-card{border:1px solid #eee;background:#fff;overflow:hidden;min-width:0}
+.women-product-card img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+.women-product-info{padding:15px}
+.women-product-info h3{margin:0 0 10px;font-size:14px;font-weight:500}
+.women-product-price{font-weight:700;margin-bottom:14px;font-size:14px}
+.women-add-button{width:100%;padding:12px;border:0;background:#292929;color:white;font-family:inherit;cursor:pointer;font-size:13px}
+.women-add-button:hover{background:#555}
+
 .cart-floating-button{position:fixed;left:18px;bottom:18px;z-index:9000;border:0;border-radius:40px;background:#292929;color:#fff;padding:13px 19px;font-family:"Vazirmatn",sans-serif;font-size:13px;box-shadow:0 5px 20px rgba(0,0,0,.2);cursor:pointer}
 .cart-floating-button span{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;margin-right:7px;padding:0 5px;border-radius:20px;background:#fff;color:#292929;font-size:11px}
 #men-cart{display:none;position:fixed;inset:0;z-index:11000;background:rgba(0,0,0,.48);padding:15px;overflow-y:auto}
@@ -74,6 +85,7 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 
 @media(max-width:900px){
 .men-category-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.women-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
 }
 @media(max-width:600px){
 .men-page-header{padding:15px 5%}
@@ -92,6 +104,11 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 .men-empty-message{padding:60px 12px}
 .cart-floating-button{left:12px;bottom:12px;padding:11px 15px;font-size:12px}
 .cart-panel{padding:17px}
+.women-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.women-product-info{padding:10px}
+.women-product-info h3{font-size:12px}
+.women-product-price{font-size:12px}
+.women-add-button{font-size:11px;padding:11px 5px}
 }
 @media(prefers-reduced-motion:reduce){
 *{scroll-behavior:auto!important;transition:none!important}
@@ -201,12 +218,44 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 <div class="men-empty-message"><span class="men-empty-mark">01</span><strong>شلوارهای ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
 </section>
 
+<!-- محصولات ست سویشرت و شلوار -->
 <section class="men-category-products" id="category-sets">
 <div class="men-category-top">
 <div><span class="eyebrow">ROSEPINA / WOMEN</span><h2>ست سویشرت و شلوار</h2></div>
 <button class="men-back-button" onclick="backToWomenCategories()">← دسته‌بندی‌ها</button>
 </div>
-<div class="men-empty-message"><span class="men-empty-mark">02</span><strong>ست‌های ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
+
+<div class="women-product-grid">
+<article class="women-product-card">
+<img
+src="images/black-sweatshirt-pants-set.jpg"
+alt="ست سویشرت و شلوار مشکی زنانه"
+loading="lazy"
+>
+
+<div class="women-product-info">
+<h3>ست سویشرت و شلوار مشکی زنانه</h3>
+
+<div class="women-product-price">۱۲,۸۰۰,۰۰۰ تومان</div>
+
+<button
+class="women-add-button"
+type="button"
+onclick="addWomenCartItem({
+product:'black-sweatshirt-pants-set',
+name:'ست سویشرت و شلوار مشکی زنانه',
+price:12800000,
+color:'مشکی',
+colorName:'مشکی',
+size:'Free Size',
+quantity:1
+})"
+>
+افزودن به سبد خرید
+</button>
+</div>
+</article>
+</div>
 </section>
 
 <section class="men-category-products" id="category-bags">
@@ -222,7 +271,7 @@ body{margin:0;background:#fff;color:#292929;font-family:"Vazirmatn",sans-serif}
 <div><span class="eyebrow">ROSEPINA / WOMEN</span><h2>کمربند و کیف پول</h2></div>
 <button class="men-back-button" onclick="backToWomenCategories()">← دسته‌بندی‌ها</button>
 </div>
-<div class="men-empty-message"><span class="men-empty-mark">04</span><strong>اکسسوری‌های ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
+<div class="men-empty-message"><span class="men-empty-mark">04</span><strong>محصولات ROSEPINA</strong>محصولات این دسته به‌زودی اضافه می‌شوند.</div>
 </section>
 
 <section class="men-category-products" id="category-tops">
