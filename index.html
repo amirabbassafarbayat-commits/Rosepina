@@ -796,6 +796,85 @@ a {color:inherit}
   .rp-logo {width:100px}
   .rp-header-icons {gap:7px}
 }
+  
+/* FINAL SLIDER DESIGN */
+
+.hero-image-section {
+  width: 100%;
+  height: 590px;
+  padding: 0 28px;
+  background: #f5f0e9;
+  overflow: hidden;
+}
+
+.hero-slide {
+  inset: 0 28px;
+  width: auto;
+  background: #f5f0e9;
+}
+
+.hero-image-section::after {
+  display: none;
+}
+
+.hero-image {
+  object-fit: contain !important;
+  object-position: center;
+}
+
+/* حذف کامل نوشته‌های روی اسلایدر اول */
+.hero-luxury-content {
+  display: none !important;
+}
+
+/* اسلایدر دوم */
+.editorial-slider {
+  height: 450px;
+  padding: 0 28px;
+  background: #f5f0e9;
+}
+
+.editorial-slide {
+  inset: 0 28px;
+  width: auto;
+  background: #f5f0e9;
+}
+
+.editorial-slide > img {
+  object-fit: contain !important;
+  object-position: center;
+  opacity: 1;
+  background: #f5f0e9;
+}
+
+/* حذف نوشته‌های روی اسلایدر دوم */
+.editorial-content {
+  display: none !important;
+}
+
+/* تنظیم موبایل */
+@media(max-width:700px) {
+  .hero-image-section {
+    height: 440px;
+    padding: 0 12px;
+  }
+
+  .hero-slide {
+    inset: 0 12px;
+  }
+
+  .editorial-slider {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    min-height: 240px;
+    padding: 0 12px;
+  }
+
+  .editorial-slide {
+    inset: 0 12px;
+  }
+}
+
 </style>
 </head>
 
